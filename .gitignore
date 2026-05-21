@@ -1,0 +1,9 @@
+.DS_Store
+*.swp
+__pycache__/
+.venv/
+node_modules/
+
+# Local-only run artifacts (the public repo only contains anchored published versions)
+/tmp/
+/scratch/

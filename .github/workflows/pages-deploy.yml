@@ -1,0 +1,40 @@
+name: pages-deploy
+
+# Builds and deploys the GitHub Pages site for the published benchmark versions.
+# Triggered on push to main (publication landings from the VALIS monorepo) and
+# via workflow_dispatch (ots_finalizer in the monorepo triggers this after
+# upgrading pending OTS proofs).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write  # required by actions/deploy-pages
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      # v1: the index.html is shipped from the monorepo's site builder during
+      # anchor.yml. Pages just serves the static tree as-is.
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
