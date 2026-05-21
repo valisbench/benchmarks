@@ -114,14 +114,14 @@ echo
 echo "==========================================================="
 if [ "$OTS_STATE" = "confirmed" ]; then
   echo "VERDICT: FULL PASS ($VERSION)"
-  echo "  - Cosign keyless: identity-bound to valisbench/benchmarks workflow"
+  echo "  - Cosign keyless: identity-bound to DavidVALIS/valis-v3 anchor.yml"
   echo "  - Rekor entry:    verified (log index $LOG_INDEX)"
   echo "  - OTS proof:      Bitcoin-confirmed"
   echo "==========================================================="
   exit 0
 elif [ "$OTS_STATE" = "pending" ]; then
   echo "VERDICT: PARTIAL PASS ($VERSION; OTS pending Bitcoin confirmation)"
-  echo "  - Cosign keyless: identity-bound to valisbench/benchmarks workflow"
+  echo "  - Cosign keyless: identity-bound to DavidVALIS/valis-v3 anchor.yml"
   echo "  - Rekor entry:    verified (log index $LOG_INDEX)"
   echo "  - OTS proof:      submitted; awaiting Bitcoin block (3-6h typical)"
   echo
