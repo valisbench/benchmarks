@@ -62,7 +62,7 @@ echo
 
 # Cosign verify -- keyless OIDC, identity-bound to the publishing workflow
 echo "[3/5] Verifying cosign signature (keyless OIDC against the publish workflow identity)..."
-IDENTITY_REGEX="^https://github\.com/valisbench/benchmarks/\.github/workflows/anchor\.yml@refs/tags/benchmarks-v[0-9.]+$"
+IDENTITY_REGEX="^https://github\.com/DavidVALIS/valis-v3/\.github/workflows/anchor\.yml@refs/tags/benchmarks-v[0-9.]+$"
 OIDC_ISSUER="https://token.actions.githubusercontent.com"
 if cosign verify-blob \
   --bundle "$BUNDLE" \
