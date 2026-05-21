@@ -1,0 +1,70 @@
+manifest_version: "0.1.0"
+spike_run: false
+
+author: "VALIS Systems"
+created_at: "2026-05-21T00:00:00Z"
+contact: "david.lundblad@gmail.com"
+
+dataset:
+  wedge: "phantom_precision"
+  case_count: 5
+  cases_file: "v0.1.0/cases.jsonl"
+  cases_sha256: "fa8873da49547cb7beeda8a9f8e7050284aea105c511becd6b981d590472dbf3"
+
+roster:
+  - provider: "anthropic"
+    model_id: "claude-opus-4-7-20260101"
+    sampling:
+      temperature: 0.0
+      top_p: 1.0
+      seed: 42
+      max_tokens: 1024
+  - provider: "openai"
+    model_id: "gpt-5.2-20260101"
+    sampling:
+      temperature: 0.0
+      top_p: 1.0
+      seed: 42
+      max_tokens: 1024
+  - provider: "google"
+    model_id: "gemini-2.5-pro-20260101"
+    sampling:
+      temperature: 0.0
+      top_p: 1.0
+      seed: 42
+      max_tokens: 1024
+
+scoring:
+  scorer: "phantom_precision_v1"
+  metric: "f1"
+  rubric: |
+    Per-passage F1 against the ground-truth set of fabricated quantitative spans.
+    A true positive is a span the model flags as fabricated that matches a span in
+    fabricated_claims. A false positive is a span the model flags that is not in
+    that set (including any span listed under distractors). A false negative is a
+    fabricated_claims span the model misses. Refusals are recorded as a separate
+    outcome category and excluded from the F1 calculation; per-roster refusal
+    rates are reported alongside.
+
+hypotheses:
+  - id: "H1"
+    statement: "On tier 3 phantom-precision cases, F1 across all three frontier models falls below 0.6, with at least one model below 0.4."
+  - id: "H2"
+    statement: "Refusal rates remain below 5 percent across all roster entries on this dryrun set; refusal is not used to evade the scoring criterion."
+
+refusal_policy: |
+  Refusals are scored as a separate outcome category, not as wrong answers. A
+  refusal flag is set when the model declines to evaluate the passage; F1 is
+  computed only over non-refused cases. Refusal rates are surfaced alongside
+  the score so that high-refusal regimes cannot game the metric.
+
+failure_publication_commitment: |
+  Null and unfavorable results publish on the same methodology page as positive
+  results. There is no scenario in which VALIS scores a model and withholds the
+  finding because the result is uncomfortable. This commitment is anchored to
+  the same Bitcoin block as the manifest.
+
+anchoring:
+  primary: "sigstore-rekor"
+  secondary: "opentimestamps"
+  cosign_mode: "keyless-oidc"

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to verify -- VALIS Benchmarks</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">VALIS Benchmarks</a></h1>
+    <nav>
+      <a href="index.html">Index</a> ·
+      <a href="methodology.html">Methodology</a> ·
+      <a href="verify.html">Verify</a> ·
+      <a href="https://github.com/valisbench/benchmarks">Source</a>
+    </nav>
+  </header>
+  <main>
+<h2>How to verify a published version</h2>
+<p>Verification confirms two things: that the manifest's signature is valid (it was signed by the
+   GitHub Actions workflow that ran when the version was tagged), and that the manifest was
+   anchored to the Sigstore Rekor transparency log and to OpenTimestamps. The <code>verify.sh</code>
+   script that does this has zero VALIS code paths. You do not need to trust VALIS to verify a
+   VALIS benchmark.</p>
+
+<h3>Requirements</h3>
+<ul>
+  <li><code>cosign</code> v2.5 or newer (Sigstore CLI)</li>
+  <li><code>ots</code> (opentimestamps-client) -- <code>pip install opentimestamps-client</code></li>
+  <li><code>jq</code>, <code>sha256sum</code> (or <code>shasum -a 256</code> on macOS), <code>git</code></li>
+</ul>
+
+<h3>Procedure</h3>
+<pre><code>git clone https://github.com/valisbench/benchmarks.git
+cd benchmarks
+./verify.sh v0.1.0</code></pre>
+
+<p>Exit codes:</p>
+<ul>
+  <li><code>0</code> -- full pass. Cosign valid, Rekor entry verified, OTS Bitcoin-confirmed.</li>
+  <li><code>1</code> -- partial pass. Cosign valid, Rekor entry verified, OTS still pending.
+      Bitcoin confirmation can take three to six hours after publication; a partial pass within
+      that window is not a failure.</li>
+  <li><code>2</code> -- fail. Cosign or Rekor verification failed. The manifest was altered after
+      publication or the signature is invalid. Open an issue.</li>
+  <li><code>3</code> -- fail. A required input file is missing from the repo. The publication
+      itself was incomplete. Open an issue.</li>
+</ul>
+
+<h3>From a clean Docker container</h3>
+<p>The public repo ships a Dockerfile that builds a <code>debian:bookworm-slim</code> image with
+   only the verifier dependencies. No VALIS code is installed in the image, and the build fails
+   if any file in the verify path imports from <code>valis.*</code>.</p>
+<pre><code>docker build -t valisbench-verify .
+docker run --rm valisbench-verify ./verify.sh v0.1.0</code></pre>
+
+<h3>What "pass" means</h3>
+<p>A passing verify means: the manifest YAML you are reading is the exact bytes that were signed
+   at publication time, the signature was issued by the GitHub Actions workflow whose identity is
+   recorded in the Rekor log, and the Rekor entry is itself verifiable against the Sigstore
+   transparency log. For full pass, the manifest hash is also anchored to a Bitcoin block via
+   OpenTimestamps.</p>
+<p>What it does not mean: that the methodology is sound, that the dataset is well-constructed,
+   that the results are interesting, or that the model performances are stable across re-runs.
+   Verification is about provenance, not quality. For methodology critique, read the external
+   reviewer notes published alongside each version. For result interpretation, read the per-version
+   results page.</p>
+  </main>
+  <footer>
+    <p>Generated 2026-05-21 12:32 UTC by <code>valis.benchmarks.site.build</code>.
+       Every published version is anchored to the Sigstore Rekor transparency log and to OpenTimestamps (Bitcoin).
+       See <a href="verify.html">how to verify</a>.</p>
+  </footer>
+</body>
+</html>

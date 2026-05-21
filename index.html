@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VALIS Benchmarks</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">VALIS Benchmarks</a></h1>
+    <nav>
+      <a href="index.html">Index</a> ·
+      <a href="methodology.html">Methodology</a> ·
+      <a href="verify.html">Verify</a> ·
+      <a href="https://github.com/valisbench/benchmarks">Source</a>
+    </nav>
+  </header>
+  <main>
+<h2>Pre-registered benchmarks of model epistemic failures</h2>
+<p>This site publishes evaluation manifests in a form that survives challenge.
+   Before any model is called, we lock the dataset hash, the model roster with exact version strings,
+   the sampling parameters, the scoring rubric, and the hypothesis. The manifest is signed with
+   Sigstore cosign, anchored to the Sigstore Rekor transparency log (synchronous), and timestamped
+   on Bitcoin via OpenTimestamps (Bitcoin-confirmed within roughly six hours of publication).
+   Anyone with a clean machine and the <code>verify.sh</code> script can confirm none of it was
+   altered after publication.</p>
+
+<h3>Published versions</h3>
+<table>
+  <thead>
+    <tr><th>Version</th><th>Wedge</th><th>Cases</th><th>Pre-registered</th><th>Anchoring</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="v0.1.0/index.html">v0.1.0</a></td>
+      <td>phantom_precision</td>
+      <td>5</td>
+      <td>2026-05-21</td>
+      <td><span class="badge badge-pending">OTS pending</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>What to do next</h3>
+<ul>
+  <li>Read the <a href="methodology.html">methodology</a> page. It explains what the benchmark measures and what it does not.</li>
+  <li>Reproduce a verification yourself. The <a href="verify.html">verify</a> page has the commands and a one-line Docker invocation.</li>
+  <li>Find a flaw. Open an issue at <a href="https://github.com/valisbench/benchmarks/issues">github.com/valisbench/benchmarks/issues</a>. Null and unfavorable results publish on this same page.</li>
+</ul>
+  </main>
+  <footer>
+    <p>Generated 2026-05-21 12:32 UTC by <code>valis.benchmarks.site.build</code>.
+       Every published version is anchored to the Sigstore Rekor transparency log and to OpenTimestamps (Bitcoin).
+       See <a href="verify.html">how to verify</a>.</p>
+  </footer>
+</body>
+</html>

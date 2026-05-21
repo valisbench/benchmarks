@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Methodology -- VALIS Benchmarks</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">VALIS Benchmarks</a></h1>
+    <nav>
+      <a href="index.html">Index</a> ·
+      <a href="methodology.html">Methodology</a> ·
+      <a href="verify.html">Verify</a> ·
+      <a href="https://github.com/valisbench/benchmarks">Source</a>
+    </nav>
+  </header>
+  <main>
+<h2>Methodology</h2>
+
+<h3>What this benchmark is</h3>
+<p>A pre-registered evaluation of frontier language models on a specific failure mode.
+   Before any model is called, we publish the dataset (or its hash), the model roster with
+   exact version strings, the sampling parameters, the scoring rubric, and the hypothesis.
+   The signature is anchored to two transparency logs that we do not operate.
+   After the run, we publish the results on the same page as the manifest.
+   If results are null or unfavorable, they publish anyway.</p>
+
+<h3>Why the form matters</h3>
+<p>Most public benchmarks publish numbers, not commitments. A benchmark whose dataset can be
+   silently changed, whose roster can be re-rolled, or whose unflattering runs can be hidden
+   is not a measurement instrument. It is a press release with a confidence interval.</p>
+
+<p>The form we use here is intended to make those moves visible. The manifest hash is in Rekor.
+   The Rekor entry records the identity of the GitHub Actions workflow that signed it. The
+   OpenTimestamps proof anchors the manifest hash to a Bitcoin block. If we re-publish a
+   different manifest under the same version tag, the old one stays in Rekor forever.</p>
+
+<h3>What v1 measures</h3>
+<p>v1 ships two wedges, both synthesizable without external labelers:</p>
+<ul>
+  <li><strong>Phantom precision.</strong> The model is shown a paragraph of plausible business prose
+      that contains one fabricated quantitative claim plus one to three real, sourced numerical claims
+      as distractors. The model is asked to flag the fabricated claim. Scored as F1 against
+      ground-truth fabricated spans, with the distractor false-positive rate as a separately-reported
+      secondary metric.</li>
+  <li><strong>Mechanism-gap.</strong> The model is shown a single "X because Y" sentence.
+      The model must classify whether Y is a supported mechanism for X. Scored as binary F1,
+      with recall on unsupported as the headline number.</li>
+</ul>
+
+<h3>Refusal handling</h3>
+<p>A refusal counts as a separate category, not as a false negative or false positive.
+   Refusal rates are reported per model per benchmark. F1 is computed over the non-refused subset.
+   The full sample-size denominator is shown alongside. A model that refuses every case scores
+   "refusal: 100%" with no F1 reported, which is the correct answer.</p>
+
+<h3>Outcome categories</h3>
+<p>Every model call resolves to exactly one of seven categories:</p>
+<ul>
+  <li><code>response</code> -- model returned a parseable answer</li>
+  <li><code>refusal</code> -- model declined to answer</li>
+  <li><code>partial_response</code> -- response cut off at <code>max_tokens</code> or a stop sequence</li>
+  <li><code>error_timeout</code> -- per-case timeout exceeded</li>
+  <li><code>error_rate_limit</code> -- 429 from provider after retries exhausted</li>
+  <li><code>error_other</code> -- unclassified error</li>
+  <li><code>malformed</code> -- response present but did not match the expected schema</li>
+</ul>
+
+<h3>How verification works</h3>
+<p>Each published version has three companion files in the public repo:</p>
+<ul>
+  <li><code>manifest.yaml</code> -- the pre-registered specification, the signed bytes</li>
+  <li><code>manifest.bundle.json</code> -- the Sigstore signature plus the Rekor entry</li>
+  <li><code>manifest.yaml.ots</code> -- the OpenTimestamps proof</li>
+</ul>
+<p>A third party verifies these by running cosign and ots against them. The <code>verify.sh</code>
+   script in the public repo has zero VALIS code paths. A Debian Docker container with cosign and
+   ots installed runs it. See the <a href="verify.html">verify</a> page.</p>
+
+<h3>External methodology review</h3>
+<p>Each publication is reviewed by one externally-named methodology reviewer. The reviewer is paid
+   for an honest critique, not a friendly write-up. Their written assessment publishes verbatim
+   alongside the results, with their name on it. A refusal to sign is itself published.</p>
+
+<h3>What v1 does not yet do</h3>
+<ul>
+  <li>Datasets are synthesized, not human-labeled. Phantom-precision tier-3 cases pass founder
+      spot-check (N=50) before publication. v2 will add external labelers for a gold subset.</li>
+  <li>The private held-out partition (200 cases per wedge) is encrypted at rest in the public repo.
+      The decryption key is held by the founder. v2 will define a rotation policy and a key
+      escrow mechanism.</li>
+  <li>Determinism is best-effort across providers. <code>temperature=0</code> and a fixed seed
+      do not guarantee identical bytes across re-runs on every provider; the manifest documents
+      this honestly.</li>
+</ul>
+  </main>
+  <footer>
+    <p>Generated 2026-05-21 12:32 UTC by <code>valis.benchmarks.site.build</code>.
+       Every published version is anchored to the Sigstore Rekor transparency log and to OpenTimestamps (Bitcoin).
+       See <a href="verify.html">how to verify</a>.</p>
+  </footer>
+</body>
+</html>
