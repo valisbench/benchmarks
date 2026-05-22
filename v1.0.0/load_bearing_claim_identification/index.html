@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>v1.0.0 -- VALIS Benchmarks</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="../../index.html">VALIS Benchmarks</a></h1>
+    <nav>
+      <a href="../../index.html">Index</a> ·
+      <a href="../../methodology.html">Methodology</a> ·
+      <a href="../../verify.html">Verify</a> ·
+      <a href="https://github.com/valisbench/benchmarks">Source</a>
+    </nav>
+  </header>
+  <main>
+<h2>Benchmark v1.0.0 <span class="badge badge-pending">OTS pending</span></h2>
+<p>load_bearing_claim_identification wedge, 500 cases,
+   3 models in roster.
+   Pre-registered on 2026-05-21 00:00:00+00:00 by VALIS Systems.</p>
+
+<aside class="lead-methodology-callout">
+  <h3>Methodology disclosure</h3>
+  <p><strong>This wedge has a wedge-specific publication commitment.</strong>
+  Read the rubric below before reading any score on this page.</p>
+  <blockquote>Per-memo F1 against the ground-truth set of load-bearing claim IDs. A
+true positive is a claim ID the model flags as load-bearing that
+appears in the case&#39;s load_bearing_claim_ids after normalization
+(strip + lowercase). A false positive is a claim ID the model flags
+that is not in the ground-truth set, including invented IDs (e.g.
+&#34;c99&#34; on a memo with ten claims). A false negative is a ground-truth
+load-bearing ID the model misses. Refusals are recorded as a separate
+outcome category and excluded from the F1 calculation; per-roster
+refusal rates and the full seven-category outcome breakdown are
+reported alongside the score.
+
+Tier-3 macro precision and tier-3 macro recall are surfaced separately
+in the roster summary because the pre-registered hypotheses H3a and
+H3b test each independently. A single F1 threshold near 0.6 on tier 3
+sits close to the &#34;flag every claim&#34; degenerate floor (recall = 1.0,
+precision ~ 0.40 on a tier-3 memo with 6 LB and 9 non-LB claims;
+F1 ~ 0.57). The precision-recall split makes that floor visible: a
+model that fires the precision threshold AND the recall threshold has
+failed both independently, not coincidentally hit one number.
+
+v1.0.0 LBCI uses synthetic generation with rule-based ground truth
+derived from a constructed dependency graph. The PRD originally
+required external human expert labelers on real memos; this
+requirement is overridden for v1 to ship LBCI under the parallel-build
+schedule for v1.0.0. v2 will commission expert labels on 80 real
+memos. If v2 expert-labeled F1 on any tier differs from v1 synthetic
+F1 by more than 0.15 (absolute) on the same model roster, v1 LBCI is
+deprecated and the publication updated. This trigger is pre-registered
+as part of the v1.0.0 anchored manifest.
+</blockquote>
+  <p class="commitment-note"><em>Publication commitment:</em>
+  The published results page for load_bearing_claim_identification must
+lead with the methodology disclosure paragraph (synthetic ground truth,
+PRD override, v2 deprecation trigger) before any headline rate or score
+appears. This commitment is anchored to the same transparency log entry
+as the manifest.
+</p>
+</aside>
+
+<h3>Anchoring</h3>
+<ul>
+  <li><strong>Sigstore Rekor:</strong> log index
+    <a href="https://search.sigstore.dev/?logIndex=1602179545"><code>1602179545</code></a>,
+    integrated at 2026-05-22 11:55:09 UTC.</li>
+  <li><strong>OpenTimestamps:</strong> Submitted to four OpenTimestamps calendar servers; Bitcoin block confirmation typically arrives three to six hours after submission. The daily finalizer upgrades the proof once confirmed.</li>
+  <li><strong>Manifest SHA256:</strong> <code>ff773d7c51cf90a448db84c583018e5e088ab2080de61a1a95626ea0bcc69450</code></li>
+  <li><strong>Cosign mode:</strong> keyless-oidc</li>
+</ul>
+
+<h3>Artifacts</h3>
+<ul>
+  <li><a href="manifest.yaml"><code>manifest.yaml</code></a> -- pre-registered specification (the signed bytes)</li>
+  <li><a href="manifest.bundle.json"><code>manifest.bundle.json</code></a> -- Sigstore signature plus Rekor entry</li>
+  <li><a href="manifest.yaml.ots"><code>manifest.yaml.ots</code></a> -- OpenTimestamps proof (Bitcoin-anchored)</li>
+</ul>
+
+<h3>Pre-registered hypotheses</h3>
+<ol>
+  <li><strong>H3a:</strong> Tier-3 precision on load-bearing claims will fall below 0.55 on at least two of three frontier models.</li>
+  <li><strong>H3b:</strong> Tier-3 recall on load-bearing claims will fall below 0.55 on at least two of three frontier models.</li>
+</ol>
+
+<h3>Model roster</h3>
+<table>
+  <thead>
+    <tr><th>Provider</th><th>Model ID</th><th>Temperature</th><th>Seed</th><th>Max tokens</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>anthropic</td>
+      <td><code>claude-opus-4-7</code></td>
+      <td>0.0</td>
+      <td>42</td>
+      <td>1024</td>
+    </tr>
+    <tr>
+      <td>openai</td>
+      <td><code>gpt-5.5-2026-04-23</code></td>
+      <td>0.0</td>
+      <td>42</td>
+      <td>1024</td>
+    </tr>
+    <tr>
+      <td>google</td>
+      <td><code>gemini-3.1-pro-preview</code></td>
+      <td>0.0</td>
+      <td>42</td>
+      <td>1024</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Dataset</h3>
+<p><strong>Wedge:</strong> load_bearing_claim_identification<br>
+   <strong>Cases:</strong> 500<br>
+   <strong>Cases file:</strong> <code>v1.0.0-load_bearing_claim_identification/cases.jsonl</code><br>
+   <strong>Cases SHA256:</strong> <code>de5784f1c9c3b3c752cd714c4b4895f3f8a869c9af3ebb33541f40422fd41e73</code></p>
+
+<h3>Scoring</h3>
+<p><strong>Scorer:</strong> <code>load_bearing_claim_identification_v1</code><br>
+   <strong>Metric:</strong> f1</p>
+<blockquote>Per-memo F1 against the ground-truth set of load-bearing claim IDs. A
+true positive is a claim ID the model flags as load-bearing that
+appears in the case&#39;s load_bearing_claim_ids after normalization
+(strip + lowercase). A false positive is a claim ID the model flags
+that is not in the ground-truth set, including invented IDs (e.g.
+&#34;c99&#34; on a memo with ten claims). A false negative is a ground-truth
+load-bearing ID the model misses. Refusals are recorded as a separate
+outcome category and excluded from the F1 calculation; per-roster
+refusal rates and the full seven-category outcome breakdown are
+reported alongside the score.
+
+Tier-3 macro precision and tier-3 macro recall are surfaced separately
+in the roster summary because the pre-registered hypotheses H3a and
+H3b test each independently. A single F1 threshold near 0.6 on tier 3
+sits close to the &#34;flag every claim&#34; degenerate floor (recall = 1.0,
+precision ~ 0.40 on a tier-3 memo with 6 LB and 9 non-LB claims;
+F1 ~ 0.57). The precision-recall split makes that floor visible: a
+model that fires the precision threshold AND the recall threshold has
+failed both independently, not coincidentally hit one number.
+
+v1.0.0 LBCI uses synthetic generation with rule-based ground truth
+derived from a constructed dependency graph. The PRD originally
+required external human expert labelers on real memos; this
+requirement is overridden for v1 to ship LBCI under the parallel-build
+schedule for v1.0.0. v2 will commission expert labels on 80 real
+memos. If v2 expert-labeled F1 on any tier differs from v1 synthetic
+F1 by more than 0.15 (absolute) on the same model roster, v1 LBCI is
+deprecated and the publication updated. This trigger is pre-registered
+as part of the v1.0.0 anchored manifest.
+</blockquote>
+
+<h3>Refusal policy</h3>
+<blockquote>Refusals are scored as a separate outcome category, not as wrong answers.
+A refusal flag is set when the model declines to evaluate the memo; F1
+is computed only over non-refused cases. Refusal rates are surfaced
+alongside the score so that high-refusal regimes cannot game the metric.
+All seven outcome categories (response, refusal, partial_response,
+error_timeout, error_rate_limit, error_other, malformed) are reported in
+the results bundle.
+</blockquote>
+
+<h3>Failure publication commitment</h3>
+<blockquote>Null and unfavorable results publish on the same methodology page as
+positive results. There is no scenario in which VALIS scores a model and
+withholds the finding because the result is uncomfortable. This commitment
+is anchored to the same Bitcoin block as the manifest. The methodology
+disclosure that v1.0.0 LBCI uses synthetic ground truth (with v2 expert
+comparison reserved, and a &gt;0.15 absolute F1 divergence on any tier
+triggering deprecation) is published alongside every result.
+</blockquote>
+
+<h3>Spot-check panel outcome</h3>
+<blockquote>Spot-check panel (50 cases, three independent frontier reviewers):
+  - Claude Opus 4.7 (Anthropic, undated alias)
+  - GPT-5.5, snapshot gpt-5.5-2026-04-23 (OpenAI, via codex CLI)
+  - Gemini 3.1 Pro Preview (Google)
+
+Gate: zero unanimous-fail cases across the panel. A &#39;unanimous fail&#39; is a case
+that all three reviewers fail under the wedge&#39;s rubric; this would indicate a
+concrete dataset construction error. The gate is met iff zero such cases exist
+on the 50-case sample.
+
+Panel outcome for this wedge:
+  - Unanimous pass: 42/50
+  - Majority pass (2 of 3): 4/50
+  - Majority fail (1 of 3): 4/50 (rubric-interpretation divergence)
+  - Unanimous fail (0 of 3): 0/50
+
+Gate verdict: PASSED (0 unanimous fails).
+
+The 4 majority-fail cases reflect substantive disagreement between
+frontier models on rubric interpretation -- not dataset bugs. The cases are
+published verbatim in v1.0.0-SPOT_CHECK_PANEL.md alongside each reviewer&#39;s
+rationale, so the boundary of the rubric is itself part of the published
+artifact. This is a doctrinal commitment: where the rubric admits two reads,
+the publication shows the disagreement rather than hiding it.
+
+Reviewer verdict files (per wedge):
+  spot_check_opus47_verdicts.md
+  spot_check_gpt55_verdicts.md
+  spot_check_gemini31pro_verdicts.md
+
+Disagreement disclosure artifact (cross-wedge):
+  ../CROSS_REVIEWER_DISAGREEMENT_v1.0.0.md
+</blockquote>
+
+<h3>How to verify this version</h3>
+<pre><code>git clone https://github.com/valisbench/benchmarks.git
+cd benchmarks
+./verify.sh v1.0.0</code></pre>
+<p>See <a href="../verify.html">verify</a> for the full procedure, including a one-line Docker invocation that runs the script from a clean Debian container with zero VALIS code present.</p>
+  </main>
+  <footer>
+    <p>Generated 2026-05-22 11:55 UTC by <code>valis.benchmarks.site.build</code>.
+       Every published version is anchored to the Sigstore Rekor transparency log and to OpenTimestamps (Bitcoin).
+       See <a href="../../verify.html">how to verify</a>.</p>
+  </footer>
+</body>
+</html>

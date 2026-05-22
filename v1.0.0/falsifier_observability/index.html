@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>v1.0.0 -- VALIS Benchmarks</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="../../index.html">VALIS Benchmarks</a></h1>
+    <nav>
+      <a href="../../index.html">Index</a> ·
+      <a href="../../methodology.html">Methodology</a> ·
+      <a href="../../verify.html">Verify</a> ·
+      <a href="https://github.com/valisbench/benchmarks">Source</a>
+    </nav>
+  </header>
+  <main>
+<h2>Benchmark v1.0.0 <span class="badge badge-pending">OTS pending</span></h2>
+<p>falsifier_observability wedge, 500 cases,
+   3 models in roster.
+   Pre-registered on 2026-05-21 00:00:00+00:00 by VALIS Systems.</p>
+
+
+<h3>Anchoring</h3>
+<ul>
+  <li><strong>Sigstore Rekor:</strong> log index
+    <a href="https://search.sigstore.dev/?logIndex=1602179431"><code>1602179431</code></a>,
+    integrated at 2026-05-22 11:55:07 UTC.</li>
+  <li><strong>OpenTimestamps:</strong> Submitted to four OpenTimestamps calendar servers; Bitcoin block confirmation typically arrives three to six hours after submission. The daily finalizer upgrades the proof once confirmed.</li>
+  <li><strong>Manifest SHA256:</strong> <code>aa1a9b75bdcb3af0332e463788f89cf2587da23604776815dad0400447f29495</code></li>
+  <li><strong>Cosign mode:</strong> keyless-oidc</li>
+</ul>
+
+<h3>Artifacts</h3>
+<ul>
+  <li><a href="manifest.yaml"><code>manifest.yaml</code></a> -- pre-registered specification (the signed bytes)</li>
+  <li><a href="manifest.bundle.json"><code>manifest.bundle.json</code></a> -- Sigstore signature plus Rekor entry</li>
+  <li><a href="manifest.yaml.ots"><code>manifest.yaml.ots</code></a> -- OpenTimestamps proof (Bitcoin-anchored)</li>
+</ul>
+
+<h3>Pre-registered hypotheses</h3>
+<ol>
+  <li><strong>H3:</strong> Binary recall on stated-unfalsifiable cases will fall below 0.5 on at least one frontier model in tier 3.</li>
+</ol>
+
+<h3>Model roster</h3>
+<table>
+  <thead>
+    <tr><th>Provider</th><th>Model ID</th><th>Temperature</th><th>Seed</th><th>Max tokens</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>anthropic</td>
+      <td><code>claude-opus-4-7</code></td>
+      <td>0.0</td>
+      <td>42</td>
+      <td>1024</td>
+    </tr>
+    <tr>
+      <td>openai</td>
+      <td><code>gpt-5.5-2026-04-23</code></td>
+      <td>0.0</td>
+      <td>42</td>
+      <td>1024</td>
+    </tr>
+    <tr>
+      <td>google</td>
+      <td><code>gemini-3.1-pro-preview</code></td>
+      <td>0.0</td>
+      <td>42</td>
+      <td>1024</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Dataset</h3>
+<p><strong>Wedge:</strong> falsifier_observability<br>
+   <strong>Cases:</strong> 500<br>
+   <strong>Cases file:</strong> <code>v1.0.0-falsifier_observability/cases.jsonl</code><br>
+   <strong>Cases SHA256:</strong> <code>dc9fcf93e631a05e20e1dad07f162a38e071cbcf371d91de8d7b10d5d612096e</code></p>
+
+<h3>Scoring</h3>
+<p><strong>Scorer:</strong> <code>falsifier_observability_v1</code><br>
+   <strong>Metric:</strong> binary_f1</p>
+<blockquote>Binary F1 with `stated_unfalsifiable` as the positive class. A true
+positive is a case the model labels `stated_unfalsifiable` whose
+ground-truth label is `stated_unfalsifiable`. A false positive is a
+model `stated_unfalsifiable` label on a ground-truth
+`observable_falsifier` case. A false negative is a model
+`observable_falsifier` label (or no parseable label) on a ground-truth
+`stated_unfalsifiable` case. Recall on `stated_unfalsifiable` is the
+headline metric (the design hypothesis is keyed to it). Refusals are
+recorded as a separate outcome category and routed through
+refused=True at the scorer; non-response outcomes other than refusal
+(timeouts, rate-limits, malformed responses) are routed through
+label=None and treated as malformed. The full seven-category outcome
+breakdown is reported alongside the score.
+
+Rubric convention: a claim is `observable_falsifier` when, taking the
+sentence as written, a competent reviewer could verify its failure
+mode within ~90 days using only information stated in the sentence --
+a concrete metric, threshold or directional outcome, and time bound.
+A claim is `stated_unfalsifiable` when no observation could falsify
+it as written, including (i) vacuous strategic affirmations, (ii)
+self-sealing predicates (&#34;will adapt to whatever conditions emerge&#34;),
+(iii) macro-conditional framings (&#34;if the economy holds up&#34;, &#34;if
+regulatory tailwinds continue&#34;) because no in-sentence observation
+verifies the macro state -- same logic as mechanism_gap&#39;s
+external-macro rule -- and (iv) surface-form mimicry where a number
+or date is bound to a decoy predicate (e.g. &#34;directional health&#34;,
+&#34;strategic positioning&#34;) so no observation could check it.
+</blockquote>
+
+<h3>Refusal policy</h3>
+<blockquote>Refusals are scored as a separate outcome category, not as wrong answers.
+Explicit refusals route through `refused=True` at the scorer; non-response
+outcomes other than refusal (timeout, rate-limit, malformed) route through
+`label=None` and are reported as malformed. All seven outcome categories
+(response, refusal, partial_response, error_timeout, error_rate_limit,
+error_other, malformed) are reported in the results bundle. Models that
+refuse all cases score &#34;refusal: 100%&#34; with no F1 reported.
+</blockquote>
+
+<h3>Failure publication commitment</h3>
+<blockquote>Null and unfavorable results publish on the same methodology page as
+positive results. There is no scenario in which VALIS scores a model and
+withholds the finding because the result is uncomfortable. This commitment
+is anchored to the same Bitcoin block as the manifest.
+</blockquote>
+
+<h3>Spot-check panel outcome</h3>
+<blockquote>Spot-check panel (50 cases, three independent frontier reviewers):
+  - Claude Opus 4.7 (Anthropic, undated alias)
+  - GPT-5.5, snapshot gpt-5.5-2026-04-23 (OpenAI, via codex CLI)
+  - Gemini 3.1 Pro Preview (Google)
+
+Gate: zero unanimous-fail cases across the panel. A &#39;unanimous fail&#39; is a case
+that all three reviewers fail under the wedge&#39;s rubric; this would indicate a
+concrete dataset construction error. The gate is met iff zero such cases exist
+on the 50-case sample.
+
+Panel outcome for this wedge:
+  - Unanimous pass: 30/50
+  - Majority pass (2 of 3): 4/50
+  - Majority fail (1 of 3): 16/50 (rubric-interpretation divergence)
+  - Unanimous fail (0 of 3): 0/50
+
+Gate verdict: PASSED (0 unanimous fails).
+
+The 16 majority-fail cases reflect substantive disagreement between
+frontier models on rubric interpretation -- not dataset bugs. The cases are
+published verbatim in v1.0.0-SPOT_CHECK_PANEL.md alongside each reviewer&#39;s
+rationale, so the boundary of the rubric is itself part of the published
+artifact. This is a doctrinal commitment: where the rubric admits two reads,
+the publication shows the disagreement rather than hiding it.
+
+Reviewer verdict files (per wedge):
+  spot_check_opus47_verdicts.md
+  spot_check_gpt55_verdicts.md
+  spot_check_gemini31pro_verdicts.md
+
+Disagreement disclosure artifact (cross-wedge):
+  ../CROSS_REVIEWER_DISAGREEMENT_v1.0.0.md
+</blockquote>
+
+<h3>How to verify this version</h3>
+<pre><code>git clone https://github.com/valisbench/benchmarks.git
+cd benchmarks
+./verify.sh v1.0.0</code></pre>
+<p>See <a href="../verify.html">verify</a> for the full procedure, including a one-line Docker invocation that runs the script from a clean Debian container with zero VALIS code present.</p>
+  </main>
+  <footer>
+    <p>Generated 2026-05-22 11:55 UTC by <code>valis.benchmarks.site.build</code>.
+       Every published version is anchored to the Sigstore Rekor transparency log and to OpenTimestamps (Bitcoin).
+       See <a href="../../verify.html">how to verify</a>.</p>
+  </footer>
+</body>
+</html>

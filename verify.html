@@ -34,7 +34,7 @@
 <h3>Procedure</h3>
 <pre><code>git clone https://github.com/valisbench/benchmarks.git
 cd benchmarks
-./verify.sh v0.1.0</code></pre>
+./verify.sh v1.0.0</code></pre>
 
 <p>Exit codes:</p>
 <ul>
@@ -53,7 +53,7 @@ cd benchmarks
    only the verifier dependencies. No VALIS code is installed in the image, and the build fails
    if any file in the verify path imports from <code>valis.*</code>.</p>
 <pre><code>docker build -t valisbench-verify .
-docker run --rm valisbench-verify ./verify.sh v0.1.0</code></pre>
+docker run --rm valisbench-verify ./verify.sh v1.0.0</code></pre>
 
 <h3>What "pass" means</h3>
 <p>A passing verify means: the manifest YAML you are reading is the exact bytes that were signed
@@ -68,7 +68,7 @@ docker run --rm valisbench-verify ./verify.sh v0.1.0</code></pre>
    results page.</p>
   </main>
   <footer>
-    <p>Generated 2026-05-21 12:34 UTC by <code>valis.benchmarks.site.build</code>.
+    <p>Generated 2026-05-22 11:55 UTC by <code>valis.benchmarks.site.build</code>.
        Every published version is anchored to the Sigstore Rekor transparency log and to OpenTimestamps (Bitcoin).
        See <a href="verify.html">how to verify</a>.</p>
   </footer>

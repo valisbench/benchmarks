@@ -1,0 +1,89 @@
+manifest_version: "1.0.0"
+spike_run: false
+
+author: "VALIS Systems"
+created_at: "2026-05-21T00:00:00Z"
+contact: "david.lundblad@gmail.com"
+
+dataset:
+  wedge: "mechanism_gap"
+  case_count: 500
+  cases_file: "v1.0.0-mechanism_gap/cases.jsonl"
+  cases_sha256: "094a459e4a395185939b1185ce4d00b82aa2778407604f269f669db08397761e"
+
+roster:
+  - provider: "anthropic"
+    model_id: "claude-opus-4-7"
+    sampling:
+      temperature: 0.0
+      top_p: 1.0
+      seed: 42
+      max_tokens: 1024
+  - provider: "openai"
+    model_id: "gpt-5.5-2026-04-23"
+    sampling:
+      temperature: 0.0
+      top_p: 1.0
+      seed: 42
+      max_tokens: 1024
+  - provider: "google"
+    model_id: "gemini-3.1-pro-preview"
+    sampling:
+      temperature: 0.0
+      top_p: 1.0
+      seed: 42
+      max_tokens: 1024
+
+model_id_provenance: |
+  Each model_id was verified against the provider's live model-listing endpoint
+  on 2026-05-21. Providers expose stability differently:
+  - OpenAI publishes dated snapshots for current frontier models; we pin
+    gpt-5.5-2026-04-23, the snapshot underlying the gpt-5.5 alias on this date.
+  - Anthropic publishes dated snapshots only for retired models; current
+    frontier models (4.7, 4.6) are alias-only. claude-opus-4-7 is the
+    canonical provider ID; no dated snapshot is exposed.
+  - Google publishes the 3.1-pro tier as preview (gemini-3.1-pro-preview); no
+    GA 3.x-pro exists at publication time. The preview alias carries
+    deprecation risk; if Google retires the alias before the run completes,
+    the manifest will be republished as 1.0.1 with the substituted ID, the
+    substitution disclosed, and both manifests anchored.
+
+scoring:
+  scorer: "mechanism_gap_v1"
+  metric: "binary_f1"
+  rubric: |
+    Binary F1 with `unsupported` as the positive class. A true positive is
+    a case the model labels `unsupported` whose ground-truth label is
+    `unsupported`. A false positive is a model `unsupported` label on a
+    ground-truth `supported` case. A false negative is a model `supported`
+    label (or no parseable label) on a ground-truth `unsupported` case.
+    Recall on `unsupported` is the headline metric (the design hypothesis
+    is keyed to it). Refusals are recorded as a separate outcome category
+    and routed through refused=True at the scorer; non-response outcomes
+    other than refusal (timeouts, rate-limits, malformed responses) are
+    routed through label=None and treated as malformed. The full seven-
+    category outcome breakdown is reported alongside the score.
+
+hypotheses:
+  - id: "H2"
+    statement: "Mechanism-gap binary recall on unsupported-because cases will fall below 0.5 on at least one frontier model."
+
+refusal_policy: |
+  Refusals are scored as a separate outcome category, not as wrong answers.
+  Explicit refusals route through `refused=True` at the scorer; non-response
+  outcomes other than refusal (timeout, rate-limit, malformed) route through
+  `label=None` and are reported as malformed. All seven outcome categories
+  (response, refusal, partial_response, error_timeout, error_rate_limit,
+  error_other, malformed) are reported in the results bundle. Models that
+  refuse all cases score "refusal: 100%" with no F1 reported.
+
+failure_publication_commitment: |
+  Null and unfavorable results publish on the same methodology page as
+  positive results. There is no scenario in which VALIS scores a model and
+  withholds the finding because the result is uncomfortable. This commitment
+  is anchored to the same Bitcoin block as the manifest.
+
+anchoring:
+  primary: "sigstore-rekor"
+  secondary: "opentimestamps"
+  cosign_mode: "keyless-oidc"

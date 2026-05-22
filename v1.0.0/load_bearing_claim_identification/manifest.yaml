@@ -1,0 +1,153 @@
+manifest_version: "1.0.0"
+spike_run: false
+
+author: "VALIS Systems"
+created_at: "2026-05-21T00:00:00Z"
+contact: "david.lundblad@gmail.com"
+
+dataset:
+  wedge: "load_bearing_claim_identification"
+  case_count: 500
+  cases_file: "v1.0.0-load_bearing_claim_identification/cases.jsonl"
+  cases_sha256: "de5784f1c9c3b3c752cd714c4b4895f3f8a869c9af3ebb33541f40422fd41e73"
+
+roster:
+  - provider: "anthropic"
+    model_id: "claude-opus-4-7"
+    sampling:
+      temperature: 0.0
+      top_p: 1.0
+      seed: 42
+      max_tokens: 1024
+  - provider: "openai"
+    model_id: "gpt-5.5-2026-04-23"
+    sampling:
+      temperature: 0.0
+      top_p: 1.0
+      seed: 42
+      max_tokens: 1024
+  - provider: "google"
+    model_id: "gemini-3.1-pro-preview"
+    sampling:
+      temperature: 0.0
+      top_p: 1.0
+      seed: 42
+      max_tokens: 1024
+
+model_id_provenance: |
+  Each model_id was verified against the provider's live model-listing endpoint
+  on 2026-05-21. Providers expose stability differently:
+  - OpenAI publishes dated snapshots for current frontier models; we pin
+    gpt-5.5-2026-04-23, the snapshot underlying the gpt-5.5 alias on this date.
+  - Anthropic publishes dated snapshots only for retired models; current
+    frontier models (4.7, 4.6) are alias-only. claude-opus-4-7 is the
+    canonical provider ID; no dated snapshot is exposed.
+  - Google publishes the 3.1-pro tier as preview (gemini-3.1-pro-preview); no
+    GA 3.x-pro exists at publication time. The preview alias carries
+    deprecation risk; if Google retires the alias before the run completes,
+    the manifest will be republished as 1.0.1 with the substituted ID, the
+    substitution disclosed, and both manifests anchored.
+
+scoring:
+  scorer: "load_bearing_claim_identification_v1"
+  metric: "f1"
+  rubric: |
+    Per-memo F1 against the ground-truth set of load-bearing claim IDs. A
+    true positive is a claim ID the model flags as load-bearing that
+    appears in the case's load_bearing_claim_ids after normalization
+    (strip + lowercase). A false positive is a claim ID the model flags
+    that is not in the ground-truth set, including invented IDs (e.g.
+    "c99" on a memo with ten claims). A false negative is a ground-truth
+    load-bearing ID the model misses. Refusals are recorded as a separate
+    outcome category and excluded from the F1 calculation; per-roster
+    refusal rates and the full seven-category outcome breakdown are
+    reported alongside the score.
+
+    Tier-3 macro precision and tier-3 macro recall are surfaced separately
+    in the roster summary because the pre-registered hypotheses H3a and
+    H3b test each independently. A single F1 threshold near 0.6 on tier 3
+    sits close to the "flag every claim" degenerate floor (recall = 1.0,
+    precision ~ 0.40 on a tier-3 memo with 6 LB and 9 non-LB claims;
+    F1 ~ 0.57). The precision-recall split makes that floor visible: a
+    model that fires the precision threshold AND the recall threshold has
+    failed both independently, not coincidentally hit one number.
+
+    v1.0.0 LBCI uses synthetic generation with rule-based ground truth
+    derived from a constructed dependency graph. The PRD originally
+    required external human expert labelers on real memos; this
+    requirement is overridden for v1 to ship LBCI under the parallel-build
+    schedule for v1.0.0. v2 will commission expert labels on 80 real
+    memos. If v2 expert-labeled F1 on any tier differs from v1 synthetic
+    F1 by more than 0.15 (absolute) on the same model roster, v1 LBCI is
+    deprecated and the publication updated. This trigger is pre-registered
+    as part of the v1.0.0 anchored manifest.
+
+hypotheses:
+  - id: "H3a"
+    statement: "Tier-3 precision on load-bearing claims will fall below 0.55 on at least two of three frontier models."
+  - id: "H3b"
+    statement: "Tier-3 recall on load-bearing claims will fall below 0.55 on at least two of three frontier models."
+
+refusal_policy: |
+  Refusals are scored as a separate outcome category, not as wrong answers.
+  A refusal flag is set when the model declines to evaluate the memo; F1
+  is computed only over non-refused cases. Refusal rates are surfaced
+  alongside the score so that high-refusal regimes cannot game the metric.
+  All seven outcome categories (response, refusal, partial_response,
+  error_timeout, error_rate_limit, error_other, malformed) are reported in
+  the results bundle.
+
+failure_publication_commitment: |
+  Null and unfavorable results publish on the same methodology page as
+  positive results. There is no scenario in which VALIS scores a model and
+  withholds the finding because the result is uncomfortable. This commitment
+  is anchored to the same Bitcoin block as the manifest. The methodology
+  disclosure that v1.0.0 LBCI uses synthetic ground truth (with v2 expert
+  comparison reserved, and a >0.15 absolute F1 divergence on any tier
+  triggering deprecation) is published alongside every result.
+
+publication_template_commitment: |
+  The published results page for load_bearing_claim_identification must
+  lead with the methodology disclosure paragraph (synthetic ground truth,
+  PRD override, v2 deprecation trigger) before any headline rate or score
+  appears. This commitment is anchored to the same transparency log entry
+  as the manifest.
+
+spot_check_panel_outcome: |
+  Spot-check panel (50 cases, three independent frontier reviewers):
+    - Claude Opus 4.7 (Anthropic, undated alias)
+    - GPT-5.5, snapshot gpt-5.5-2026-04-23 (OpenAI, via codex CLI)
+    - Gemini 3.1 Pro Preview (Google)
+
+  Gate: zero unanimous-fail cases across the panel. A 'unanimous fail' is a case
+  that all three reviewers fail under the wedge's rubric; this would indicate a
+  concrete dataset construction error. The gate is met iff zero such cases exist
+  on the 50-case sample.
+
+  Panel outcome for this wedge:
+    - Unanimous pass: 42/50
+    - Majority pass (2 of 3): 4/50
+    - Majority fail (1 of 3): 4/50 (rubric-interpretation divergence)
+    - Unanimous fail (0 of 3): 0/50
+
+  Gate verdict: PASSED (0 unanimous fails).
+
+  The 4 majority-fail cases reflect substantive disagreement between
+  frontier models on rubric interpretation -- not dataset bugs. The cases are
+  published verbatim in v1.0.0-SPOT_CHECK_PANEL.md alongside each reviewer's
+  rationale, so the boundary of the rubric is itself part of the published
+  artifact. This is a doctrinal commitment: where the rubric admits two reads,
+  the publication shows the disagreement rather than hiding it.
+
+  Reviewer verdict files (per wedge):
+    spot_check_opus47_verdicts.md
+    spot_check_gpt55_verdicts.md
+    spot_check_gemini31pro_verdicts.md
+
+  Disagreement disclosure artifact (cross-wedge):
+    ../CROSS_REVIEWER_DISAGREEMENT_v1.0.0.md
+
+anchoring:
+  primary: "sigstore-rekor"
+  secondary: "opentimestamps"
+  cosign_mode: "keyless-oidc"

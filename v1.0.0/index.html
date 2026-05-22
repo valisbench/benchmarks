@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>v1.0.0 -- VALIS Benchmarks</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="../index.html">VALIS Benchmarks</a></h1>
+    <nav>
+      <a href="../index.html">Index</a> ·
+      <a href="../methodology.html">Methodology</a> ·
+      <a href="../verify.html">Verify</a> ·
+      <a href="https://github.com/valisbench/benchmarks">Source</a>
+    </nav>
+  </header>
+  <main>
+<h2>Benchmark v1.0.0 <span class="badge badge-pending">OTS pending</span></h2>
+<p>This release publishes 6 wedges,
+   totaling 3000 cases across the panel. Pre-registered on 2026-05-21.
+   Each wedge has its own manifest, cosign signature, Sigstore Rekor entry, and
+   OpenTimestamps proof; each is independently verifiable.</p>
+
+<h3>Wedges in this release</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Wedge</th>
+      <th>Cases</th>
+      <th>Scorer</th>
+      <th>Dataset SHA prefix</th>
+      <th>Anchoring</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="boundary_condition_omission/index.html">boundary_condition_omission</a></td>
+      <td>500</td>
+      <td><code>boundary_condition_omission_v1</code></td>
+      <td><code>e34d8f7d82e60cc1...</code></td>
+      <td><span class="badge badge-pending">OTS pending</span></td>
+    </tr>
+    <tr>
+      <td><a href="citation_faithfulness/index.html">citation_faithfulness</a></td>
+      <td>500</td>
+      <td><code>citation_faithfulness_v1</code></td>
+      <td><code>9982d7e97ed45356...</code></td>
+      <td><span class="badge badge-pending">OTS pending</span></td>
+    </tr>
+    <tr>
+      <td><a href="falsifier_observability/index.html">falsifier_observability</a></td>
+      <td>500</td>
+      <td><code>falsifier_observability_v1</code></td>
+      <td><code>dc9fcf93e631a05e...</code></td>
+      <td><span class="badge badge-pending">OTS pending</span></td>
+    </tr>
+    <tr>
+      <td><a href="load_bearing_claim_identification/index.html">load_bearing_claim_identification</a></td>
+      <td>500</td>
+      <td><code>load_bearing_claim_identification_v1</code></td>
+      <td><code>de5784f1c9c3b3c7...</code></td>
+      <td><span class="badge badge-pending">OTS pending</span></td>
+    </tr>
+    <tr>
+      <td><a href="mechanism_gap/index.html">mechanism_gap</a></td>
+      <td>500</td>
+      <td><code>mechanism_gap_v1</code></td>
+      <td><code>094a459e4a395185...</code></td>
+      <td><span class="badge badge-pending">OTS pending</span></td>
+    </tr>
+    <tr>
+      <td><a href="phantom_precision/index.html">phantom_precision</a></td>
+      <td>500</td>
+      <td><code>phantom_precision_v1</code></td>
+      <td><code>90fa3fa80b981d48...</code></td>
+      <td><span class="badge badge-pending">OTS pending</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Cross-wedge artifacts</h3>
+<ul>
+  <li><a href="CROSS_REVIEWER_DISAGREEMENT.md">Cross-reviewer disagreement analysis</a> --
+      the per-case three-way reviewer panel results (Opus 4.7 + GPT-5.5 + Gemini 3.1 Pro).
+      Includes the 0/3, 1/3, 2/3, and 3/3 pass categorizations published in full.</li>
+</ul>
+
+<h3>How to verify this release</h3>
+<pre><code>git clone https://github.com/valisbench/benchmarks.git
+cd benchmarks
+./verify.sh v1.0.0</code></pre>
+<p>The verifier runs against every wedge in this release. A FULL PASS requires
+   every wedge's signature, Rekor entry, and OpenTimestamps proof to verify
+   independently. See <a href="../verify.html">verify</a> for the procedure.</p>
+  </main>
+  <footer>
+    <p>Generated 2026-05-22 11:55 UTC by <code>valis.benchmarks.site.build</code>.
+       Every published version is anchored to the Sigstore Rekor transparency log and to OpenTimestamps (Bitcoin).
+       See <a href="../verify.html">how to verify</a>.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,139 @@
+manifest_version: "1.0.0"
+spike_run: false
+
+author: "VALIS Systems"
+created_at: "2026-05-21T00:00:00Z"
+contact: "david.lundblad@gmail.com"
+
+dataset:
+  wedge: "falsifier_observability"
+  case_count: 500
+  cases_file: "v1.0.0-falsifier_observability/cases.jsonl"
+  cases_sha256: "dc9fcf93e631a05e20e1dad07f162a38e071cbcf371d91de8d7b10d5d612096e"
+
+roster:
+  - provider: "anthropic"
+    model_id: "claude-opus-4-7"
+    sampling:
+      temperature: 0.0
+      top_p: 1.0
+      seed: 42
+      max_tokens: 1024
+  - provider: "openai"
+    model_id: "gpt-5.5-2026-04-23"
+    sampling:
+      temperature: 0.0
+      top_p: 1.0
+      seed: 42
+      max_tokens: 1024
+  - provider: "google"
+    model_id: "gemini-3.1-pro-preview"
+    sampling:
+      temperature: 0.0
+      top_p: 1.0
+      seed: 42
+      max_tokens: 1024
+
+model_id_provenance: |
+  Each model_id was verified against the provider's live model-listing endpoint
+  on 2026-05-21. Providers expose stability differently:
+  - OpenAI publishes dated snapshots for current frontier models; we pin
+    gpt-5.5-2026-04-23, the snapshot underlying the gpt-5.5 alias on this date.
+  - Anthropic publishes dated snapshots only for retired models; current
+    frontier models (4.7, 4.6) are alias-only. claude-opus-4-7 is the
+    canonical provider ID; no dated snapshot is exposed.
+  - Google publishes the 3.1-pro tier as preview (gemini-3.1-pro-preview); no
+    GA 3.x-pro exists at publication time. The preview alias carries
+    deprecation risk; if Google retires the alias before the run completes,
+    the manifest will be republished as 1.0.1 with the substituted ID, the
+    substitution disclosed, and both manifests anchored.
+
+scoring:
+  scorer: "falsifier_observability_v1"
+  metric: "binary_f1"
+  rubric: |
+    Binary F1 with `stated_unfalsifiable` as the positive class. A true
+    positive is a case the model labels `stated_unfalsifiable` whose
+    ground-truth label is `stated_unfalsifiable`. A false positive is a
+    model `stated_unfalsifiable` label on a ground-truth
+    `observable_falsifier` case. A false negative is a model
+    `observable_falsifier` label (or no parseable label) on a ground-truth
+    `stated_unfalsifiable` case. Recall on `stated_unfalsifiable` is the
+    headline metric (the design hypothesis is keyed to it). Refusals are
+    recorded as a separate outcome category and routed through
+    refused=True at the scorer; non-response outcomes other than refusal
+    (timeouts, rate-limits, malformed responses) are routed through
+    label=None and treated as malformed. The full seven-category outcome
+    breakdown is reported alongside the score.
+
+    Rubric convention: a claim is `observable_falsifier` when, taking the
+    sentence as written, a competent reviewer could verify its failure
+    mode within ~90 days using only information stated in the sentence --
+    a concrete metric, threshold or directional outcome, and time bound.
+    A claim is `stated_unfalsifiable` when no observation could falsify
+    it as written, including (i) vacuous strategic affirmations, (ii)
+    self-sealing predicates ("will adapt to whatever conditions emerge"),
+    (iii) macro-conditional framings ("if the economy holds up", "if
+    regulatory tailwinds continue") because no in-sentence observation
+    verifies the macro state -- same logic as mechanism_gap's
+    external-macro rule -- and (iv) surface-form mimicry where a number
+    or date is bound to a decoy predicate (e.g. "directional health",
+    "strategic positioning") so no observation could check it.
+
+hypotheses:
+  - id: "H3"
+    statement: "Binary recall on stated-unfalsifiable cases will fall below 0.5 on at least one frontier model in tier 3."
+
+refusal_policy: |
+  Refusals are scored as a separate outcome category, not as wrong answers.
+  Explicit refusals route through `refused=True` at the scorer; non-response
+  outcomes other than refusal (timeout, rate-limit, malformed) route through
+  `label=None` and are reported as malformed. All seven outcome categories
+  (response, refusal, partial_response, error_timeout, error_rate_limit,
+  error_other, malformed) are reported in the results bundle. Models that
+  refuse all cases score "refusal: 100%" with no F1 reported.
+
+failure_publication_commitment: |
+  Null and unfavorable results publish on the same methodology page as
+  positive results. There is no scenario in which VALIS scores a model and
+  withholds the finding because the result is uncomfortable. This commitment
+  is anchored to the same Bitcoin block as the manifest.
+
+spot_check_panel_outcome: |
+  Spot-check panel (50 cases, three independent frontier reviewers):
+    - Claude Opus 4.7 (Anthropic, undated alias)
+    - GPT-5.5, snapshot gpt-5.5-2026-04-23 (OpenAI, via codex CLI)
+    - Gemini 3.1 Pro Preview (Google)
+
+  Gate: zero unanimous-fail cases across the panel. A 'unanimous fail' is a case
+  that all three reviewers fail under the wedge's rubric; this would indicate a
+  concrete dataset construction error. The gate is met iff zero such cases exist
+  on the 50-case sample.
+
+  Panel outcome for this wedge:
+    - Unanimous pass: 30/50
+    - Majority pass (2 of 3): 4/50
+    - Majority fail (1 of 3): 16/50 (rubric-interpretation divergence)
+    - Unanimous fail (0 of 3): 0/50
+
+  Gate verdict: PASSED (0 unanimous fails).
+
+  The 16 majority-fail cases reflect substantive disagreement between
+  frontier models on rubric interpretation -- not dataset bugs. The cases are
+  published verbatim in v1.0.0-SPOT_CHECK_PANEL.md alongside each reviewer's
+  rationale, so the boundary of the rubric is itself part of the published
+  artifact. This is a doctrinal commitment: where the rubric admits two reads,
+  the publication shows the disagreement rather than hiding it.
+
+  Reviewer verdict files (per wedge):
+    spot_check_opus47_verdicts.md
+    spot_check_gpt55_verdicts.md
+    spot_check_gemini31pro_verdicts.md
+
+  Disagreement disclosure artifact (cross-wedge):
+    ../CROSS_REVIEWER_DISAGREEMENT_v1.0.0.md
+
+anchoring:
+  primary: "sigstore-rekor"
+  secondary: "opentimestamps"
+  cosign_mode: "keyless-oidc"

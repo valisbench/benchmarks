@@ -1,0 +1,88 @@
+manifest_version: "1.0.0"
+spike_run: false
+
+author: "VALIS Systems"
+created_at: "2026-05-21T00:00:00Z"
+contact: "david.lundblad@gmail.com"
+
+dataset:
+  wedge: "phantom_precision"
+  case_count: 500
+  cases_file: "v1.0.0-phantom_precision/cases.jsonl"
+  cases_sha256: "90fa3fa80b981d4892a8510895e85e539f774d43e29220c1ce6b7c459f405494"
+
+roster:
+  - provider: "anthropic"
+    model_id: "claude-opus-4-7"
+    sampling:
+      temperature: 0.0
+      top_p: 1.0
+      seed: 42
+      max_tokens: 1024
+  - provider: "openai"
+    model_id: "gpt-5.5-2026-04-23"
+    sampling:
+      temperature: 0.0
+      top_p: 1.0
+      seed: 42
+      max_tokens: 1024
+  - provider: "google"
+    model_id: "gemini-3.1-pro-preview"
+    sampling:
+      temperature: 0.0
+      top_p: 1.0
+      seed: 42
+      max_tokens: 1024
+
+model_id_provenance: |
+  Each model_id was verified against the provider's live model-listing endpoint
+  on 2026-05-21. Providers expose stability differently:
+  - OpenAI publishes dated snapshots for current frontier models; we pin
+    gpt-5.5-2026-04-23, the snapshot underlying the gpt-5.5 alias on this date.
+  - Anthropic publishes dated snapshots only for retired models; current
+    frontier models (4.7, 4.6) are alias-only. claude-opus-4-7 is the
+    canonical provider ID; no dated snapshot is exposed.
+  - Google publishes the 3.1-pro tier as preview (gemini-3.1-pro-preview); no
+    GA 3.x-pro exists at publication time. The preview alias carries
+    deprecation risk; if Google retires the alias before the run completes,
+    the manifest will be republished as 1.0.1 with the substituted ID, the
+    substitution disclosed, and both manifests anchored.
+
+scoring:
+  scorer: "phantom_precision_v1"
+  metric: "f1"
+  rubric: |
+    Per-passage F1 against the ground-truth set of fabricated quantitative
+    spans. A true positive is a span the model flags as fabricated that
+    matches a span in fabricated_claims under normalized exact match
+    (strip + collapse whitespace + lowercase; no currency stripping, no
+    unit synonymization). A false positive is a span the model flags that
+    is not in that set (including any span listed under distractors). A
+    false negative is a fabricated_claims span the model misses. Refusals
+    are recorded as a separate outcome category and excluded from the F1
+    calculation; per-roster refusal rates and the full seven-category
+    outcome breakdown are reported alongside the score.
+
+hypotheses:
+  - id: "H1"
+    statement: "Phantom precision F1 will fall below 0.6 on at least two of three frontier models in difficulty tier 3 (most plausible prose)."
+
+refusal_policy: |
+  Refusals are scored as a separate outcome category, not as wrong answers.
+  A refusal flag is set when the model declines to evaluate the passage; F1
+  is computed only over non-refused cases. Refusal rates are surfaced
+  alongside the score so that high-refusal regimes cannot game the metric.
+  All seven outcome categories (response, refusal, partial_response,
+  error_timeout, error_rate_limit, error_other, malformed) are reported in
+  the results bundle.
+
+failure_publication_commitment: |
+  Null and unfavorable results publish on the same methodology page as
+  positive results. There is no scenario in which VALIS scores a model and
+  withholds the finding because the result is uncomfortable. This commitment
+  is anchored to the same Bitcoin block as the manifest.
+
+anchoring:
+  primary: "sigstore-rekor"
+  secondary: "opentimestamps"
+  cosign_mode: "keyless-oidc"

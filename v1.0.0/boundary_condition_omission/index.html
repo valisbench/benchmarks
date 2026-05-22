@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>v1.0.0 -- VALIS Benchmarks</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="../../index.html">VALIS Benchmarks</a></h1>
+    <nav>
+      <a href="../../index.html">Index</a> ·
+      <a href="../../methodology.html">Methodology</a> ·
+      <a href="../../verify.html">Verify</a> ·
+      <a href="https://github.com/valisbench/benchmarks">Source</a>
+    </nav>
+  </header>
+  <main>
+<h2>Benchmark v1.0.0 <span class="badge badge-pending">OTS pending</span></h2>
+<p>boundary_condition_omission wedge, 500 cases,
+   3 models in roster.
+   Pre-registered on 2026-05-21 00:00:00+00:00 by VALIS Systems.</p>
+
+
+<h3>Anchoring</h3>
+<ul>
+  <li><strong>Sigstore Rekor:</strong> log index
+    <a href="https://search.sigstore.dev/?logIndex=1602179062"><code>1602179062</code></a>,
+    integrated at 2026-05-22 11:55:01 UTC.</li>
+  <li><strong>OpenTimestamps:</strong> Submitted to four OpenTimestamps calendar servers; Bitcoin block confirmation typically arrives three to six hours after submission. The daily finalizer upgrades the proof once confirmed.</li>
+  <li><strong>Manifest SHA256:</strong> <code>294a4334688dd3c3cd63f1cecac67dbb78c034d83b36204515679783531caae6</code></li>
+  <li><strong>Cosign mode:</strong> keyless-oidc</li>
+</ul>
+
+<h3>Artifacts</h3>
+<ul>
+  <li><a href="manifest.yaml"><code>manifest.yaml</code></a> -- pre-registered specification (the signed bytes)</li>
+  <li><a href="manifest.bundle.json"><code>manifest.bundle.json</code></a> -- Sigstore signature plus Rekor entry</li>
+  <li><a href="manifest.yaml.ots"><code>manifest.yaml.ots</code></a> -- OpenTimestamps proof (Bitcoin-anchored)</li>
+</ul>
+
+<h3>Pre-registered hypotheses</h3>
+<ol>
+  <li><strong>H1:</strong> Set recall on ground-truth boundary conditions will fall below 0.4 on at least one frontier model in tier 3 (claim has implicit assumptions that are easy to miss; 7-8 BCs and 5 topically-overlapping distractors).</li>
+</ol>
+
+<h3>Model roster</h3>
+<table>
+  <thead>
+    <tr><th>Provider</th><th>Model ID</th><th>Temperature</th><th>Seed</th><th>Max tokens</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>anthropic</td>
+      <td><code>claude-opus-4-7</code></td>
+      <td>0.0</td>
+      <td>42</td>
+      <td>1024</td>
+    </tr>
+    <tr>
+      <td>openai</td>
+      <td><code>gpt-5.5-2026-04-23</code></td>
+      <td>0.0</td>
+      <td>42</td>
+      <td>1024</td>
+    </tr>
+    <tr>
+      <td>google</td>
+      <td><code>gemini-3.1-pro-preview</code></td>
+      <td>0.0</td>
+      <td>42</td>
+      <td>1024</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Dataset</h3>
+<p><strong>Wedge:</strong> boundary_condition_omission<br>
+   <strong>Cases:</strong> 500<br>
+   <strong>Cases file:</strong> <code>v1.0.0-boundary_condition_omission/cases.jsonl</code><br>
+   <strong>Cases SHA256:</strong> <code>e34d8f7d82e60cc183006e947682503ad19a2ab0ec726fa37358860c0b7b24b7</code></p>
+
+<h3>Scoring</h3>
+<p><strong>Scorer:</strong> <code>boundary_condition_omission_v1</code><br>
+   <strong>Metric:</strong> f1</p>
+<blockquote>Set-based F1 against the ground-truth boundary conditions (BCs) encoded
+for each case. The model&#39;s task in production: given a claim, list the
+things a careful reviewer should check before relying on the claim. The
+scorer parses the response as a list of free-text items and matches each
+item against the case&#39;s ground-truth BCs and distractors.
+
+Matching method (PRE-REGISTERED, locked): deterministic keyword-group
+matching. Each BC carries a list of &#34;keyword_groups&#34; -- each group is a
+set of concept-alternatives (synonyms/paraphrases for one BC aspect).
+A candidate item matches a BC iff for every group, the candidate
+(normalized: lowercase, punctuation collapsed to space, whitespace
+collapsed) contains at least one alternative from that group. The
+normalization is locked: no stemming, no lemmatization, no LLM-judging.
+
+Why deterministic keyword-group matching rather than embedding cosine
+or LLM-judge:
+- Reproducibility from a clean machine with no VALIS infrastructure.
+  A third party verifying a published result must not need API access
+  or a pinned huggingface model snapshot. Keyword-group matching needs
+  only Python stdlib.
+- The ground-truth BC list and the matching rule are co-pre-registered:
+  the keyword groups are part of the dataset under the same SHA256 the
+  manifest commits to. Auditors can inspect both together.
+- Trade-off: keyword-group matching is stricter than a perfectly tuned
+  embedding matcher would be. A model output that paraphrases the BC
+  using novel synonyms not represented in the keyword group will miss.
+  Keyword groups are maintained as paraphrase surfaces evolve; any
+  change is a new manifest version. This is documented as a v1
+  methodological tradeoff; v2 may layer in a secondary embedding pass
+  and report both metrics in parallel.
+
+Boundary conditions within a family share concept terms (e.g.,
+&#34;baseline&#34; and &#34;segment&#34; both appear in multiple BCs&#39; keyword groups).
+A single candidate covering multiple BC concepts can therefore satisfy
+multiple BCs simultaneously. This inflates recall for models whose
+coverage concentrates in shared concept clusters. The pre-registered
+choice is to accept this recall-inflation because the design hypothesis
+(H1) keys on recall falling below 0.4 in tier 3; recall inflation makes
+H1 harder to confirm, raising the falsifiability bar in the doctrine-
+aligned direction.
+
+Free-text model output is parsed upstream of this scorer. The harness
+prompts the model to return a numbered or bulleted list and parses
+line-by-line: one line equals one candidate item, with leading bullets/
+numbers/punctuation stripped. Long prose responses are split on sentence
+boundaries. An empty list is treated as zero true-positives (not as a
+refusal). The scorer&#39;s contract begins with `Sequence[str]` candidates;
+the parser sits between the provider and the scorer.
+
+Per case:
+- tp = number of BCs covered by at least one candidate
+- fn = number of BCs not covered by any candidate
+- fp = (number of distractors flagged) + (number of unmatched candidates)
+- precision = tp / (tp + fp)
+- recall    = tp / (tp + fn)
+- f1        = 2 * precision * recall / (precision + recall)
+
+Recall is the headline metric for the pre-registered H1 hypothesis;
+precision is reported alongside. Distractor-match rate is reported as
+a secondary diagnostic for over-flag patterns. Refusals are scored as
+a separate outcome category and excluded from the F1 calculation; per-
+roster refusal rates and the full seven-category outcome breakdown
+are reported alongside the score.
+</blockquote>
+
+<h3>Refusal policy</h3>
+<blockquote>Refusals are scored as a separate outcome category, not as wrong answers.
+A refusal flag is set when the model declines to evaluate the claim; F1
+is computed only over non-refused cases. Refusal rates are surfaced
+alongside the score so that high-refusal regimes cannot game the metric.
+All seven outcome categories (response, refusal, partial_response,
+error_timeout, error_rate_limit, error_other, malformed) are reported in
+the results bundle.
+</blockquote>
+
+<h3>Failure publication commitment</h3>
+<blockquote>Null and unfavorable results publish on the same methodology page as
+positive results. There is no scenario in which VALIS scores a model and
+withholds the finding because the result is uncomfortable. This commitment
+is anchored to the same Bitcoin block as the manifest.
+</blockquote>
+
+<h3>Spot-check panel outcome</h3>
+<blockquote>Spot-check panel (50 cases, three independent frontier reviewers):
+  - Claude Opus 4.7 (Anthropic, undated alias)
+  - GPT-5.5, snapshot gpt-5.5-2026-04-23 (OpenAI, via codex CLI)
+  - Gemini 3.1 Pro Preview (Google)
+
+Gate: zero unanimous-fail cases across the panel. A &#39;unanimous fail&#39; is a case
+that all three reviewers fail under the wedge&#39;s rubric; this would indicate a
+concrete dataset construction error. The gate is met iff zero such cases exist
+on the 50-case sample.
+
+Panel outcome for this wedge:
+  - Unanimous pass: 29/50
+  - Majority pass (2 of 3): 12/50
+  - Majority fail (1 of 3): 9/50 (rubric-interpretation divergence)
+  - Unanimous fail (0 of 3): 0/50
+
+Gate verdict: PASSED (0 unanimous fails).
+
+The 9 majority-fail cases reflect substantive disagreement between
+frontier models on rubric interpretation -- not dataset bugs. The cases are
+published verbatim in v1.0.0-SPOT_CHECK_PANEL.md alongside each reviewer&#39;s
+rationale, so the boundary of the rubric is itself part of the published
+artifact. This is a doctrinal commitment: where the rubric admits two reads,
+the publication shows the disagreement rather than hiding it.
+
+Reviewer verdict files (per wedge):
+  spot_check_opus47_verdicts.md
+  spot_check_gpt55_verdicts.md
+  spot_check_gemini31pro_verdicts.md
+
+Disagreement disclosure artifact (cross-wedge):
+  ../CROSS_REVIEWER_DISAGREEMENT_v1.0.0.md
+</blockquote>
+
+<h3>How to verify this version</h3>
+<pre><code>git clone https://github.com/valisbench/benchmarks.git
+cd benchmarks
+./verify.sh v1.0.0</code></pre>
+<p>See <a href="../verify.html">verify</a> for the full procedure, including a one-line Docker invocation that runs the script from a clean Debian container with zero VALIS code present.</p>
+  </main>
+  <footer>
+    <p>Generated 2026-05-22 11:55 UTC by <code>valis.benchmarks.site.build</code>.
+       Every published version is anchored to the Sigstore Rekor transparency log and to OpenTimestamps (Bitcoin).
+       See <a href="../../verify.html">how to verify</a>.</p>
+  </footer>
+</body>
+</html>

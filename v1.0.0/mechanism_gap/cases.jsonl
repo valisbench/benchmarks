@@ -1,0 +1,500 @@
+{"case_id": "mechgap-0001", "label": "supported", "sentence": "Quarterly revenue expanded because a key supplier announced bankruptcy, and these alone added $4.3M to ARR, which we treated as the proximate driver."}
+{"case_id": "mechgap-0002", "label": "unsupported", "sentence": "We should pause the consumer experiment because things are going well."}
+{"case_id": "mechgap-0003", "label": "supported", "sentence": "Q3 bookings fell sharply because a regulated client paused all spending pending audit, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0004", "label": "unsupported", "sentence": "The new onboarding flow clearly works because the team is more aligned."}
+{"case_id": "mechgap-0005", "label": "unsupported", "sentence": "The revised compensation plan is delivering because regulatory pressure is increasing."}
+{"case_id": "mechgap-0006", "label": "supported", "sentence": "Gross margin expanded sharply because the second-largest reseller terminated its agreement, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0007", "label": "unsupported", "sentence": "We should expand into EMEA because engagement looks healthy."}
+{"case_id": "mechgap-0008", "label": "unsupported", "sentence": "We have to rebuild the data layer because macro conditions are unfavorable."}
+{"case_id": "mechgap-0009", "label": "supported", "sentence": "Weekly active users declined this quarter because the second-largest reseller terminated its agreement, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0010", "label": "unsupported", "sentence": "The Q2 pricing change is delivering because morale is up."}
+{"case_id": "mechgap-0011", "label": "unsupported", "sentence": "We should invest in compliance because things are going well."}
+{"case_id": "mechgap-0012", "label": "supported", "sentence": "Pipeline coverage fell sharply because the second-largest reseller terminated its agreement, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0013", "label": "supported", "sentence": "Net retention dropped primarily because the largest customer non-renewed. To put it in scale, they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0014", "label": "unsupported", "sentence": "We must accelerate the platform rebuild because morale is up."}
+{"case_id": "mechgap-0015", "label": "unsupported", "sentence": "We should expand into EMEA because things are going well."}
+{"case_id": "mechgap-0016", "label": "unsupported", "sentence": "We have to rebuild the data layer, because competitive dynamics have intensified and the path forward is obvious."}
+{"case_id": "mechgap-0017", "label": "supported", "sentence": "Annual recurring revenue declined because the largest customer non-renewed, and their contract represented 22% of bookings, which we treated as the proximate driver."}
+{"case_id": "mechgap-0018", "label": "supported", "sentence": "Net retention rose because a regulated client paused all spending pending audit; specifically, they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0019", "label": "unsupported", "sentence": "The revised compensation plan clearly is the right call because customer success has improved."}
+{"case_id": "mechgap-0020", "label": "supported", "sentence": "Inbound demo requests increased sharply because the top three accounts upgraded to the higher tier, where their contract represented 22% of bookings."}
+{"case_id": "mechgap-0021", "label": "unsupported", "sentence": "The brand refresh works because consumer expectations have evolved."}
+{"case_id": "mechgap-0022", "label": "unsupported", "sentence": "We need to double down on enterprise because AI is changing everything."}
+{"case_id": "mechgap-0023", "label": "supported", "sentence": "Net retention increased because a regulated client paused all spending pending audit; specifically, the renewal value was $1.8M."}
+{"case_id": "mechgap-0024", "label": "unsupported", "sentence": "The Q2 pricing change works because macro conditions are unfavorable."}
+{"case_id": "mechgap-0025", "label": "supported", "sentence": "Net retention declined sharply because two enterprise contracts closed in the same week, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0026", "label": "unsupported", "sentence": "We should pause the consumer experiment because engagement looks healthy."}
+{"case_id": "mechgap-0027", "label": "supported", "sentence": "Weekly active users expanded primarily because the largest customer non-renewed. To put it in scale, the renewal value was $1.8M."}
+{"case_id": "mechgap-0028", "label": "unsupported", "sentence": "We should invest in compliance, because AI is changing everything and the path forward is obvious."}
+{"case_id": "mechgap-0029", "label": "unsupported", "sentence": "The revised compensation plan is gaining traction because things are going well."}
+{"case_id": "mechgap-0030", "label": "unsupported", "sentence": "Our retention strategy clearly is gaining traction because morale is up."}
+{"case_id": "mechgap-0031", "label": "unsupported", "sentence": "We should pause the consumer experiment, because AI is changing everything and the path forward is obvious."}
+{"case_id": "mechgap-0032", "label": "unsupported", "sentence": "The new onboarding flow is succeeding because consumer expectations have evolved."}
+{"case_id": "mechgap-0033", "label": "unsupported", "sentence": "The revised compensation plan is the right call because regulatory pressure is increasing."}
+{"case_id": "mechgap-0034", "label": "supported", "sentence": "Weekly active users expanded primarily because two enterprise contracts closed in the same week. To put it in scale, the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0035", "label": "supported", "sentence": "Gross margin expanded because two enterprise contracts closed in the same week, and they accounted for 38% of weekly volume, which we treated as the proximate driver."}
+{"case_id": "mechgap-0036", "label": "supported", "sentence": "Weekly active users increased sharply because a regulated client paused all spending pending audit, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0037", "label": "supported", "sentence": "Gross margin increased because the second-largest reseller terminated its agreement and those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0038", "label": "unsupported", "sentence": "We should invest in compliance, because consumer expectations have evolved and the path forward is obvious."}
+{"case_id": "mechgap-0039", "label": "supported", "sentence": "Gross margin increased because the largest customer non-renewed and they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0040", "label": "unsupported", "sentence": "The revised compensation plan is gaining traction because the culture is stronger."}
+{"case_id": "mechgap-0041", "label": "supported", "sentence": "Inbound demo requests declined sharply because two enterprise contracts closed in the same week, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0042", "label": "supported", "sentence": "Gross margin softened sharply because the top three accounts upgraded to the higher tier, where the renewal value was $1.8M."}
+{"case_id": "mechgap-0043", "label": "supported", "sentence": "Annual recurring revenue rose sharply because the top three accounts upgraded to the higher tier, where they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0044", "label": "supported", "sentence": "Gross margin declined sharply because two enterprise contracts closed in the same week, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0045", "label": "supported", "sentence": "Pipeline coverage fell primarily because two enterprise contracts closed in the same week. To put it in scale, the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0046", "label": "unsupported", "sentence": "We should invest in compliance, because competitive dynamics have intensified and the path forward is obvious."}
+{"case_id": "mechgap-0047", "label": "unsupported", "sentence": "The hybrid work policy is gaining traction because morale is up."}
+{"case_id": "mechgap-0048", "label": "unsupported", "sentence": "We have to rebuild the data layer because regulatory pressure is increasing."}
+{"case_id": "mechgap-0049", "label": "supported", "sentence": "Pipeline coverage softened sharply because a regulated client paused all spending pending audit, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0050", "label": "supported", "sentence": "Q3 bookings increased because a regulated client paused all spending pending audit and these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0051", "label": "unsupported", "sentence": "The Q2 pricing change is the right call because engagement looks healthy."}
+{"case_id": "mechgap-0052", "label": "supported", "sentence": "Inbound demo requests climbed sharply because two enterprise contracts closed in the same week, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0053", "label": "supported", "sentence": "Q3 bookings fell primarily because a regulated client paused all spending pending audit. To put it in scale, those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0054", "label": "supported", "sentence": "Quarterly revenue dropped because a key supplier announced bankruptcy and those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0055", "label": "supported", "sentence": "Net retention dropped sharply because the largest customer non-renewed, where they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0056", "label": "unsupported", "sentence": "The Q2 pricing change clearly is paying off because the team is more aligned."}
+{"case_id": "mechgap-0057", "label": "unsupported", "sentence": "The brand refresh clearly is paying off because things are going well."}
+{"case_id": "mechgap-0058", "label": "supported", "sentence": "Pipeline coverage increased this quarter because the top three accounts upgraded to the higher tier, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0059", "label": "unsupported", "sentence": "We should invest in compliance because customer success has improved."}
+{"case_id": "mechgap-0060", "label": "unsupported", "sentence": "The brand refresh clearly is gaining traction because the team is more aligned."}
+{"case_id": "mechgap-0061", "label": "supported", "sentence": "Quarterly revenue climbed because the top three accounts upgraded to the higher tier; specifically, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0062", "label": "unsupported", "sentence": "We should pause the consumer experiment, because regulatory pressure is increasing and the path forward is obvious."}
+{"case_id": "mechgap-0063", "label": "unsupported", "sentence": "The hybrid work policy clearly is delivering because morale is up."}
+{"case_id": "mechgap-0064", "label": "supported", "sentence": "Net retention expanded sharply because the top three accounts upgraded to the higher tier, where their contract represented 22% of bookings."}
+{"case_id": "mechgap-0065", "label": "supported", "sentence": "Q3 bookings dropped this quarter because two enterprise contracts closed in the same week, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0066", "label": "unsupported", "sentence": "The Q2 pricing change clearly is succeeding because engagement looks healthy."}
+{"case_id": "mechgap-0067", "label": "unsupported", "sentence": "The hybrid work policy is gaining traction because macro conditions are unfavorable."}
+{"case_id": "mechgap-0068", "label": "supported", "sentence": "Pipeline coverage increased because a key supplier announced bankruptcy and they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0069", "label": "unsupported", "sentence": "We need to double down on enterprise, because macro conditions are unfavorable and the path forward is obvious."}
+{"case_id": "mechgap-0070", "label": "supported", "sentence": "Net retention dropped because a key supplier announced bankruptcy; specifically, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0071", "label": "unsupported", "sentence": "We should pause the consumer experiment because the culture is stronger."}
+{"case_id": "mechgap-0072", "label": "supported", "sentence": "Q3 bookings declined because the second-largest reseller terminated its agreement, and the spend totaled $620K per quarter, which we treated as the proximate driver."}
+{"case_id": "mechgap-0073", "label": "unsupported", "sentence": "We should invest in compliance because things are going well."}
+{"case_id": "mechgap-0074", "label": "supported", "sentence": "Q3 bookings increased this quarter because a key supplier announced bankruptcy, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0075", "label": "unsupported", "sentence": "We need to double down on enterprise because the team is more aligned."}
+{"case_id": "mechgap-0076", "label": "supported", "sentence": "Pipeline coverage climbed because the top three accounts upgraded to the higher tier; specifically, those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0077", "label": "supported", "sentence": "Q3 bookings rose this quarter because the top three accounts upgraded to the higher tier, where their contract represented 22% of bookings."}
+{"case_id": "mechgap-0078", "label": "unsupported", "sentence": "We should expand into EMEA, because macro conditions are unfavorable and the path forward is obvious."}
+{"case_id": "mechgap-0079", "label": "unsupported", "sentence": "The hybrid work policy is paying off because the culture is stronger."}
+{"case_id": "mechgap-0080", "label": "unsupported", "sentence": "The revised compensation plan is delivering because the market is shifting."}
+{"case_id": "mechgap-0081", "label": "unsupported", "sentence": "We need to double down on enterprise, because consumer expectations have evolved and the path forward is obvious."}
+{"case_id": "mechgap-0082", "label": "unsupported", "sentence": "The new onboarding flow is gaining traction because the culture is stronger."}
+{"case_id": "mechgap-0083", "label": "supported", "sentence": "Quarterly revenue softened this quarter because the top three accounts upgraded to the higher tier, where their contract represented 22% of bookings."}
+{"case_id": "mechgap-0084", "label": "supported", "sentence": "Quarterly revenue increased because the largest customer non-renewed, and their contract represented 22% of bookings, which we treated as the proximate driver."}
+{"case_id": "mechgap-0085", "label": "supported", "sentence": "Pipeline coverage dropped primarily because a regulated client paused all spending pending audit. To put it in scale, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0086", "label": "supported", "sentence": "Annual recurring revenue increased because two enterprise contracts closed in the same week and the renewal value was $1.8M."}
+{"case_id": "mechgap-0087", "label": "unsupported", "sentence": "We should expand into EMEA because the market is shifting."}
+{"case_id": "mechgap-0088", "label": "unsupported", "sentence": "The new onboarding flow is succeeding because competitive dynamics have intensified."}
+{"case_id": "mechgap-0089", "label": "supported", "sentence": "Net retention increased primarily because a regulated client paused all spending pending audit. To put it in scale, these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0090", "label": "supported", "sentence": "Annual recurring revenue declined primarily because the second-largest reseller terminated its agreement. To put it in scale, those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0091", "label": "supported", "sentence": "Q3 bookings fell because a regulated client paused all spending pending audit, and they accounted for 38% of weekly volume, which we treated as the proximate driver."}
+{"case_id": "mechgap-0092", "label": "unsupported", "sentence": "We have to rebuild the data layer because morale is up."}
+{"case_id": "mechgap-0093", "label": "unsupported", "sentence": "The Q2 pricing change is delivering because AI is changing everything."}
+{"case_id": "mechgap-0094", "label": "supported", "sentence": "Annual recurring revenue dropped because the largest customer non-renewed; specifically, those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0095", "label": "supported", "sentence": "Net retention softened because a key supplier announced bankruptcy and their contract represented 22% of bookings."}
+{"case_id": "mechgap-0096", "label": "supported", "sentence": "Net retention dropped this quarter because the second-largest reseller terminated its agreement, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0097", "label": "supported", "sentence": "Annual recurring revenue increased because a regulated client paused all spending pending audit and the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0098", "label": "supported", "sentence": "Quarterly revenue declined primarily because the second-largest reseller terminated its agreement. To put it in scale, the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0099", "label": "supported", "sentence": "Pipeline coverage climbed because a key supplier announced bankruptcy and the renewal value was $1.8M."}
+{"case_id": "mechgap-0100", "label": "unsupported", "sentence": "We need to double down on enterprise because engagement looks healthy."}
+{"case_id": "mechgap-0101", "label": "unsupported", "sentence": "The Q2 pricing change works because consumer expectations have evolved."}
+{"case_id": "mechgap-0102", "label": "unsupported", "sentence": "We should expand into EMEA, because AI is changing everything and the path forward is obvious."}
+{"case_id": "mechgap-0103", "label": "unsupported", "sentence": "Our retention strategy clearly is paying off because things are going well."}
+{"case_id": "mechgap-0104", "label": "unsupported", "sentence": "The Q2 pricing change is gaining traction because regulatory pressure is increasing."}
+{"case_id": "mechgap-0105", "label": "unsupported", "sentence": "Our retention strategy clearly is delivering because customer success has improved."}
+{"case_id": "mechgap-0106", "label": "unsupported", "sentence": "We should pause the consumer experiment because the culture is stronger."}
+{"case_id": "mechgap-0107", "label": "unsupported", "sentence": "We must accelerate the platform rebuild because macro conditions are unfavorable."}
+{"case_id": "mechgap-0108", "label": "supported", "sentence": "Q3 bookings increased because the top three accounts upgraded to the higher tier, and the spend totaled $620K per quarter, which we treated as the proximate driver."}
+{"case_id": "mechgap-0109", "label": "supported", "sentence": "Net retention fell primarily because the top three accounts upgraded to the higher tier. To put it in scale, they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0110", "label": "unsupported", "sentence": "We have to rebuild the data layer, because the market is shifting and the path forward is obvious."}
+{"case_id": "mechgap-0111", "label": "supported", "sentence": "Q3 bookings dropped because a key supplier announced bankruptcy, and their contract represented 22% of bookings, which we treated as the proximate driver."}
+{"case_id": "mechgap-0112", "label": "supported", "sentence": "Annual recurring revenue rose primarily because a key supplier announced bankruptcy. To put it in scale, the renewal value was $1.8M."}
+{"case_id": "mechgap-0113", "label": "supported", "sentence": "Inbound demo requests softened sharply because a regulated client paused all spending pending audit, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0114", "label": "supported", "sentence": "Weekly active users softened this quarter because the top three accounts upgraded to the higher tier, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0115", "label": "supported", "sentence": "Pipeline coverage softened because the second-largest reseller terminated its agreement; specifically, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0116", "label": "supported", "sentence": "Quarterly revenue declined because the top three accounts upgraded to the higher tier and the renewal value was $1.8M."}
+{"case_id": "mechgap-0117", "label": "unsupported", "sentence": "The revised compensation plan works because things are going well."}
+{"case_id": "mechgap-0118", "label": "supported", "sentence": "Pipeline coverage declined because a regulated client paused all spending pending audit, and the renewal value was $1.8M, which we treated as the proximate driver."}
+{"case_id": "mechgap-0119", "label": "supported", "sentence": "Annual recurring revenue dropped because a regulated client paused all spending pending audit and the renewal value was $1.8M."}
+{"case_id": "mechgap-0120", "label": "unsupported", "sentence": "We have to rebuild the data layer, because consumer expectations have evolved and the path forward is obvious."}
+{"case_id": "mechgap-0121", "label": "supported", "sentence": "Gross margin fell primarily because the second-largest reseller terminated its agreement. To put it in scale, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0122", "label": "supported", "sentence": "Weekly active users softened because a regulated client paused all spending pending audit; specifically, the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0123", "label": "supported", "sentence": "Annual recurring revenue declined because the second-largest reseller terminated its agreement; specifically, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0124", "label": "supported", "sentence": "Q3 bookings rose because a regulated client paused all spending pending audit; specifically, the renewal value was $1.8M."}
+{"case_id": "mechgap-0125", "label": "unsupported", "sentence": "We must accelerate the platform rebuild because the culture is stronger."}
+{"case_id": "mechgap-0126", "label": "supported", "sentence": "Inbound demo requests softened sharply because two enterprise contracts closed in the same week, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0127", "label": "unsupported", "sentence": "We must accelerate the platform rebuild because engagement looks healthy."}
+{"case_id": "mechgap-0128", "label": "supported", "sentence": "Quarterly revenue declined primarily because the second-largest reseller terminated its agreement. To put it in scale, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0129", "label": "supported", "sentence": "Inbound demo requests fell sharply because the top three accounts upgraded to the higher tier, where they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0130", "label": "supported", "sentence": "Gross margin increased sharply because a regulated client paused all spending pending audit, where they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0131", "label": "unsupported", "sentence": "Our retention strategy clearly is paying off because things are going well."}
+{"case_id": "mechgap-0132", "label": "unsupported", "sentence": "The brand refresh clearly is gaining traction because customer success has improved."}
+{"case_id": "mechgap-0133", "label": "unsupported", "sentence": "We should expand into EMEA, because regulatory pressure is increasing and the path forward is obvious."}
+{"case_id": "mechgap-0134", "label": "supported", "sentence": "Annual recurring revenue declined this quarter because the largest customer non-renewed, where their contract represented 22% of bookings."}
+{"case_id": "mechgap-0135", "label": "supported", "sentence": "Weekly active users climbed because the second-largest reseller terminated its agreement and they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0136", "label": "unsupported", "sentence": "Our retention strategy is delivering because macro conditions are unfavorable."}
+{"case_id": "mechgap-0137", "label": "supported", "sentence": "Q3 bookings softened because the largest customer non-renewed, and their contract represented 22% of bookings, which we treated as the proximate driver."}
+{"case_id": "mechgap-0138", "label": "unsupported", "sentence": "The brand refresh clearly works because things are going well."}
+{"case_id": "mechgap-0139", "label": "supported", "sentence": "Pipeline coverage fell this quarter because a key supplier announced bankruptcy, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0140", "label": "unsupported", "sentence": "The new onboarding flow is delivering because morale is up."}
+{"case_id": "mechgap-0141", "label": "unsupported", "sentence": "We should pause the consumer experiment, because competitive dynamics have intensified and the path forward is obvious."}
+{"case_id": "mechgap-0142", "label": "unsupported", "sentence": "Our retention strategy is delivering because the culture is stronger."}
+{"case_id": "mechgap-0143", "label": "supported", "sentence": "Inbound demo requests expanded because the top three accounts upgraded to the higher tier, and their contract represented 22% of bookings, which we treated as the proximate driver."}
+{"case_id": "mechgap-0144", "label": "supported", "sentence": "Q3 bookings increased this quarter because two enterprise contracts closed in the same week, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0145", "label": "unsupported", "sentence": "We have to rebuild the data layer, because consumer expectations have evolved and the path forward is obvious."}
+{"case_id": "mechgap-0146", "label": "supported", "sentence": "Inbound demo requests softened because a key supplier announced bankruptcy and their contract represented 22% of bookings."}
+{"case_id": "mechgap-0147", "label": "unsupported", "sentence": "The new onboarding flow clearly is the right call because customer success has improved."}
+{"case_id": "mechgap-0148", "label": "unsupported", "sentence": "We should expand into EMEA because regulatory pressure is increasing."}
+{"case_id": "mechgap-0149", "label": "unsupported", "sentence": "We should expand into EMEA, because regulatory pressure is increasing and the path forward is obvious."}
+{"case_id": "mechgap-0150", "label": "unsupported", "sentence": "The new onboarding flow is succeeding because regulatory pressure is increasing."}
+{"case_id": "mechgap-0151", "label": "supported", "sentence": "Quarterly revenue rose because two enterprise contracts closed in the same week and the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0152", "label": "unsupported", "sentence": "The Q2 pricing change is succeeding because the culture is stronger."}
+{"case_id": "mechgap-0153", "label": "unsupported", "sentence": "We have to rebuild the data layer because macro conditions are unfavorable."}
+{"case_id": "mechgap-0154", "label": "unsupported", "sentence": "The revised compensation plan is the right call because the market is shifting."}
+{"case_id": "mechgap-0155", "label": "supported", "sentence": "Q3 bookings dropped sharply because the top three accounts upgraded to the higher tier, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0156", "label": "supported", "sentence": "Pipeline coverage softened sharply because the second-largest reseller terminated its agreement, where their contract represented 22% of bookings."}
+{"case_id": "mechgap-0157", "label": "unsupported", "sentence": "The Q2 pricing change is succeeding because macro conditions are unfavorable."}
+{"case_id": "mechgap-0158", "label": "supported", "sentence": "Quarterly revenue softened primarily because the second-largest reseller terminated its agreement. To put it in scale, those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0159", "label": "unsupported", "sentence": "We should expand into EMEA because consumer expectations have evolved."}
+{"case_id": "mechgap-0160", "label": "unsupported", "sentence": "We must accelerate the platform rebuild, because the market is shifting and the path forward is obvious."}
+{"case_id": "mechgap-0161", "label": "unsupported", "sentence": "The new onboarding flow works because regulatory pressure is increasing."}
+{"case_id": "mechgap-0162", "label": "supported", "sentence": "Gross margin dropped because a regulated client paused all spending pending audit; specifically, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0163", "label": "supported", "sentence": "Gross margin softened because the second-largest reseller terminated its agreement; specifically, the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0164", "label": "supported", "sentence": "Inbound demo requests expanded this quarter because the largest customer non-renewed, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0165", "label": "supported", "sentence": "Weekly active users dropped because the top three accounts upgraded to the higher tier, and these alone added $4.3M to ARR, which we treated as the proximate driver."}
+{"case_id": "mechgap-0166", "label": "unsupported", "sentence": "Our retention strategy clearly works because morale is up."}
+{"case_id": "mechgap-0167", "label": "supported", "sentence": "Inbound demo requests fell because the second-largest reseller terminated its agreement; specifically, these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0168", "label": "unsupported", "sentence": "The brand refresh is the right call because engagement looks healthy."}
+{"case_id": "mechgap-0169", "label": "unsupported", "sentence": "We have to rebuild the data layer because customer success has improved."}
+{"case_id": "mechgap-0170", "label": "supported", "sentence": "Net retention declined sharply because two enterprise contracts closed in the same week, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0171", "label": "unsupported", "sentence": "The brand refresh is succeeding because AI is changing everything."}
+{"case_id": "mechgap-0172", "label": "supported", "sentence": "Pipeline coverage increased sharply because the top three accounts upgraded to the higher tier, where the renewal value was $1.8M."}
+{"case_id": "mechgap-0173", "label": "unsupported", "sentence": "The new onboarding flow works because things are going well."}
+{"case_id": "mechgap-0174", "label": "supported", "sentence": "Inbound demo requests declined sharply because the largest customer non-renewed, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0175", "label": "supported", "sentence": "Weekly active users declined because the top three accounts upgraded to the higher tier and the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0176", "label": "unsupported", "sentence": "We should expand into EMEA because things are going well."}
+{"case_id": "mechgap-0177", "label": "supported", "sentence": "Pipeline coverage expanded because a key supplier announced bankruptcy; specifically, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0178", "label": "supported", "sentence": "Pipeline coverage increased because the top three accounts upgraded to the higher tier and the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0179", "label": "unsupported", "sentence": "We need to double down on enterprise, because AI is changing everything and the path forward is obvious."}
+{"case_id": "mechgap-0180", "label": "supported", "sentence": "Pipeline coverage dropped because the second-largest reseller terminated its agreement and their contract represented 22% of bookings."}
+{"case_id": "mechgap-0181", "label": "supported", "sentence": "Net retention expanded sharply because the second-largest reseller terminated its agreement, where the renewal value was $1.8M."}
+{"case_id": "mechgap-0182", "label": "supported", "sentence": "Weekly active users rose this quarter because a key supplier announced bankruptcy, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0183", "label": "supported", "sentence": "Inbound demo requests expanded primarily because the largest customer non-renewed. To put it in scale, those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0184", "label": "unsupported", "sentence": "The new onboarding flow is paying off because customer success has improved."}
+{"case_id": "mechgap-0185", "label": "supported", "sentence": "Inbound demo requests declined this quarter because the largest customer non-renewed, where their contract represented 22% of bookings."}
+{"case_id": "mechgap-0186", "label": "supported", "sentence": "Net retention rose sharply because the second-largest reseller terminated its agreement, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0187", "label": "supported", "sentence": "Weekly active users fell because the top three accounts upgraded to the higher tier; specifically, they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0188", "label": "unsupported", "sentence": "The Q2 pricing change clearly is delivering because things are going well."}
+{"case_id": "mechgap-0189", "label": "unsupported", "sentence": "We should expand into EMEA because AI is changing everything."}
+{"case_id": "mechgap-0190", "label": "unsupported", "sentence": "The Q2 pricing change works because regulatory pressure is increasing."}
+{"case_id": "mechgap-0191", "label": "unsupported", "sentence": "The brand refresh clearly is the right call because the culture is stronger."}
+{"case_id": "mechgap-0192", "label": "supported", "sentence": "Annual recurring revenue increased sharply because the largest customer non-renewed, where the renewal value was $1.8M."}
+{"case_id": "mechgap-0193", "label": "supported", "sentence": "Inbound demo requests dropped this quarter because the top three accounts upgraded to the higher tier, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0194", "label": "unsupported", "sentence": "The Q2 pricing change is delivering because consumer expectations have evolved."}
+{"case_id": "mechgap-0195", "label": "supported", "sentence": "Inbound demo requests expanded because a key supplier announced bankruptcy; specifically, these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0196", "label": "unsupported", "sentence": "The revised compensation plan clearly works because customer success has improved."}
+{"case_id": "mechgap-0197", "label": "supported", "sentence": "Net retention increased this quarter because a regulated client paused all spending pending audit, where their contract represented 22% of bookings."}
+{"case_id": "mechgap-0198", "label": "supported", "sentence": "Annual recurring revenue softened primarily because two enterprise contracts closed in the same week. To put it in scale, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0199", "label": "unsupported", "sentence": "The hybrid work policy is gaining traction because customer success has improved."}
+{"case_id": "mechgap-0200", "label": "supported", "sentence": "Annual recurring revenue rose primarily because the top three accounts upgraded to the higher tier. To put it in scale, they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0201", "label": "supported", "sentence": "Quarterly revenue softened this quarter because the largest customer non-renewed, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0202", "label": "unsupported", "sentence": "The hybrid work policy clearly is paying off because the team is more aligned."}
+{"case_id": "mechgap-0203", "label": "unsupported", "sentence": "We have to rebuild the data layer, because competitive dynamics have intensified and the path forward is obvious."}
+{"case_id": "mechgap-0204", "label": "unsupported", "sentence": "The Q2 pricing change is the right call because things are going well."}
+{"case_id": "mechgap-0205", "label": "unsupported", "sentence": "The Q2 pricing change works because engagement looks healthy."}
+{"case_id": "mechgap-0206", "label": "unsupported", "sentence": "We should expand into EMEA, because competitive dynamics have intensified and the path forward is obvious."}
+{"case_id": "mechgap-0207", "label": "unsupported", "sentence": "We should invest in compliance because the team is more aligned."}
+{"case_id": "mechgap-0208", "label": "unsupported", "sentence": "We have to rebuild the data layer because AI is changing everything."}
+{"case_id": "mechgap-0209", "label": "unsupported", "sentence": "The Q2 pricing change is the right call because morale is up."}
+{"case_id": "mechgap-0210", "label": "supported", "sentence": "Weekly active users climbed because the largest customer non-renewed, and the renewal value was $1.8M, which we treated as the proximate driver."}
+{"case_id": "mechgap-0211", "label": "supported", "sentence": "Weekly active users increased because the top three accounts upgraded to the higher tier; specifically, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0212", "label": "unsupported", "sentence": "The revised compensation plan is gaining traction because consumer expectations have evolved."}
+{"case_id": "mechgap-0213", "label": "supported", "sentence": "Gross margin climbed primarily because the top three accounts upgraded to the higher tier. To put it in scale, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0214", "label": "unsupported", "sentence": "The hybrid work policy is succeeding because the culture is stronger."}
+{"case_id": "mechgap-0215", "label": "unsupported", "sentence": "We should pause the consumer experiment because regulatory pressure is increasing."}
+{"case_id": "mechgap-0216", "label": "unsupported", "sentence": "The revised compensation plan works because competitive dynamics have intensified."}
+{"case_id": "mechgap-0217", "label": "supported", "sentence": "Inbound demo requests declined because the top three accounts upgraded to the higher tier; specifically, they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0218", "label": "unsupported", "sentence": "Our retention strategy is delivering because AI is changing everything."}
+{"case_id": "mechgap-0219", "label": "supported", "sentence": "Inbound demo requests dropped primarily because two enterprise contracts closed in the same week. To put it in scale, they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0220", "label": "unsupported", "sentence": "The hybrid work policy clearly works because things are going well."}
+{"case_id": "mechgap-0221", "label": "unsupported", "sentence": "We should pause the consumer experiment because the team is more aligned."}
+{"case_id": "mechgap-0222", "label": "unsupported", "sentence": "We must accelerate the platform rebuild, because regulatory pressure is increasing and the path forward is obvious."}
+{"case_id": "mechgap-0223", "label": "supported", "sentence": "Gross margin softened because the second-largest reseller terminated its agreement and they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0224", "label": "supported", "sentence": "Q3 bookings increased primarily because the top three accounts upgraded to the higher tier. To put it in scale, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0225", "label": "unsupported", "sentence": "We should pause the consumer experiment because engagement looks healthy."}
+{"case_id": "mechgap-0226", "label": "supported", "sentence": "Net retention increased this quarter because the largest customer non-renewed, where they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0227", "label": "unsupported", "sentence": "We should expand into EMEA, because regulatory pressure is increasing and the path forward is obvious."}
+{"case_id": "mechgap-0228", "label": "unsupported", "sentence": "We should pause the consumer experiment because macro conditions are unfavorable."}
+{"case_id": "mechgap-0229", "label": "unsupported", "sentence": "The new onboarding flow is succeeding because consumer expectations have evolved."}
+{"case_id": "mechgap-0230", "label": "unsupported", "sentence": "The revised compensation plan works because morale is up."}
+{"case_id": "mechgap-0231", "label": "supported", "sentence": "Inbound demo requests declined because a regulated client paused all spending pending audit, and those three clients were 41% of pipeline, which we treated as the proximate driver."}
+{"case_id": "mechgap-0232", "label": "supported", "sentence": "Annual recurring revenue declined because a key supplier announced bankruptcy and those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0233", "label": "unsupported", "sentence": "We have to rebuild the data layer, because macro conditions are unfavorable and the path forward is obvious."}
+{"case_id": "mechgap-0234", "label": "unsupported", "sentence": "We need to double down on enterprise because competitive dynamics have intensified."}
+{"case_id": "mechgap-0235", "label": "supported", "sentence": "Quarterly revenue dropped because two enterprise contracts closed in the same week and those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0236", "label": "unsupported", "sentence": "We have to rebuild the data layer because the market is shifting."}
+{"case_id": "mechgap-0237", "label": "supported", "sentence": "Weekly active users climbed this quarter because a key supplier announced bankruptcy, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0238", "label": "supported", "sentence": "Pipeline coverage softened primarily because a regulated client paused all spending pending audit. To put it in scale, they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0239", "label": "unsupported", "sentence": "The revised compensation plan clearly is delivering because the culture is stronger."}
+{"case_id": "mechgap-0240", "label": "unsupported", "sentence": "The new onboarding flow clearly is the right call because morale is up."}
+{"case_id": "mechgap-0241", "label": "supported", "sentence": "Net retention climbed because a regulated client paused all spending pending audit, and their contract represented 22% of bookings, which we treated as the proximate driver."}
+{"case_id": "mechgap-0242", "label": "supported", "sentence": "Net retention expanded sharply because a regulated client paused all spending pending audit, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0243", "label": "unsupported", "sentence": "We should expand into EMEA, because competitive dynamics have intensified and the path forward is obvious."}
+{"case_id": "mechgap-0244", "label": "unsupported", "sentence": "We need to double down on enterprise because the market is shifting."}
+{"case_id": "mechgap-0245", "label": "unsupported", "sentence": "The Q2 pricing change is paying off because regulatory pressure is increasing."}
+{"case_id": "mechgap-0246", "label": "supported", "sentence": "Weekly active users softened this quarter because the second-largest reseller terminated its agreement, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0247", "label": "supported", "sentence": "Q3 bookings fell because the top three accounts upgraded to the higher tier and the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0248", "label": "supported", "sentence": "Weekly active users expanded because a key supplier announced bankruptcy; specifically, the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0249", "label": "unsupported", "sentence": "Our retention strategy clearly works because customer success has improved."}
+{"case_id": "mechgap-0250", "label": "supported", "sentence": "Net retention expanded primarily because the top three accounts upgraded to the higher tier. To put it in scale, the renewal value was $1.8M."}
+{"case_id": "mechgap-0251", "label": "supported", "sentence": "Weekly active users increased sharply because the largest customer non-renewed, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0252", "label": "supported", "sentence": "Quarterly revenue rose because a regulated client paused all spending pending audit, and the renewal value was $1.8M, which we treated as the proximate driver."}
+{"case_id": "mechgap-0253", "label": "unsupported", "sentence": "We have to rebuild the data layer, because regulatory pressure is increasing and the path forward is obvious."}
+{"case_id": "mechgap-0254", "label": "unsupported", "sentence": "The hybrid work policy clearly is succeeding because morale is up."}
+{"case_id": "mechgap-0255", "label": "unsupported", "sentence": "The revised compensation plan is the right call because the team is more aligned."}
+{"case_id": "mechgap-0256", "label": "supported", "sentence": "Inbound demo requests dropped because the top three accounts upgraded to the higher tier and the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0257", "label": "unsupported", "sentence": "The Q2 pricing change clearly works because morale is up."}
+{"case_id": "mechgap-0258", "label": "supported", "sentence": "Q3 bookings rose because a regulated client paused all spending pending audit; specifically, the renewal value was $1.8M."}
+{"case_id": "mechgap-0259", "label": "supported", "sentence": "Inbound demo requests declined because a regulated client paused all spending pending audit, and the renewal value was $1.8M, which we treated as the proximate driver."}
+{"case_id": "mechgap-0260", "label": "unsupported", "sentence": "We need to double down on enterprise because AI is changing everything."}
+{"case_id": "mechgap-0261", "label": "supported", "sentence": "Weekly active users climbed primarily because a regulated client paused all spending pending audit. To put it in scale, the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0262", "label": "unsupported", "sentence": "The hybrid work policy is the right call because engagement looks healthy."}
+{"case_id": "mechgap-0263", "label": "supported", "sentence": "Quarterly revenue rose sharply because two enterprise contracts closed in the same week, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0264", "label": "supported", "sentence": "Annual recurring revenue increased sharply because two enterprise contracts closed in the same week, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0265", "label": "unsupported", "sentence": "The hybrid work policy is delivering because things are going well."}
+{"case_id": "mechgap-0266", "label": "unsupported", "sentence": "The hybrid work policy is delivering because macro conditions are unfavorable."}
+{"case_id": "mechgap-0267", "label": "unsupported", "sentence": "We must accelerate the platform rebuild, because AI is changing everything and the path forward is obvious."}
+{"case_id": "mechgap-0268", "label": "supported", "sentence": "Q3 bookings softened sharply because the largest customer non-renewed, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0269", "label": "unsupported", "sentence": "The hybrid work policy clearly is succeeding because morale is up."}
+{"case_id": "mechgap-0270", "label": "unsupported", "sentence": "We should invest in compliance, because consumer expectations have evolved and the path forward is obvious."}
+{"case_id": "mechgap-0271", "label": "supported", "sentence": "Gross margin climbed this quarter because the largest customer non-renewed, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0272", "label": "supported", "sentence": "Net retention increased sharply because the top three accounts upgraded to the higher tier, where they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0273", "label": "supported", "sentence": "Net retention fell this quarter because a key supplier announced bankruptcy, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0274", "label": "supported", "sentence": "Weekly active users rose primarily because two enterprise contracts closed in the same week. To put it in scale, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0275", "label": "unsupported", "sentence": "We have to rebuild the data layer, because competitive dynamics have intensified and the path forward is obvious."}
+{"case_id": "mechgap-0276", "label": "unsupported", "sentence": "The hybrid work policy is paying off because engagement looks healthy."}
+{"case_id": "mechgap-0277", "label": "supported", "sentence": "Weekly active users dropped because the top three accounts upgraded to the higher tier, and the spend totaled $620K per quarter, which we treated as the proximate driver."}
+{"case_id": "mechgap-0278", "label": "unsupported", "sentence": "We should pause the consumer experiment, because the market is shifting and the path forward is obvious."}
+{"case_id": "mechgap-0279", "label": "supported", "sentence": "Weekly active users expanded because the largest customer non-renewed and they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0280", "label": "unsupported", "sentence": "The new onboarding flow is succeeding because competitive dynamics have intensified."}
+{"case_id": "mechgap-0281", "label": "unsupported", "sentence": "We must accelerate the platform rebuild, because regulatory pressure is increasing and the path forward is obvious."}
+{"case_id": "mechgap-0282", "label": "supported", "sentence": "Annual recurring revenue climbed this quarter because a key supplier announced bankruptcy, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0283", "label": "unsupported", "sentence": "We should expand into EMEA, because regulatory pressure is increasing and the path forward is obvious."}
+{"case_id": "mechgap-0284", "label": "unsupported", "sentence": "The Q2 pricing change is the right call because morale is up."}
+{"case_id": "mechgap-0285", "label": "supported", "sentence": "Quarterly revenue rose because two enterprise contracts closed in the same week; specifically, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0286", "label": "supported", "sentence": "Q3 bookings dropped this quarter because two enterprise contracts closed in the same week, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0287", "label": "supported", "sentence": "Weekly active users fell because a regulated client paused all spending pending audit and those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0288", "label": "supported", "sentence": "Net retention declined this quarter because the largest customer non-renewed, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0289", "label": "supported", "sentence": "Q3 bookings rose sharply because two enterprise contracts closed in the same week, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0290", "label": "unsupported", "sentence": "We need to double down on enterprise because macro conditions are unfavorable."}
+{"case_id": "mechgap-0291", "label": "unsupported", "sentence": "Our retention strategy is delivering because AI is changing everything."}
+{"case_id": "mechgap-0292", "label": "unsupported", "sentence": "We should invest in compliance because AI is changing everything."}
+{"case_id": "mechgap-0293", "label": "unsupported", "sentence": "We must accelerate the platform rebuild, because regulatory pressure is increasing and the path forward is obvious."}
+{"case_id": "mechgap-0294", "label": "unsupported", "sentence": "The new onboarding flow clearly is delivering because things are going well."}
+{"case_id": "mechgap-0295", "label": "unsupported", "sentence": "We should invest in compliance because macro conditions are unfavorable."}
+{"case_id": "mechgap-0296", "label": "unsupported", "sentence": "The Q2 pricing change clearly is paying off because customer success has improved."}
+{"case_id": "mechgap-0297", "label": "supported", "sentence": "Net retention expanded this quarter because a key supplier announced bankruptcy, where they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0298", "label": "unsupported", "sentence": "Our retention strategy clearly works because the team is more aligned."}
+{"case_id": "mechgap-0299", "label": "supported", "sentence": "Q3 bookings declined this quarter because a key supplier announced bankruptcy, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0300", "label": "unsupported", "sentence": "We need to double down on enterprise, because AI is changing everything and the path forward is obvious."}
+{"case_id": "mechgap-0301", "label": "unsupported", "sentence": "The revised compensation plan clearly is delivering because morale is up."}
+{"case_id": "mechgap-0302", "label": "supported", "sentence": "Annual recurring revenue declined this quarter because two enterprise contracts closed in the same week, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0303", "label": "unsupported", "sentence": "We must accelerate the platform rebuild, because consumer expectations have evolved and the path forward is obvious."}
+{"case_id": "mechgap-0304", "label": "supported", "sentence": "Gross margin rose because a key supplier announced bankruptcy, and those three clients were 41% of pipeline, which we treated as the proximate driver."}
+{"case_id": "mechgap-0305", "label": "supported", "sentence": "Net retention declined primarily because two enterprise contracts closed in the same week. To put it in scale, they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0306", "label": "unsupported", "sentence": "The hybrid work policy works because competitive dynamics have intensified."}
+{"case_id": "mechgap-0307", "label": "supported", "sentence": "Annual recurring revenue fell because the largest customer non-renewed and they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0308", "label": "supported", "sentence": "Q3 bookings dropped primarily because the largest customer non-renewed. To put it in scale, the renewal value was $1.8M."}
+{"case_id": "mechgap-0309", "label": "supported", "sentence": "Weekly active users declined because the largest customer non-renewed, and their contract represented 22% of bookings, which we treated as the proximate driver."}
+{"case_id": "mechgap-0310", "label": "supported", "sentence": "Inbound demo requests dropped sharply because a key supplier announced bankruptcy, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0311", "label": "unsupported", "sentence": "We should invest in compliance, because competitive dynamics have intensified and the path forward is obvious."}
+{"case_id": "mechgap-0312", "label": "supported", "sentence": "Pipeline coverage softened because the second-largest reseller terminated its agreement; specifically, the renewal value was $1.8M."}
+{"case_id": "mechgap-0313", "label": "unsupported", "sentence": "We should pause the consumer experiment because the market is shifting."}
+{"case_id": "mechgap-0314", "label": "unsupported", "sentence": "The new onboarding flow works because competitive dynamics have intensified."}
+{"case_id": "mechgap-0315", "label": "unsupported", "sentence": "The new onboarding flow works because morale is up."}
+{"case_id": "mechgap-0316", "label": "unsupported", "sentence": "Our retention strategy is delivering because engagement looks healthy."}
+{"case_id": "mechgap-0317", "label": "supported", "sentence": "Gross margin expanded because the second-largest reseller terminated its agreement and their contract represented 22% of bookings."}
+{"case_id": "mechgap-0318", "label": "unsupported", "sentence": "We must accelerate the platform rebuild because consumer expectations have evolved."}
+{"case_id": "mechgap-0319", "label": "unsupported", "sentence": "The new onboarding flow clearly is paying off because morale is up."}
+{"case_id": "mechgap-0320", "label": "unsupported", "sentence": "We should pause the consumer experiment because the culture is stronger."}
+{"case_id": "mechgap-0321", "label": "supported", "sentence": "Pipeline coverage increased because the top three accounts upgraded to the higher tier; specifically, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0322", "label": "supported", "sentence": "Annual recurring revenue declined this quarter because the top three accounts upgraded to the higher tier, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0323", "label": "unsupported", "sentence": "We should pause the consumer experiment because AI is changing everything."}
+{"case_id": "mechgap-0324", "label": "unsupported", "sentence": "We should pause the consumer experiment because things are going well."}
+{"case_id": "mechgap-0325", "label": "supported", "sentence": "Pipeline coverage fell primarily because a regulated client paused all spending pending audit. To put it in scale, those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0326", "label": "supported", "sentence": "Net retention increased because a key supplier announced bankruptcy, and the renewal value was $1.8M, which we treated as the proximate driver."}
+{"case_id": "mechgap-0327", "label": "unsupported", "sentence": "The brand refresh clearly works because customer success has improved."}
+{"case_id": "mechgap-0328", "label": "unsupported", "sentence": "We need to double down on enterprise because the culture is stronger."}
+{"case_id": "mechgap-0329", "label": "supported", "sentence": "Gross margin expanded sharply because the second-largest reseller terminated its agreement, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0330", "label": "unsupported", "sentence": "We must accelerate the platform rebuild because AI is changing everything."}
+{"case_id": "mechgap-0331", "label": "unsupported", "sentence": "We have to rebuild the data layer because things are going well."}
+{"case_id": "mechgap-0332", "label": "unsupported", "sentence": "We need to double down on enterprise, because regulatory pressure is increasing and the path forward is obvious."}
+{"case_id": "mechgap-0333", "label": "supported", "sentence": "Inbound demo requests dropped because the top three accounts upgraded to the higher tier; specifically, these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0334", "label": "unsupported", "sentence": "We should invest in compliance because morale is up."}
+{"case_id": "mechgap-0335", "label": "supported", "sentence": "Quarterly revenue increased this quarter because the largest customer non-renewed, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0336", "label": "unsupported", "sentence": "We must accelerate the platform rebuild because things are going well."}
+{"case_id": "mechgap-0337", "label": "supported", "sentence": "Annual recurring revenue climbed because the top three accounts upgraded to the higher tier and the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0338", "label": "supported", "sentence": "Net retention rose because two enterprise contracts closed in the same week, and the spend totaled $620K per quarter, which we treated as the proximate driver."}
+{"case_id": "mechgap-0339", "label": "unsupported", "sentence": "We should expand into EMEA because the market is shifting."}
+{"case_id": "mechgap-0340", "label": "unsupported", "sentence": "The brand refresh clearly is the right call because morale is up."}
+{"case_id": "mechgap-0341", "label": "supported", "sentence": "Pipeline coverage softened because two enterprise contracts closed in the same week and the renewal value was $1.8M."}
+{"case_id": "mechgap-0342", "label": "supported", "sentence": "Annual recurring revenue expanded because the largest customer non-renewed, and these alone added $4.3M to ARR, which we treated as the proximate driver."}
+{"case_id": "mechgap-0343", "label": "unsupported", "sentence": "The Q2 pricing change works because macro conditions are unfavorable."}
+{"case_id": "mechgap-0344", "label": "unsupported", "sentence": "We should invest in compliance because the market is shifting."}
+{"case_id": "mechgap-0345", "label": "supported", "sentence": "Net retention rose primarily because the top three accounts upgraded to the higher tier. To put it in scale, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0346", "label": "supported", "sentence": "Q3 bookings climbed sharply because a key supplier announced bankruptcy, where they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0347", "label": "unsupported", "sentence": "We should expand into EMEA, because the market is shifting and the path forward is obvious."}
+{"case_id": "mechgap-0348", "label": "supported", "sentence": "Net retention increased because a regulated client paused all spending pending audit; specifically, the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0349", "label": "supported", "sentence": "Quarterly revenue expanded because a key supplier announced bankruptcy, and the spend totaled $620K per quarter, which we treated as the proximate driver."}
+{"case_id": "mechgap-0350", "label": "supported", "sentence": "Quarterly revenue expanded because the second-largest reseller terminated its agreement and those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0351", "label": "supported", "sentence": "Gross margin softened because two enterprise contracts closed in the same week and the renewal value was $1.8M."}
+{"case_id": "mechgap-0352", "label": "unsupported", "sentence": "The new onboarding flow is paying off because engagement looks healthy."}
+{"case_id": "mechgap-0353", "label": "supported", "sentence": "Net retention declined this quarter because the second-largest reseller terminated its agreement, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0354", "label": "supported", "sentence": "Net retention increased primarily because a regulated client paused all spending pending audit. To put it in scale, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0355", "label": "unsupported", "sentence": "We have to rebuild the data layer, because the market is shifting and the path forward is obvious."}
+{"case_id": "mechgap-0356", "label": "unsupported", "sentence": "We should invest in compliance because morale is up."}
+{"case_id": "mechgap-0357", "label": "unsupported", "sentence": "We need to double down on enterprise because competitive dynamics have intensified."}
+{"case_id": "mechgap-0358", "label": "unsupported", "sentence": "The Q2 pricing change is succeeding because the team is more aligned."}
+{"case_id": "mechgap-0359", "label": "supported", "sentence": "Weekly active users climbed because the largest customer non-renewed, and the renewal value was $1.8M, which we treated as the proximate driver."}
+{"case_id": "mechgap-0360", "label": "unsupported", "sentence": "We need to double down on enterprise because regulatory pressure is increasing."}
+{"case_id": "mechgap-0361", "label": "supported", "sentence": "Inbound demo requests declined primarily because the second-largest reseller terminated its agreement. To put it in scale, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0362", "label": "supported", "sentence": "Q3 bookings increased because a regulated client paused all spending pending audit and those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0363", "label": "unsupported", "sentence": "The brand refresh is paying off because regulatory pressure is increasing."}
+{"case_id": "mechgap-0364", "label": "supported", "sentence": "Inbound demo requests increased this quarter because a key supplier announced bankruptcy, where the renewal value was $1.8M."}
+{"case_id": "mechgap-0365", "label": "unsupported", "sentence": "We should pause the consumer experiment because the culture is stronger."}
+{"case_id": "mechgap-0366", "label": "supported", "sentence": "Pipeline coverage climbed sharply because the largest customer non-renewed, where the renewal value was $1.8M."}
+{"case_id": "mechgap-0367", "label": "unsupported", "sentence": "We should expand into EMEA because consumer expectations have evolved."}
+{"case_id": "mechgap-0368", "label": "supported", "sentence": "Net retention climbed sharply because the second-largest reseller terminated its agreement, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0369", "label": "supported", "sentence": "Inbound demo requests dropped primarily because the top three accounts upgraded to the higher tier. To put it in scale, these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0370", "label": "supported", "sentence": "Gross margin declined because the largest customer non-renewed and these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0371", "label": "unsupported", "sentence": "The hybrid work policy works because consumer expectations have evolved."}
+{"case_id": "mechgap-0372", "label": "supported", "sentence": "Pipeline coverage rose primarily because two enterprise contracts closed in the same week. To put it in scale, they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0373", "label": "unsupported", "sentence": "The brand refresh works because macro conditions are unfavorable."}
+{"case_id": "mechgap-0374", "label": "supported", "sentence": "Gross margin expanded because the largest customer non-renewed and those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0375", "label": "unsupported", "sentence": "The revised compensation plan is succeeding because consumer expectations have evolved."}
+{"case_id": "mechgap-0376", "label": "unsupported", "sentence": "We should expand into EMEA because the market is shifting."}
+{"case_id": "mechgap-0377", "label": "unsupported", "sentence": "We have to rebuild the data layer because macro conditions are unfavorable."}
+{"case_id": "mechgap-0378", "label": "supported", "sentence": "Gross margin expanded because a regulated client paused all spending pending audit, and these alone added $4.3M to ARR, which we treated as the proximate driver."}
+{"case_id": "mechgap-0379", "label": "unsupported", "sentence": "The new onboarding flow clearly is gaining traction because customer success has improved."}
+{"case_id": "mechgap-0380", "label": "unsupported", "sentence": "The new onboarding flow clearly is paying off because morale is up."}
+{"case_id": "mechgap-0381", "label": "unsupported", "sentence": "The Q2 pricing change is paying off because engagement looks healthy."}
+{"case_id": "mechgap-0382", "label": "supported", "sentence": "Weekly active users declined this quarter because the second-largest reseller terminated its agreement, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0383", "label": "supported", "sentence": "Inbound demo requests climbed because a key supplier announced bankruptcy; specifically, these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0384", "label": "supported", "sentence": "Net retention increased because a regulated client paused all spending pending audit and their contract represented 22% of bookings."}
+{"case_id": "mechgap-0385", "label": "supported", "sentence": "Pipeline coverage fell because the largest customer non-renewed, and they accounted for 38% of weekly volume, which we treated as the proximate driver."}
+{"case_id": "mechgap-0386", "label": "unsupported", "sentence": "We have to rebuild the data layer because things are going well."}
+{"case_id": "mechgap-0387", "label": "supported", "sentence": "Pipeline coverage softened this quarter because the top three accounts upgraded to the higher tier, where the renewal value was $1.8M."}
+{"case_id": "mechgap-0388", "label": "unsupported", "sentence": "The brand refresh clearly is the right call because engagement looks healthy."}
+{"case_id": "mechgap-0389", "label": "supported", "sentence": "Q3 bookings declined because a regulated client paused all spending pending audit, and they accounted for 38% of weekly volume, which we treated as the proximate driver."}
+{"case_id": "mechgap-0390", "label": "supported", "sentence": "Q3 bookings increased because two enterprise contracts closed in the same week and the renewal value was $1.8M."}
+{"case_id": "mechgap-0391", "label": "supported", "sentence": "Weekly active users fell sharply because the largest customer non-renewed, where their contract represented 22% of bookings."}
+{"case_id": "mechgap-0392", "label": "supported", "sentence": "Inbound demo requests fell because a regulated client paused all spending pending audit and those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0393", "label": "supported", "sentence": "Quarterly revenue declined because the top three accounts upgraded to the higher tier, and their contract represented 22% of bookings, which we treated as the proximate driver."}
+{"case_id": "mechgap-0394", "label": "supported", "sentence": "Q3 bookings fell because a key supplier announced bankruptcy, and those three clients were 41% of pipeline, which we treated as the proximate driver."}
+{"case_id": "mechgap-0395", "label": "supported", "sentence": "Inbound demo requests rose because the largest customer non-renewed and those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0396", "label": "supported", "sentence": "Pipeline coverage softened because a regulated client paused all spending pending audit, and they accounted for 38% of weekly volume, which we treated as the proximate driver."}
+{"case_id": "mechgap-0397", "label": "supported", "sentence": "Inbound demo requests dropped because the largest customer non-renewed; specifically, they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0398", "label": "unsupported", "sentence": "Our retention strategy clearly is paying off because customer success has improved."}
+{"case_id": "mechgap-0399", "label": "supported", "sentence": "Quarterly revenue fell because a regulated client paused all spending pending audit; specifically, they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0400", "label": "unsupported", "sentence": "We should invest in compliance because customer success has improved."}
+{"case_id": "mechgap-0401", "label": "unsupported", "sentence": "We have to rebuild the data layer because AI is changing everything."}
+{"case_id": "mechgap-0402", "label": "supported", "sentence": "Weekly active users fell sharply because two enterprise contracts closed in the same week, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0403", "label": "unsupported", "sentence": "Our retention strategy is the right call because competitive dynamics have intensified."}
+{"case_id": "mechgap-0404", "label": "supported", "sentence": "Q3 bookings dropped this quarter because a key supplier announced bankruptcy, where their contract represented 22% of bookings."}
+{"case_id": "mechgap-0405", "label": "supported", "sentence": "Inbound demo requests softened this quarter because the top three accounts upgraded to the higher tier, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0406", "label": "supported", "sentence": "Pipeline coverage expanded because the largest customer non-renewed, and the renewal value was $1.8M, which we treated as the proximate driver."}
+{"case_id": "mechgap-0407", "label": "unsupported", "sentence": "The hybrid work policy is delivering because competitive dynamics have intensified."}
+{"case_id": "mechgap-0408", "label": "supported", "sentence": "Q3 bookings rose sharply because the top three accounts upgraded to the higher tier, where the renewal value was $1.8M."}
+{"case_id": "mechgap-0409", "label": "unsupported", "sentence": "We have to rebuild the data layer because AI is changing everything."}
+{"case_id": "mechgap-0410", "label": "supported", "sentence": "Pipeline coverage dropped primarily because a regulated client paused all spending pending audit. To put it in scale, the renewal value was $1.8M."}
+{"case_id": "mechgap-0411", "label": "supported", "sentence": "Annual recurring revenue fell because a key supplier announced bankruptcy, and those three clients were 41% of pipeline, which we treated as the proximate driver."}
+{"case_id": "mechgap-0412", "label": "unsupported", "sentence": "We should pause the consumer experiment because the team is more aligned."}
+{"case_id": "mechgap-0413", "label": "supported", "sentence": "Gross margin dropped primarily because a key supplier announced bankruptcy. To put it in scale, these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0414", "label": "supported", "sentence": "Quarterly revenue rose because the top three accounts upgraded to the higher tier, and these alone added $4.3M to ARR, which we treated as the proximate driver."}
+{"case_id": "mechgap-0415", "label": "supported", "sentence": "Pipeline coverage rose because the top three accounts upgraded to the higher tier and they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0416", "label": "unsupported", "sentence": "The new onboarding flow is the right call because AI is changing everything."}
+{"case_id": "mechgap-0417", "label": "supported", "sentence": "Pipeline coverage increased because a regulated client paused all spending pending audit, and their contract represented 22% of bookings, which we treated as the proximate driver."}
+{"case_id": "mechgap-0418", "label": "supported", "sentence": "Pipeline coverage declined primarily because the largest customer non-renewed. To put it in scale, the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0419", "label": "supported", "sentence": "Weekly active users fell because the top three accounts upgraded to the higher tier and these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0420", "label": "supported", "sentence": "Net retention declined because two enterprise contracts closed in the same week and their contract represented 22% of bookings."}
+{"case_id": "mechgap-0421", "label": "unsupported", "sentence": "The hybrid work policy is paying off because the market is shifting."}
+{"case_id": "mechgap-0422", "label": "supported", "sentence": "Gross margin increased because the largest customer non-renewed and their contract represented 22% of bookings."}
+{"case_id": "mechgap-0423", "label": "supported", "sentence": "Weekly active users dropped this quarter because two enterprise contracts closed in the same week, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0424", "label": "supported", "sentence": "Net retention softened primarily because a regulated client paused all spending pending audit. To put it in scale, those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0425", "label": "supported", "sentence": "Inbound demo requests fell primarily because a regulated client paused all spending pending audit. To put it in scale, these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0426", "label": "unsupported", "sentence": "We have to rebuild the data layer because engagement looks healthy."}
+{"case_id": "mechgap-0427", "label": "unsupported", "sentence": "The Q2 pricing change is succeeding because customer success has improved."}
+{"case_id": "mechgap-0428", "label": "unsupported", "sentence": "The Q2 pricing change clearly is succeeding because things are going well."}
+{"case_id": "mechgap-0429", "label": "supported", "sentence": "Weekly active users declined this quarter because the top three accounts upgraded to the higher tier, where they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0430", "label": "supported", "sentence": "Net retention increased because the top three accounts upgraded to the higher tier, and the renewal value was $1.8M, which we treated as the proximate driver."}
+{"case_id": "mechgap-0431", "label": "supported", "sentence": "Gross margin rose this quarter because a regulated client paused all spending pending audit, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0432", "label": "unsupported", "sentence": "Our retention strategy is delivering because the market is shifting."}
+{"case_id": "mechgap-0433", "label": "supported", "sentence": "Weekly active users expanded because the second-largest reseller terminated its agreement, and these alone added $4.3M to ARR, which we treated as the proximate driver."}
+{"case_id": "mechgap-0434", "label": "unsupported", "sentence": "We should invest in compliance, because macro conditions are unfavorable and the path forward is obvious."}
+{"case_id": "mechgap-0435", "label": "unsupported", "sentence": "Our retention strategy is succeeding because AI is changing everything."}
+{"case_id": "mechgap-0436", "label": "unsupported", "sentence": "The new onboarding flow clearly works because engagement looks healthy."}
+{"case_id": "mechgap-0437", "label": "supported", "sentence": "Gross margin dropped because the top three accounts upgraded to the higher tier; specifically, the renewal value was $1.8M."}
+{"case_id": "mechgap-0438", "label": "unsupported", "sentence": "The hybrid work policy clearly is succeeding because engagement looks healthy."}
+{"case_id": "mechgap-0439", "label": "unsupported", "sentence": "We should expand into EMEA because things are going well."}
+{"case_id": "mechgap-0440", "label": "supported", "sentence": "Q3 bookings rose sharply because the top three accounts upgraded to the higher tier, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0441", "label": "unsupported", "sentence": "We should invest in compliance, because AI is changing everything and the path forward is obvious."}
+{"case_id": "mechgap-0442", "label": "unsupported", "sentence": "We should expand into EMEA because AI is changing everything."}
+{"case_id": "mechgap-0443", "label": "supported", "sentence": "Net retention expanded primarily because the second-largest reseller terminated its agreement. To put it in scale, the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0444", "label": "unsupported", "sentence": "We should pause the consumer experiment because customer success has improved."}
+{"case_id": "mechgap-0445", "label": "supported", "sentence": "Gross margin rose because a regulated client paused all spending pending audit, and they accounted for 38% of weekly volume, which we treated as the proximate driver."}
+{"case_id": "mechgap-0446", "label": "unsupported", "sentence": "Our retention strategy is the right call because competitive dynamics have intensified."}
+{"case_id": "mechgap-0447", "label": "unsupported", "sentence": "We should expand into EMEA, because the market is shifting and the path forward is obvious."}
+{"case_id": "mechgap-0448", "label": "unsupported", "sentence": "We must accelerate the platform rebuild because competitive dynamics have intensified."}
+{"case_id": "mechgap-0449", "label": "supported", "sentence": "Weekly active users rose because the top three accounts upgraded to the higher tier; specifically, the renewal value was $1.8M."}
+{"case_id": "mechgap-0450", "label": "supported", "sentence": "Inbound demo requests increased primarily because the top three accounts upgraded to the higher tier. To put it in scale, the renewal value was $1.8M."}
+{"case_id": "mechgap-0451", "label": "supported", "sentence": "Pipeline coverage rose because the second-largest reseller terminated its agreement, and the spend totaled $620K per quarter, which we treated as the proximate driver."}
+{"case_id": "mechgap-0452", "label": "unsupported", "sentence": "We need to double down on enterprise, because the market is shifting and the path forward is obvious."}
+{"case_id": "mechgap-0453", "label": "unsupported", "sentence": "We should pause the consumer experiment because regulatory pressure is increasing."}
+{"case_id": "mechgap-0454", "label": "supported", "sentence": "Gross margin dropped this quarter because the second-largest reseller terminated its agreement, where the renewal value was $1.8M."}
+{"case_id": "mechgap-0455", "label": "unsupported", "sentence": "Our retention strategy is gaining traction because customer success has improved."}
+{"case_id": "mechgap-0456", "label": "unsupported", "sentence": "The brand refresh is paying off because customer success has improved."}
+{"case_id": "mechgap-0457", "label": "supported", "sentence": "Pipeline coverage expanded this quarter because the largest customer non-renewed, where the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0458", "label": "unsupported", "sentence": "We must accelerate the platform rebuild because AI is changing everything."}
+{"case_id": "mechgap-0459", "label": "unsupported", "sentence": "We should expand into EMEA because engagement looks healthy."}
+{"case_id": "mechgap-0460", "label": "unsupported", "sentence": "The Q2 pricing change is delivering because the culture is stronger."}
+{"case_id": "mechgap-0461", "label": "unsupported", "sentence": "We should invest in compliance because the team is more aligned."}
+{"case_id": "mechgap-0462", "label": "supported", "sentence": "Q3 bookings softened sharply because the second-largest reseller terminated its agreement, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0463", "label": "unsupported", "sentence": "We should expand into EMEA because things are going well."}
+{"case_id": "mechgap-0464", "label": "unsupported", "sentence": "We need to double down on enterprise because customer success has improved."}
+{"case_id": "mechgap-0465", "label": "unsupported", "sentence": "The new onboarding flow is paying off because the culture is stronger."}
+{"case_id": "mechgap-0466", "label": "supported", "sentence": "Weekly active users climbed primarily because a regulated client paused all spending pending audit. To put it in scale, they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0467", "label": "unsupported", "sentence": "The hybrid work policy clearly is paying off because customer success has improved."}
+{"case_id": "mechgap-0468", "label": "unsupported", "sentence": "Our retention strategy clearly is paying off because the team is more aligned."}
+{"case_id": "mechgap-0469", "label": "supported", "sentence": "Inbound demo requests increased this quarter because the largest customer non-renewed, where the renewal value was $1.8M."}
+{"case_id": "mechgap-0470", "label": "unsupported", "sentence": "The Q2 pricing change is the right call because the team is more aligned."}
+{"case_id": "mechgap-0471", "label": "unsupported", "sentence": "The hybrid work policy works because morale is up."}
+{"case_id": "mechgap-0472", "label": "unsupported", "sentence": "We have to rebuild the data layer because the culture is stronger."}
+{"case_id": "mechgap-0473", "label": "unsupported", "sentence": "The revised compensation plan clearly is the right call because the culture is stronger."}
+{"case_id": "mechgap-0474", "label": "supported", "sentence": "Net retention declined because two enterprise contracts closed in the same week; specifically, the renewal value was $1.8M."}
+{"case_id": "mechgap-0475", "label": "supported", "sentence": "Annual recurring revenue declined sharply because the second-largest reseller terminated its agreement, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0476", "label": "unsupported", "sentence": "We must accelerate the platform rebuild because consumer expectations have evolved."}
+{"case_id": "mechgap-0477", "label": "unsupported", "sentence": "We have to rebuild the data layer because things are going well."}
+{"case_id": "mechgap-0478", "label": "supported", "sentence": "Gross margin increased this quarter because two enterprise contracts closed in the same week, where their contract represented 22% of bookings."}
+{"case_id": "mechgap-0479", "label": "supported", "sentence": "Quarterly revenue fell because two enterprise contracts closed in the same week, and these alone added $4.3M to ARR, which we treated as the proximate driver."}
+{"case_id": "mechgap-0480", "label": "supported", "sentence": "Gross margin dropped sharply because a regulated client paused all spending pending audit, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0481", "label": "unsupported", "sentence": "Our retention strategy clearly is gaining traction because things are going well."}
+{"case_id": "mechgap-0482", "label": "supported", "sentence": "Annual recurring revenue expanded this quarter because two enterprise contracts closed in the same week, where they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0483", "label": "unsupported", "sentence": "The revised compensation plan is the right call because macro conditions are unfavorable."}
+{"case_id": "mechgap-0484", "label": "unsupported", "sentence": "We should expand into EMEA because customer success has improved."}
+{"case_id": "mechgap-0485", "label": "unsupported", "sentence": "We have to rebuild the data layer because AI is changing everything."}
+{"case_id": "mechgap-0486", "label": "supported", "sentence": "Pipeline coverage softened because a key supplier announced bankruptcy, and those three clients were 41% of pipeline, which we treated as the proximate driver."}
+{"case_id": "mechgap-0487", "label": "supported", "sentence": "Weekly active users softened because the second-largest reseller terminated its agreement; specifically, the spend totaled $620K per quarter."}
+{"case_id": "mechgap-0488", "label": "unsupported", "sentence": "The revised compensation plan clearly is the right call because the team is more aligned."}
+{"case_id": "mechgap-0489", "label": "unsupported", "sentence": "We should expand into EMEA because consumer expectations have evolved."}
+{"case_id": "mechgap-0490", "label": "supported", "sentence": "Q3 bookings increased this quarter because the largest customer non-renewed, where those three clients were 41% of pipeline."}
+{"case_id": "mechgap-0491", "label": "supported", "sentence": "Quarterly revenue increased because the top three accounts upgraded to the higher tier; specifically, they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0492", "label": "supported", "sentence": "Weekly active users climbed primarily because the largest customer non-renewed. To put it in scale, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0493", "label": "supported", "sentence": "Q3 bookings dropped this quarter because two enterprise contracts closed in the same week, where these alone added $4.3M to ARR."}
+{"case_id": "mechgap-0494", "label": "supported", "sentence": "Quarterly revenue dropped sharply because a regulated client paused all spending pending audit, where they accounted for 38% of weekly volume."}
+{"case_id": "mechgap-0495", "label": "unsupported", "sentence": "We must accelerate the platform rebuild because morale is up."}
+{"case_id": "mechgap-0496", "label": "supported", "sentence": "Pipeline coverage dropped because a key supplier announced bankruptcy; specifically, their contract represented 22% of bookings."}
+{"case_id": "mechgap-0497", "label": "unsupported", "sentence": "We should expand into EMEA because engagement looks healthy."}
+{"case_id": "mechgap-0498", "label": "supported", "sentence": "Pipeline coverage increased because two enterprise contracts closed in the same week, and they accounted for 38% of weekly volume, which we treated as the proximate driver."}
+{"case_id": "mechgap-0499", "label": "unsupported", "sentence": "The new onboarding flow works because the market is shifting."}
+{"case_id": "mechgap-0500", "label": "unsupported", "sentence": "The new onboarding flow is the right call because the culture is stronger."}
