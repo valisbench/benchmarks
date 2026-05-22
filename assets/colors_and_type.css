@@ -1,0 +1,316 @@
+/* ==========================================================================
+   VALIS Design System — Colors & Type
+   Import this in every artifact: <link rel="stylesheet" href="colors_and_type.css">
+   ========================================================================== */
+
+/* ── Fonts (Google Fonts CDN) ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap');
+
+/* ── Tokens ───────────────────────────────────────────────────────────── */
+:root {
+  /* Core palette */
+  --ink: #1a1814;
+  --paper: #f4f0e8;
+  --paper-alt: #eee8dc;          /* alternating section bg */
+  --warm-mid: #e8e2d6;
+  --warm-mid-2: #c4bdb3;
+  --accent: #E79583;             /* salmon */
+  --accent-deep: #c4715f;        /* pressed / darker salmon used in mono label */
+  --accent-muted: #e8d5c8;
+  --ghost: #8a847a;              /* muted body text */
+  --ghost-2: #6e6960;            /* subheads */
+  --rule: #d4cec4;               /* hairline borders */
+  --rule-subtle: rgba(26, 24, 20, 0.06);
+
+  /* Semantic status */
+  --verified: #16803C;
+  --challenged: #B45309;
+  --unverified: #DC2626;
+  --citation: #2563EB;
+  --scenario-pivot: #9333EA;
+
+  /* Text hierarchy (on paper bg) */
+  --fg-1: #1a1814;               /* primary */
+  --fg-2: #3a3630;               /* secondary */
+  --fg-3: #6e6960;               /* muted */
+  --fg-4: #8a847a;               /* ghost */
+
+  /* Type */
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'DM Mono', 'SF Mono', Menlo, monospace;
+
+  /* Widths */
+  --w-content: 1200px;
+  --w-reading: 780px;
+  --w-narrow: 640px;
+
+  /* Spacing scale (multiples of 4px) */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+  --s-20: 80px;
+  --s-24: 96px;
+  --s-32: 128px;
+
+  /* Radii — essentially zero */
+  --radius-0: 0px;
+  --radius-pill: 9999px;
+
+  /* Shadow (only one in the system) */
+  --shadow-badge: 0 2px 8px rgba(196, 113, 95, 0.35);
+
+  /* Motion */
+  --ease-reveal: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-reveal: 1200ms;
+  --dur-medium: 500ms;
+  --dur-short: 300ms;
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Film grain overlay — attach to <body> or a positioned parent */
+.valis-grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ── Semantic type classes ────────────────────────────────────────────── */
+
+/* Display — Cormorant 300, editorial hero */
+.t-display {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.t-display-sm {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+/* H2-scale headline */
+.t-headline {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+/* Italic literary subhead (Cormorant italic) */
+.t-subhead {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  line-height: 1.5;
+  color: var(--ghost-2);
+}
+
+/* Title / h3 */
+.t-title {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* Body */
+.t-body-lg {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  font-weight: 400;
+  color: var(--ghost);
+}
+
+.t-body {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  font-weight: 400;
+  color: var(--ghost);
+}
+
+.t-body-sm {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--ghost);
+}
+
+/* Label — uppercase, wide-tracked, DM Mono, small. The VALIS signature. */
+.t-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.t-label-ghost {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--ghost);
+}
+
+.t-label-sm {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* Monospaced data readings (numbers, times, confidences) */
+.t-mono-data {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.t-mono-sm {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+}
+
+/* Wordmark "VALIS" — DM Mono bold, extreme tracking */
+.t-wordmark {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.36em;
+  color: var(--ink);
+  text-transform: none; /* already uppercase */
+}
+
+/* Blog-prose defaults */
+.t-prose p {
+  font-family: var(--font-sans);
+  font-size: clamp(1.125rem, 0.4vw + 1rem, 1.25rem);
+  line-height: 1.75;
+  color: rgba(26, 24, 20, 0.85);
+}
+.t-prose p + p { margin-top: 1.5rem; }
+.t-prose h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.875rem, 1vw + 1.5rem, 2.25rem);
+  line-height: 1.15;
+  margin: 4rem 0 2rem;
+  color: var(--ink);
+}
+
+/* ── Rules ────────────────────────────────────────────────────────────── */
+.fine-rule {
+  height: 1px;
+  background: var(--rule);
+  border: 0;
+}
+
+/* ── Ghost button (the only button style in the system) ──────────────── */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--ink);
+  background: transparent;
+  padding: 12px 28px;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--dur-short) var(--ease-standard),
+              color var(--dur-short) var(--ease-standard);
+}
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ── Section label (mono uppercase, salmon) ──────────────────────────── */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ── Status tags ──────────────────────────────────────────────────────── */
+.claim-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.claim-tag--verified    { background: rgba(22, 128, 60, 0.1);  color: var(--verified); }
+.claim-tag--challenged  { background: rgba(180, 83, 9, 0.1);   color: var(--challenged); }
+.claim-tag--unverified  { background: rgba(220, 38, 38, 0.1);  color: var(--unverified); }
+.claim-tag--citation    { background: rgba(37, 99, 235, 0.1);  color: var(--citation); }
+
+/* ── Card (the default container shape) ──────────────────────────────── */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 24px;
+}
+.card--warm {
+  background: var(--paper-alt);
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}

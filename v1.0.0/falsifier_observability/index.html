@@ -3,135 +3,66 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>v1.0.0 -- VALIS Benchmarks</title>
+  <title>falsifier_observability v1.0.0 -- VALIS Benchmarks</title>
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
-<body>
-  <header>
-    <h1><a href="../../index.html">VALIS Benchmarks</a></h1>
-    <nav>
-      <a href="../../index.html">Index</a> ·
-      <a href="../../methodology.html">Methodology</a> ·
-      <a href="../../verify.html">Verify</a> ·
+<body class="valis-grain">
+  <span class="visually-hidden">VALIS Benchmarks</span>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <a class="site-brand" href="https://valissystems.com" aria-label="VALIS Systems home">
+      <svg class="valis-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10 14 L20 30 L30 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+      </svg>
+      <span class="wordmark">VALIS</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../../index.html">Versions</a>
+      <a href="../../methodology.html">Methodology</a>
+      <a href="../../verify.html">Verify</a>
       <a href="https://github.com/valisbench/benchmarks">Source</a>
     </nav>
   </header>
-  <main>
-<h2>Benchmark v1.0.0 <span class="badge badge-pending">OTS pending</span></h2>
-<p>falsifier_observability wedge, 500 cases,
-   3 models in roster.
-   Pre-registered on 2026-05-21 00:00:00+00:00 by VALIS Systems.</p>
+  <main id="main">
 
 
-<h3>Anchoring</h3>
-<ul>
-  <li><strong>Sigstore Rekor:</strong> log index
-    <a href="https://search.sigstore.dev/?logIndex=1602179431"><code>1602179431</code></a>,
-    integrated at 2026-05-22 11:55:07 UTC.</li>
-  <li><strong>OpenTimestamps:</strong> Submitted to four OpenTimestamps calendar servers; Bitcoin block confirmation typically arrives three to six hours after submission. The daily finalizer upgrades the proof once confirmed.</li>
-  <li><strong>Manifest SHA256:</strong> <code>aa1a9b75bdcb3af0332e463788f89cf2587da23604776815dad0400447f29495</code></li>
-  <li><strong>Cosign mode:</strong> keyless-oidc</li>
-</ul>
 
-<h3>Artifacts</h3>
-<ul>
-  <li><a href="manifest.yaml"><code>manifest.yaml</code></a> -- pre-registered specification (the signed bytes)</li>
-  <li><a href="manifest.bundle.json"><code>manifest.bundle.json</code></a> -- Sigstore signature plus Rekor entry</li>
-  <li><a href="manifest.yaml.ots"><code>manifest.yaml.ots</code></a> -- OpenTimestamps proof (Bitcoin-anchored)</li>
-</ul>
 
-<h3>Pre-registered hypotheses</h3>
-<ol>
-  <li><strong>H3:</strong> Binary recall on stated-unfalsifiable cases will fall below 0.5 on at least one frontier model in tier 3.</li>
-</ol>
+<p class="eyebrow">
+  Wedge
+  <span class="sep" style="color: var(--accent);">&middot;</span>
+  falsifier observability
+  <span class="sep" style="color: var(--accent);">&middot;</span>
+  binary_f1
+  <span class="sep" style="color: var(--accent);">&middot;</span>
+  500 cases
+</p>
+<h2 class="page-headline">Can the model tell a falsifiable claim from an unfalsifiable one?</h2>
 
-<h3>Model roster</h3>
-<table>
-  <thead>
-    <tr><th>Provider</th><th>Model ID</th><th>Temperature</th><th>Seed</th><th>Max tokens</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>anthropic</td>
-      <td><code>claude-opus-4-7</code></td>
-      <td>0.0</td>
-      <td>42</td>
-      <td>1024</td>
-    </tr>
-    <tr>
-      <td>openai</td>
-      <td><code>gpt-5.5-2026-04-23</code></td>
-      <td>0.0</td>
-      <td>42</td>
-      <td>1024</td>
-    </tr>
-    <tr>
-      <td>google</td>
-      <td><code>gemini-3.1-pro-preview</code></td>
-      <td>0.0</td>
-      <td>42</td>
-      <td>1024</td>
-    </tr>
-  </tbody>
-</table>
 
-<h3>Dataset</h3>
-<p><strong>Wedge:</strong> falsifier_observability<br>
-   <strong>Cases:</strong> 500<br>
-   <strong>Cases file:</strong> <code>v1.0.0-falsifier_observability/cases.jsonl</code><br>
-   <strong>Cases SHA256:</strong> <code>dc9fcf93e631a05e20e1dad07f162a38e071cbcf371d91de8d7b10d5d612096e</code></p>
 
-<h3>Scoring</h3>
-<p><strong>Scorer:</strong> <code>falsifier_observability_v1</code><br>
-   <strong>Metric:</strong> binary_f1</p>
-<blockquote>Binary F1 with `stated_unfalsifiable` as the positive class. A true
-positive is a case the model labels `stated_unfalsifiable` whose
-ground-truth label is `stated_unfalsifiable`. A false positive is a
-model `stated_unfalsifiable` label on a ground-truth
-`observable_falsifier` case. A false negative is a model
-`observable_falsifier` label (or no parseable label) on a ground-truth
-`stated_unfalsifiable` case. Recall on `stated_unfalsifiable` is the
-headline metric (the design hypothesis is keyed to it). Refusals are
-recorded as a separate outcome category and routed through
-refused=True at the scorer; non-response outcomes other than refusal
-(timeouts, rate-limits, malformed responses) are routed through
-label=None and treated as malformed. The full seven-category outcome
-breakdown is reported alongside the score.
 
-Rubric convention: a claim is `observable_falsifier` when, taking the
-sentence as written, a competent reviewer could verify its failure
-mode within ~90 days using only information stated in the sentence --
-a concrete metric, threshold or directional outcome, and time bound.
-A claim is `stated_unfalsifiable` when no observation could falsify
-it as written, including (i) vacuous strategic affirmations, (ii)
-self-sealing predicates (&#34;will adapt to whatever conditions emerge&#34;),
-(iii) macro-conditional framings (&#34;if the economy holds up&#34;, &#34;if
-regulatory tailwinds continue&#34;) because no in-sentence observation
-verifies the macro state -- same logic as mechanism_gap&#39;s
-external-macro rule -- and (iv) surface-form mimicry where a number
-or date is bound to a decoy predicate (e.g. &#34;directional health&#34;,
-&#34;strategic positioning&#34;) so no observation could check it.
-</blockquote>
-
-<h3>Refusal policy</h3>
-<blockquote>Refusals are scored as a separate outcome category, not as wrong answers.
-Explicit refusals route through `refused=True` at the scorer; non-response
-outcomes other than refusal (timeout, rate-limit, malformed) route through
-`label=None` and are reported as malformed. All seven outcome categories
-(response, refusal, partial_response, error_timeout, error_rate_limit,
-error_other, malformed) are reported in the results bundle. Models that
-refuse all cases score &#34;refusal: 100%&#34; with no F1 reported.
-</blockquote>
-
-<h3>Failure publication commitment</h3>
-<blockquote>Null and unfavorable results publish on the same methodology page as
-positive results. There is no scenario in which VALIS scores a model and
-withholds the finding because the result is uncomfortable. This commitment
-is anchored to the same Bitcoin block as the manifest.
-</blockquote>
-
-<h3>Spot-check panel outcome</h3>
-<blockquote>Spot-check panel (50 cases, three independent frontier reviewers):
+<section class="panel-result" aria-label="Spot-check panel result">
+    <p class="panel-result__eyebrow">Spot-check panel</p>
+    <div class="panel-result__numbers">
+      <span>3 independent frontier models</span>
+      <span>50 cases sampled</span>
+      <span>0 unanimous fails</span>
+    </div>
+    <p class="panel-result__finding">
+      Zero of 50 cases were failed by all three reviewers.
+    </p>
+    <div class="panel-result__reviewers">
+      <span>Claude Opus 4.7</span>
+      <span class="sep">&middot;</span>
+      <span>GPT-5.5 (2026-04-23)</span>
+      <span class="sep">&middot;</span>
+      <span>Gemini 3.1 Pro</span>
+    </div>
+    <details class="panel-result__details">
+      <summary>Panel breakdown by tier</summary>
+      <pre>Spot-check panel (50 cases, three independent frontier reviewers):
   - Claude Opus 4.7 (Anthropic, undated alias)
   - GPT-5.5, snapshot gpt-5.5-2026-04-23 (OpenAI, via codex CLI)
   - Gemini 3.1 Pro Preview (Google)
@@ -163,18 +94,277 @@ Reviewer verdict files (per wedge):
 
 Disagreement disclosure artifact (cross-wedge):
   ../CROSS_REVIEWER_DISAGREEMENT_v1.0.0.md
-</blockquote>
+</pre>
+    </details>
+  </section>
 
-<h3>How to verify this version</h3>
+<h3>What this wedge tests</h3>
+<p>We give the model a claim and ask whether the claim is falsifiable. Falsifiable claims have observable consequences if false; unfalsifiable claims do not. We score binary F1 against rule-derived ground truth, with refusal as a separate category.</p>
+<p>
+  Pre-registered on 2026-05-21
+  by VALIS Systems. Roster: 3 frontier
+  models.
+</p>
+
+<section class="results-section" aria-label="Wedge results">
+  <p class="results-section__eyebrow">Results · v1.0.0</p>
+  <h2 class="results-section__heading">What the panel found.</h2>
+
+    <div class="results-grid">
+        <article class="finding-card" aria-label="claude-opus-4-7 finding">
+  <p class="finding-card__eyebrow">
+    Finding
+    <span class="sep" style="color: var(--accent);">&middot;</span>
+    claude-opus-4-7
+  </p>
+  <p class="finding-card__headline">0.793</p>
+  <p class="finding-card__metric">F1 (stated unfalsifiable)</p>
+  <ul class="finding-card__stats">
+    <li>497 / 500 scored</li>
+    <li>0.6% excluded</li>
+    <li>2 rate-limited</li>
+  </ul>
+  <svg class="outcome-bar" viewBox="0 0 100 8" preserveAspectRatio="none" width="100%" height="8" role="img" aria-label="Outcome breakdown: response 497 (99%), error_rate_limit 2 (0%), error_other 1 (0%)"><rect x="0.0000" y="0" width="99.4000" height="8" fill="var(--ink)"><title>response: 497 (99.4%)</title></rect><rect x="99.4000" y="0" width="0.4000" height="8" fill="var(--ghost)"><title>error_rate_limit: 2 (0.4%)</title></rect><rect x="99.8000" y="0" width="0.2000" height="8" fill="var(--ghost)"><title>error_other: 1 (0.2%)</title></rect></svg>
+</article>
+        <article class="finding-card" aria-label="gemini-3.1-pro-preview finding">
+  <p class="finding-card__eyebrow">
+    Finding
+    <span class="sep" style="color: var(--accent);">&middot;</span>
+    gemini-3.1-pro-preview
+  </p>
+  <p class="finding-card__headline">0.840</p>
+  <p class="finding-card__metric">F1 (stated unfalsifiable)</p>
+  <ul class="finding-card__stats">
+    <li>500 / 500 scored</li>
+  </ul>
+  <svg class="outcome-bar" viewBox="0 0 100 8" preserveAspectRatio="none" width="100%" height="8" role="img" aria-label="Outcome breakdown: response 500 (100%)"><rect x="0.0000" y="0" width="100.0000" height="8" fill="var(--ink)"><title>response: 500 (100.0%)</title></rect></svg>
+</article>
+        <article class="finding-card" aria-label="gpt-5.5-2026-04-23 finding">
+  <p class="finding-card__eyebrow">
+    Finding
+    <span class="sep" style="color: var(--accent);">&middot;</span>
+    gpt-5.5-2026-04-23
+  </p>
+  <p class="finding-card__headline">0.853</p>
+  <p class="finding-card__metric">F1 (stated unfalsifiable)</p>
+  <ul class="finding-card__stats">
+    <li>500 / 500 scored</li>
+  </ul>
+  <svg class="outcome-bar" viewBox="0 0 100 8" preserveAspectRatio="none" width="100%" height="8" role="img" aria-label="Outcome breakdown: response 500 (100%)"><rect x="0.0000" y="0" width="100.0000" height="8" fill="var(--ink)"><title>response: 500 (100.0%)</title></rect></svg>
+</article>
+    </div>
+
+    <h3 style="margin-top: var(--s-10);">Model comparison</h3>
+    <svg class="comparison-chart" viewBox="0 0 400 86" preserveAspectRatio="xMinYMin meet" width="100%" role="img" aria-label="falsifier_observability comparison: F1 (stated unfalsifiable) claude-opus-4-7 0.793, F1 (stated unfalsifiable) gemini-3.1-pro-preview 0.840, F1 (stated unfalsifiable) gpt-5.5-2026-04-23 0.853"><text x="8" y="35.0" class="reliability-label">F1 (stated unfalsifiable)</text><rect x="130" y="8" width="254" height="14" fill="var(--paper-alt)" /><rect x="130" y="8" width="201.41" height="14" fill="var(--ink)"><title>claude-opus-4-7: 0.793</title></rect><text x="136" y="18.5" class="reliability-model">claude-opus-4-7</text><text x="392" y="18.5" text-anchor="end" class="reliability-value-sm">0.793</text><rect x="130" y="24" width="254" height="14" fill="var(--paper-alt)" /><rect x="130" y="24" width="213.31" height="14" fill="var(--ink)"><title>gemini-3.1-pro-preview: 0.840</title></rect><text x="136" y="34.5" class="reliability-model">gemini-3.1-pro-preview</text><text x="392" y="34.5" text-anchor="end" class="reliability-value-sm">0.840</text><rect x="130" y="40" width="254" height="14" fill="var(--paper-alt)" /><rect x="130" y="40" width="216.72" height="14" fill="var(--accent)"><title>gpt-5.5-2026-04-23: 0.853</title></rect><text x="136" y="50.5" class="reliability-model">gpt-5.5-2026-04-23</text><text x="392" y="50.5" text-anchor="end" class="reliability-value-sm">0.853</text><rect x="130" y="60" width="10" height="8" fill="var(--accent)" /><text x="144" y="67" class="reliability-legend">leader per row</text></svg>
+
+    <h3 style="margin-top: var(--s-10);">Breakdown for the strongest model</h3>
+    <svg class="reliability-chart" viewBox="0 0 400 114" preserveAspectRatio="xMinYMin meet" width="100%" role="img" aria-label="falsifier_observability breakdown: Precision (stated unfalsifiable) 0.744, Recall (stated unfalsifiable) 1.000, F1 (stated unfalsifiable) 0.853, Accuracy 0.828"><text x="8" y="18.6" class="reliability-label">Precision (stated unfalsifiable)</text><rect x="220" y="6" width="164" height="18" fill="var(--paper-alt)" /><rect x="220" y="6" width="122.02" height="18" fill="var(--ink)" /><text x="392" y="18.6" text-anchor="end" class="reliability-value">0.744</text><text x="8" y="46.6" class="reliability-label">Recall (stated unfalsifiable)</text><rect x="220" y="34" width="164" height="18" fill="var(--paper-alt)" /><rect x="220" y="34" width="164.00" height="18" fill="var(--accent)" /><text x="392" y="46.6" text-anchor="end" class="reliability-value">1.000</text><text x="8" y="74.6" class="reliability-label">F1 (stated unfalsifiable)</text><rect x="220" y="62" width="164" height="18" fill="var(--paper-alt)" /><rect x="220" y="62" width="139.93" height="18" fill="var(--ink)" /><text x="392" y="74.6" text-anchor="end" class="reliability-value">0.853</text><text x="8" y="102.6" class="reliability-label">Accuracy</text><rect x="220" y="90" width="164" height="18" fill="var(--paper-alt)" /><rect x="220" y="90" width="135.79" height="18" fill="var(--ink)" /><text x="392" y="102.6" text-anchor="end" class="reliability-value">0.828</text></svg>
+</section>
+
+<aside class="findings-narrative" aria-label="Findings narrative">
+  <p class="findings-narrative__eyebrow">What the numbers mean</p>
+  <div class="markdown-body"><p>GPT-5.5 gets it right 83% of the time. Gemini 3.1 Pro 81%. Opus 4.7
+74%. F1 on the &quot;stated unfalsifiable&quot; label: 0.85 / 0.84 / 0.79.</p>
+<p>The wedge asks the model to read a claim and decide whether the claim
+could in principle be tested against reality. &quot;Companies that
+prioritize customer experience grow faster&quot; is unfalsifiable as
+written. &quot;Companies with NPS above 50 grew revenue 12% YoY in 2024&quot;
+is falsifiable. Models are asked to distinguish the two.</p>
+<p>All three pass the recall test. They almost never miss an
+unfalsifiable claim (recall 1.0, 1.0, 0.996). What they get wrong is
+in the other direction: they sometimes call a precise, falsifiable
+claim &quot;unfalsifiable&quot; too. Precision is the differentiator.</p>
+<p>Why this matters: a model deployed to flag &quot;vague claims&quot; in analysis
+would systematically over-flag falsifiable but imprecise prose. The
+model treats vagueness and unfalsifiability as the same thing. They
+are not.</p>
+<p>What would falsify this finding: a model that hits 0.95 F1 here while
+maintaining precision above 0.85. The current frontier sits closer to
+0.79 precision on the unfalsifiable label even when recall is
+maximal.</p>
+</div>
+</aside>
+
+<section class="anchoring-evidence anchoring-evidence--pending"
+           aria-label="Anchoring evidence">
+    <div class="anchoring-evidence__row">
+      <div class="anchoring-evidence__cell">
+        <span class="label">Sigstore Rekor</span>
+        <span class="value">
+          log index
+          <a href="https://search.sigstore.dev/?logIndex=1602179431"><code>1602179431</code></a>
+        </span>
+        <span class="value" style="font-size: 0.72rem; color: var(--ghost-2);">
+          integrated 2026-05-22 11:55:07 UTC
+        </span>
+      </div>
+      <div class="anchoring-evidence__cell">
+        <span class="label">OpenTimestamps</span>
+        <span class="value">Bitcoin block pending</span>
+        <span class="value" style="font-size: 0.72rem; color: var(--ghost-2);">Confirmation arrives 3-6h after publish</span>
+      </div>
+      <div class="anchoring-evidence__cell">
+        <span class="label">Manifest SHA256</span>
+        <span class="value"><code>aa1a9b75bdcb3af0332e463788f89cf2587da23604776815dad0400447f29495</code></span>
+      </div>
+    </div>
+    <div class="anchoring-evidence__verify">
+      <span class="label">Verify on a clean machine</span>
+      <code>cosign verify-blob --bundle manifest.bundle.json manifest.yaml</code>
+    </div>
+  </section>
+
+<h3>Anchoring state</h3>
+<p>
+  <span class="signature-badge signature-badge--pending"
+          aria-label="Rekor anchored, OpenTimestamps Bitcoin confirmation pending">
+      <span class="dot" aria-hidden="true"></span>
+      OTS pending
+    </span>
+</p>
+<div class="anchor-state-callout anchor-state-callout--pending">
+    Submitted to OpenTimestamps. Bitcoin confirmation arrives within 3-6 hours.
+    The daily finalizer upgrades this to FULL ANCHORED automatically.
+</div>
+
+<h3>Companion artifacts</h3>
+<ul>
+  <li><a href="manifest.yaml"><code>manifest.yaml</code></a> -- pre-registered specification, the signed bytes</li>
+  <li><a href="manifest.bundle.json"><code>manifest.bundle.json</code></a> -- Sigstore signature plus the Rekor entry</li>
+  <li><a href="manifest.yaml.ots"><code>manifest.yaml.ots</code></a> -- OpenTimestamps proof (Bitcoin-anchored)</li>
+</ul>
+
+<details class="manifest-methodology" aria-label="Full methodology details">
+    <summary>
+      <span>Full methodology &amp; rubric</span>
+    </summary>
+    <div class="methodology-body">
+      <p class="label">Scoring</p>
+      <p>
+        <strong>Scorer:</strong> <code>falsifier_observability_v1</code><br>
+        <strong>Metric:</strong> binary_f1
+      </p>
+      <p class="label">Rubric</p>
+      <blockquote>Binary F1 with `stated_unfalsifiable` as the positive class. A true
+positive is a case the model labels `stated_unfalsifiable` whose
+ground-truth label is `stated_unfalsifiable`. A false positive is a
+model `stated_unfalsifiable` label on a ground-truth
+`observable_falsifier` case. A false negative is a model
+`observable_falsifier` label (or no parseable label) on a ground-truth
+`stated_unfalsifiable` case. Recall on `stated_unfalsifiable` is the
+headline metric (the design hypothesis is keyed to it). Refusals are
+recorded as a separate outcome category and routed through
+refused=True at the scorer; non-response outcomes other than refusal
+(timeouts, rate-limits, malformed responses) are routed through
+label=None and treated as malformed. The full seven-category outcome
+breakdown is reported alongside the score.
+
+Rubric convention: a claim is `observable_falsifier` when, taking the
+sentence as written, a competent reviewer could verify its failure
+mode within ~90 days using only information stated in the sentence --
+a concrete metric, threshold or directional outcome, and time bound.
+A claim is `stated_unfalsifiable` when no observation could falsify
+it as written, including (i) vacuous strategic affirmations, (ii)
+self-sealing predicates (&#34;will adapt to whatever conditions emerge&#34;),
+(iii) macro-conditional framings (&#34;if the economy holds up&#34;, &#34;if
+regulatory tailwinds continue&#34;) because no in-sentence observation
+verifies the macro state -- same logic as mechanism_gap&#39;s
+external-macro rule -- and (iv) surface-form mimicry where a number
+or date is bound to a decoy predicate (e.g. &#34;directional health&#34;,
+&#34;strategic positioning&#34;) so no observation could check it.
+</blockquote>
+      <p class="label">Refusal policy</p>
+      <blockquote>Refusals are scored as a separate outcome category, not as wrong answers.
+Explicit refusals route through `refused=True` at the scorer; non-response
+outcomes other than refusal (timeout, rate-limit, malformed) route through
+`label=None` and are reported as malformed. All seven outcome categories
+(response, refusal, partial_response, error_timeout, error_rate_limit,
+error_other, malformed) are reported in the results bundle. Models that
+refuse all cases score &#34;refusal: 100%&#34; with no F1 reported.
+</blockquote>
+      <p class="label">Failure publication commitment</p>
+      <blockquote>Null and unfavorable results publish on the same methodology page as
+positive results. There is no scenario in which VALIS scores a model and
+withholds the finding because the result is uncomfortable. This commitment
+is anchored to the same Bitcoin block as the manifest.
+</blockquote>
+      <p class="label">Pre-registered hypotheses</p>
+      <ol>
+        <li><strong>H3:</strong> Binary recall on stated-unfalsifiable cases will fall below 0.5 on at least one frontier model in tier 3.</li>
+      </ol>
+      <p class="label">Model roster</p>
+      <table>
+        <thead>
+          <tr><th>Provider</th><th>Model ID</th><th>Temperature</th><th>Seed</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>anthropic</td>
+            <td><code>claude-opus-4-7</code></td>
+            <td>0.0</td>
+            <td>42</td>
+          </tr>
+          <tr>
+            <td>openai</td>
+            <td><code>gpt-5.5-2026-04-23</code></td>
+            <td>0.0</td>
+            <td>42</td>
+          </tr>
+          <tr>
+            <td>google</td>
+            <td><code>gemini-3.1-pro-preview</code></td>
+            <td>0.0</td>
+            <td>42</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="label">Dataset</p>
+      <p>
+        <strong>Wedge:</strong> falsifier_observability<br>
+        <strong>Cases:</strong> 500<br>
+        <strong>Cases file:</strong> <code>v1.0.0-falsifier_observability/cases.jsonl</code><br>
+        <strong>Cases SHA256:</strong> <code>dc9fcf93e631a05e20e1dad07f162a38e071cbcf371d91de8d7b10d5d612096e</code>
+      </p>
+    </div>
+  </details>
+
+<h3>Reviewer disagreement on this wedge</h3>
+<p>
+  The 50-case spot-check panel agreed unanimously on 42 cases.
+  The remaining 8 produced rubric-interpretation disagreement.
+  Read the per-case breakdown: <a href="../disagreement/index.html#falsifier_observability">falsifier observability disagreement set</a>.
+</p>
+
+<h3>Verify this version</h3>
 <pre><code>git clone https://github.com/valisbench/benchmarks.git
 cd benchmarks
 ./verify.sh v1.0.0</code></pre>
-<p>See <a href="../verify.html">verify</a> for the full procedure, including a one-line Docker invocation that runs the script from a clean Debian container with zero VALIS code present.</p>
+<p>
+  See <a href="../../verify.html">verify</a> for the full procedure,
+  including a one-line Docker invocation that runs the script from a
+  clean Debian container with zero VALIS code present.
+</p>
+
   </main>
-  <footer>
-    <p>Generated 2026-05-22 11:55 UTC by <code>valis.benchmarks.site.build</code>.
-       Every published version is anchored to the Sigstore Rekor transparency log and to OpenTimestamps (Bitcoin).
-       See <a href="../../verify.html">how to verify</a>.</p>
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <svg width="22" height="22" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10 14 L20 30 L30 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+      </svg>
+      <span class="wordmark">VALIS</span>
+    </div>
+    <ul class="footer-ctas">
+      <li><a href="https://valissystems.com/how-it-works">Read the methodology</a></li>
+      <li><a href="https://valissystems.com/about">About VALIS</a></li>
+      <li><a href="mailto:david@valissystems.com">Get in touch</a></li>
+    </ul>
+    <p class="footer-meta">
+      Generated 2026-05-22 22:14 UTC by <code>valis.benchmarks.site.build</code>.
+      Every published version is signed with Sigstore cosign, anchored to the Sigstore Rekor transparency log,
+      and timestamped to a Bitcoin block via OpenTimestamps.
+      See <a href="../../verify.html">how to verify</a>.
+    </p>
   </footer>
 </body>
 </html>

@@ -6,60 +6,118 @@
   <title>VALIS Benchmarks</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
-  <header>
-    <h1><a href="index.html">VALIS Benchmarks</a></h1>
-    <nav>
-      <a href="index.html">Index</a> ·
-      <a href="methodology.html">Methodology</a> ·
-      <a href="verify.html">Verify</a> ·
+<body class="valis-grain">
+  <span class="visually-hidden">VALIS Benchmarks</span>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <a class="site-brand" href="https://valissystems.com" aria-label="VALIS Systems home">
+      <svg class="valis-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10 14 L20 30 L30 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+      </svg>
+      <span class="wordmark">VALIS</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Versions</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="verify.html">Verify</a>
       <a href="https://github.com/valisbench/benchmarks">Source</a>
     </nav>
   </header>
-  <main>
-<h2>Pre-registered benchmarks of model epistemic failures</h2>
-<p>This site publishes evaluation manifests in a form that survives challenge.
-   Before any model is called, we lock the dataset hash, the model roster with exact version strings,
-   the sampling parameters, the scoring rubric, and the hypothesis. The manifest is signed with
-   Sigstore cosign, anchored to the Sigstore Rekor transparency log (synchronous), and timestamped
-   on Bitcoin via OpenTimestamps (Bitcoin-confirmed within roughly six hours of publication).
-   Anyone with a clean machine and the <code>verify.sh</code> script can confirm none of it was
-   altered after publication.</p>
+  <main id="main">
+
+<p class="eyebrow">VALIS Benchmarks</p>
+<h2 class="page-headline">Pre-registered evaluations of where frontier AI reasoning fails.</h2>
+
+<p>
+  Each version's methodology is locked before any model is called.
+  Every result is anchored to a public transparency log.
+  Anyone with a clean machine can verify the chain.
+</p>
+
+<div class="trust-triplet" role="presentation">
+  <span>Pre-registered</span>
+  <span class="sep">&middot;</span>
+  <span>Transparency-log anchored</span>
+  <span class="sep">&middot;</span>
+  <span>Bitcoin timestamped</span>
+</div>
+
+<p class="narrative-ribbon">
+  The published record. v0.1.0 was the pipeline-validation spike.
+  v1.0.0 opens six measurements across three frontier models.
+  v1.1 opens calibration drift, a longitudinal program tracking
+  stated probability vs realized base rate.
+</p>
 
 <h3>Published versions</h3>
-<table>
+<table class="versions-table">
   <thead>
-    <tr><th>Version</th><th>Wedge</th><th>Cases</th><th>Pre-registered</th><th>Anchoring</th></tr>
+    <tr>
+      <th scope="col">Version</th>
+      <th scope="col">Wedges</th>
+      <th scope="col">Cases</th>
+      <th scope="col">Published</th>
+      <th scope="col">Anchoring</th>
+    </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><a href="v1.0.0/index.html">v1.0.0</a></td>
-      <td>6 wedges</td>
-      <td>3000</td>
-      <td>2026-05-21</td>
-      <td><span class="badge badge-pending">OTS pending</span></td>
-    </tr>
-    <tr>
-      <td><a href="v0.1.0/index.html">v0.1.0</a></td>
-      <td>phantom_precision</td>
-      <td>5</td>
-      <td>2026-05-21</td>
-      <td><span class="badge badge-unknown">OTS unknown</span></td>
-    </tr>
+      <tr class="">
+    <td data-label="Version">
+      <a href="v1.0.0/index.html">v1.0.0</a>
+    </td>
+    <td data-label="Wedges">6 wedges</td>
+    <td data-label="Cases">3000</td>
+    <td data-label="Published">2026-05-21</td>
+    <td data-label="Anchoring"><span class="signature-badge signature-badge--pending"
+          aria-label="Rekor anchored, OpenTimestamps Bitcoin confirmation pending">
+      <span class="dot" aria-hidden="true"></span>
+      OTS pending
+    </span></td>
+  </tr>
+      <tr class="version-row-spike">
+    <td data-label="Version">
+      <a href="v0.1.0/index.html">v0.1.0</a>
+<span class="spike-label">spike artifact</span>    </td>
+    <td data-label="Wedges">phantom_precision</td>
+    <td data-label="Cases">5</td>
+    <td data-label="Published">2026-05-21</td>
+    <td data-label="Anchoring"><span class="signature-badge signature-badge--unknown"
+          aria-label="OpenTimestamps state unknown">
+      <span class="dot" aria-hidden="true"></span>
+      OTS unknown
+    </span></td>
+  </tr>
   </tbody>
 </table>
 
 <h3>What to do next</h3>
 <ul>
-  <li>Read the <a href="methodology.html">methodology</a> page. It explains what the benchmark measures and what it does not.</li>
-  <li>Reproduce a verification yourself. The <a href="verify.html">verify</a> page has the commands and a one-line Docker invocation.</li>
+  <li>Read the <a href="methodology.html">methodology</a>. It explains what each wedge measures, and what it does not.</li>
+  <li>Reproduce a verification. The <a href="verify.html">verify</a> page has the commands and a one-line Docker invocation.</li>
   <li>Find a flaw. Open an issue at <a href="https://github.com/valisbench/benchmarks/issues">github.com/valisbench/benchmarks/issues</a>. Null and unfavorable results publish on this same page.</li>
 </ul>
+
   </main>
-  <footer>
-    <p>Generated 2026-05-22 11:55 UTC by <code>valis.benchmarks.site.build</code>.
-       Every published version is anchored to the Sigstore Rekor transparency log and to OpenTimestamps (Bitcoin).
-       See <a href="verify.html">how to verify</a>.</p>
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <svg width="22" height="22" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10 14 L20 30 L30 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+      </svg>
+      <span class="wordmark">VALIS</span>
+    </div>
+    <ul class="footer-ctas">
+      <li><a href="https://valissystems.com/how-it-works">Read the methodology</a></li>
+      <li><a href="https://valissystems.com/about">About VALIS</a></li>
+      <li><a href="mailto:david@valissystems.com">Get in touch</a></li>
+    </ul>
+    <p class="footer-meta">
+      Generated 2026-05-22 22:14 UTC by <code>valis.benchmarks.site.build</code>.
+      Every published version is signed with Sigstore cosign, anchored to the Sigstore Rekor transparency log,
+      and timestamped to a Bitcoin block via OpenTimestamps.
+      See <a href="verify.html">how to verify</a>.
+    </p>
   </footer>
 </body>
 </html>

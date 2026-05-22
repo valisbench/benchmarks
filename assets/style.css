@@ -1,117 +1,979 @@
-:root {
-  --bg: #ffffff;
-  --fg: #1a1a1a;
-  --muted: #5e6473;
-  --border: #d9dde3;
-  --accent: #0044cc;
-  --code-bg: #f5f6f8;
-  --pending-bg: #fff7e0;
-  --pending-fg: #7a5b00;
-  --pending-border: #f0d574;
-  --confirmed-bg: #e3f4e6;
-  --confirmed-fg: #1d5f2a;
-  --confirmed-border: #a7d4b0;
-  --unknown-bg: #f0f1f3;
-  --unknown-fg: #5e6473;
-  --unknown-border: #c5c9d2;
-  --fail-bg: #fde6e6;
-  --fail-fg: #7a1c20;
-  --fail-border: #ecb1b1;
-}
+/* ==========================================================================
+   VALIS Benchmarks Site Stylesheet
+   Inherits all tokens from colors_and_type.css. Adds the six benchmark-
+   specific patterns documented in .claude/skills/valis-design/benchmarks-patterns.md.
+   ========================================================================== */
+
+@import url("colors_and_type.css");
+
+/* ── Base ─────────────────────────────────────────────────────────────── */
 
 * { box-sizing: border-box; }
 
+html { background: var(--paper); }
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  max-width: 780px;
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+main {
+  display: block;
+  max-width: var(--w-reading);
   margin: 0 auto;
-  padding: 2em 1.5em 3em;
-  line-height: 1.55;
-  color: var(--fg);
-  background: var(--bg);
+  padding: var(--s-10) var(--s-6) var(--s-16);
 }
 
-header {
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 1em;
-  margin-bottom: 2em;
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--dur-short) var(--ease-standard);
 }
-header h1 { margin: 0 0 0.3em; font-size: 1.35em; font-weight: 600; }
-header h1 a { text-decoration: none; color: inherit; }
-header nav { font-size: 0.9em; color: var(--muted); }
-header nav a { color: var(--accent); text-decoration: none; }
-header nav a:hover { text-decoration: underline; }
+a:hover { text-decoration-color: var(--accent); }
 
-main h2 { font-size: 1.55em; margin: 0.2em 0 0.8em; font-weight: 600; }
-main h3 { font-size: 1.1em; margin: 1.8em 0 0.6em; font-weight: 600; }
-main p, main li { font-size: 0.97em; }
-main ul, main ol { padding-left: 1.4em; }
-main li { margin-bottom: 0.3em; }
+/* Focus state -- visible salmon outline, never invisible. */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
 
-a { color: var(--accent); }
+/* ── Skip link ────────────────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--s-4);
+  padding: var(--s-3) var(--s-5);
+  background: var(--accent);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  z-index: 200;
+}
+.skip-link:focus { top: var(--s-4); }
 
+/* ── Visually-hidden heading ──────────────────────────────────────────── */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Header (brand bridge: ValisMark + wordmark linked to valissystems.com) ─ */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: var(--s-6) var(--s-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-6);
+  max-width: var(--w-content);
+  margin: 0 auto;
+}
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  text-decoration: none;
+  color: var(--ink);
+}
+.site-brand:hover { text-decoration: none; }
+.site-brand .valis-mark {
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  flex: 0 0 28px;
+}
+.site-brand .wordmark {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.36em;
+  color: var(--ink);
+}
+.site-nav {
+  display: inline-flex;
+  gap: var(--s-5);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ghost-2);
+}
+.site-nav a {
+  color: var(--ghost-2);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+.site-nav a:hover { color: var(--ink); border-bottom-color: var(--accent); }
+
+/* ── Footer ───────────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: var(--s-10) var(--s-6) var(--s-16);
+  max-width: var(--w-content);
+  margin: var(--s-16) auto 0;
+}
+.site-footer .footer-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  margin-bottom: var(--s-6);
+}
+.site-footer .footer-brand .wordmark {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.36em;
+  color: var(--ink);
+}
+.site-footer .footer-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-5) var(--s-8);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--s-8);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.site-footer .footer-ctas a { color: var(--ink); text-decoration-color: var(--rule); }
+.site-footer .footer-ctas a:hover { text-decoration-color: var(--accent); }
+.site-footer .footer-meta {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--ghost);
+  line-height: 1.6;
+  max-width: var(--w-reading);
+}
+
+/* ── Editorial headings ──────────────────────────────────────────────── */
+main h2.page-headline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--s-6);
+  color: var(--ink);
+}
+main h2.section-headline {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  line-height: 1.2;
+  margin: var(--s-12) 0 var(--s-4);
+  color: var(--ink);
+}
+main h3 {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--ghost-2);
+  margin: var(--s-10) 0 var(--s-3);
+}
+
+/* ── Eyebrow (DM Mono uppercase above any headline) ──────────────────── */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--ghost-2);
+  margin: 0 0 var(--s-3);
+}
+.eyebrow--accent { color: var(--accent-deep); }
+
+/* ── Body prose ──────────────────────────────────────────────────────── */
+main p {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--fg-2);
+  margin: 0 0 var(--s-5);
+}
+
+main ul, main ol {
+  padding-left: var(--s-5);
+  margin: 0 0 var(--s-6);
+}
+main li {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--fg-2);
+  margin-bottom: var(--s-2);
+}
+
+main blockquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--fg-2);
+  margin: var(--s-6) 0;
+  padding: var(--s-2) 0 var(--s-2) var(--s-6);
+  border-left: 1px solid var(--rule);
+}
+
+/* ── Code & terminal ─────────────────────────────────────────────────── */
 code, pre, .mono {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.9em;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
 }
 code {
-  background: var(--code-bg);
-  padding: 0.08em 0.4em;
-  border-radius: 3px;
+  background: var(--paper-alt);
+  padding: 0.1em 0.4em;
+  color: var(--ink);
 }
 pre {
-  background: var(--code-bg);
-  padding: 0.85em 1em;
-  border-radius: 4px;
+  background: var(--paper-alt);
+  border: 1px solid var(--rule);
+  padding: var(--s-5) var(--s-6);
   overflow-x: auto;
-  border: 1px solid var(--border);
-  margin: 1em 0;
+  margin: var(--s-6) 0;
+  line-height: 1.65;
 }
 pre code { background: transparent; padding: 0; }
 
+/* Terminal-style output blocks (verify page worked examples) */
+.terminal {
+  background: #1a1814;
+  color: #e8e2d6;
+  border: 1px solid var(--ink);
+  padding: var(--s-6) var(--s-6);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  margin: var(--s-4) 0 var(--s-8);
+}
+.terminal .ok { color: #7fc89e; }
+.terminal .warn { color: var(--accent); }
+.terminal .fail { color: #d96b5e; }
+.terminal .prompt { color: var(--ghost-2); }
+
+.terminal-caption {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ghost-2);
+  margin: var(--s-8) 0 var(--s-3);
+}
+
+/* ── Tables ──────────────────────────────────────────────────────────── */
 table {
-  border-collapse: collapse;
   width: 100%;
-  margin: 1em 0;
-  font-size: 0.92em;
+  border-collapse: collapse;
+  margin: var(--s-5) 0 var(--s-8);
+  font-size: 0.95rem;
 }
 th, td {
-  border-bottom: 1px solid var(--border);
-  padding: 0.55em 0.75em;
   text-align: left;
   vertical-align: top;
+  padding: var(--s-3) var(--s-4);
+  border-bottom: 1px solid var(--rule);
 }
-th { background: var(--code-bg); font-weight: 600; }
-
-blockquote {
-  margin: 1em 0;
-  padding: 0.7em 1em;
-  border-left: 3px solid var(--border);
-  color: var(--muted);
-  font-style: italic;
-  background: #fafbfc;
+thead th {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--ghost-2);
+  border-bottom: 1px solid var(--rule);
+  background: transparent;
 }
-
-footer {
-  margin-top: 4em;
-  padding-top: 1em;
-  border-top: 1px solid var(--border);
-  font-size: 0.85em;
-  color: var(--muted);
+tbody td {
+  font-family: var(--font-sans);
+  color: var(--fg-2);
 }
-footer p { margin: 0.3em 0; }
+tbody tr:hover td { background: var(--paper-alt); }
+td .mono, td code { color: var(--ink); font-size: 0.82rem; }
 
-.badge {
-  display: inline-block;
-  padding: 0.15em 0.55em;
-  border-radius: 3px;
-  font-size: 0.78em;
+/* ── Trust-signal triplet band ───────────────────────────────────────── */
+.trust-triplet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-5);
+  align-items: center;
+  padding: var(--s-4) 0;
+  margin: 0 0 var(--s-10);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.trust-triplet .sep {
+  color: var(--accent);
   font-weight: 600;
-  vertical-align: middle;
-  border: 1px solid;
-  margin-left: 0.4em;
+  margin: 0 var(--s-1);
 }
-.badge-pending { background: var(--pending-bg); color: var(--pending-fg); border-color: var(--pending-border); }
-.badge-confirmed { background: var(--confirmed-bg); color: var(--confirmed-fg); border-color: var(--confirmed-border); }
-.badge-unknown { background: var(--unknown-bg); color: var(--unknown-fg); border-color: var(--unknown-border); }
-.badge-fail { background: var(--fail-bg); color: var(--fail-fg); border-color: var(--fail-border); }
+
+/* ── Narrative ribbon (between intro & versions table on index) ──────── */
+.narrative-ribbon {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.25rem;
+  line-height: 1.55;
+  color: var(--fg-2);
+  border-left: 2px solid var(--accent);
+  padding: var(--s-3) 0 var(--s-3) var(--s-6);
+  margin: 0 0 var(--s-8);
+  max-width: var(--w-reading);
+}
+
+/* ── Pattern 2: Signature badge ──────────────────────────────────────── */
+.signature-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  font-weight: 400;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.signature-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  flex: 0 0 6px;
+}
+.signature-badge--confirmed {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+}
+.signature-badge--confirmed .dot { background: var(--accent); }
+.signature-badge--pending {
+  background: var(--paper-alt);
+  color: var(--ghost-2);
+  border: 1px solid var(--rule);
+}
+.signature-badge--pending .dot { background: var(--ghost); }
+.signature-badge--unknown {
+  background: transparent;
+  color: var(--ghost-2);
+  border: 1px dashed var(--ghost);
+}
+.signature-badge--unknown .dot { background: var(--ghost); }
+
+/* Anchoring-state inline callout (right under the badge) */
+.anchor-state-callout {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--fg-2);
+  border-left: 2px solid var(--rule);
+  padding: var(--s-2) 0 var(--s-2) var(--s-4);
+  margin: var(--s-3) 0 var(--s-8);
+  max-width: var(--w-reading);
+}
+.anchor-state-callout--confirmed { border-left-color: var(--accent); }
+.anchor-state-callout--pending { border-left-color: var(--accent-muted); }
+.anchor-state-callout--unknown { border-left-color: var(--ghost); }
+
+/* ── Pattern 1: Anchoring evidence block ─────────────────────────────── */
+.anchoring-evidence {
+  background: var(--paper-alt);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: var(--s-6) var(--s-6);
+  margin: var(--s-8) 0;
+}
+.anchoring-evidence__row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-6);
+  margin-bottom: var(--s-5);
+}
+.anchoring-evidence__cell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+.anchoring-evidence__cell .label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ghost-2);
+}
+.anchoring-evidence__cell .value {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}
+.anchoring-evidence__cell .value a { color: var(--ink); }
+.anchoring-evidence__verify {
+  border-top: 1px solid var(--rule);
+  padding-top: var(--s-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+.anchoring-evidence__verify .label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ghost-2);
+}
+.anchoring-evidence__verify code {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: var(--s-3) var(--s-4);
+  display: block;
+  font-size: 0.82rem;
+  overflow-x: auto;
+}
+
+/* ── Pattern 3: Manifest blockquote (collapsible methodology) ────────── */
+details.manifest-methodology {
+  border-top: 1px solid var(--rule);
+  padding: var(--s-5) 0;
+  margin: var(--s-8) 0;
+}
+details.manifest-methodology > summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--ghost-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+details.manifest-methodology > summary::-webkit-details-marker { display: none; }
+details.manifest-methodology > summary::after {
+  content: "+ show methodology";
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+details.manifest-methodology[open] > summary::after { content: "- hide methodology"; }
+details.manifest-methodology .methodology-body {
+  margin-top: var(--s-6);
+  max-width: var(--w-reading);
+}
+details.manifest-methodology .methodology-body .label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ghost-2);
+  margin: var(--s-6) 0 var(--s-2);
+}
+details.manifest-methodology .methodology-body blockquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--fg-2);
+  margin: 0;
+  padding: 0 0 0 var(--s-6);
+  border-left: 1px solid var(--rule);
+}
+details.manifest-methodology .methodology-body p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--fg-2);
+}
+
+/* ── Pattern 4: Panel-result block ───────────────────────────────────── */
+.panel-result {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: var(--s-10) 0;
+  margin: var(--s-10) 0;
+}
+.panel-result__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ghost-2);
+  margin: 0 0 var(--s-5);
+}
+.panel-result__numbers {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: var(--s-3) var(--s-10);
+  margin: 0 0 var(--s-6);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+.panel-result__finding {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  line-height: 1.25;
+  color: var(--ink);
+  margin: var(--s-4) 0 var(--s-6);
+  max-width: var(--w-reading);
+}
+.panel-result__reviewers {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-3);
+  align-items: center;
+}
+.panel-result__reviewers .sep { color: var(--accent); }
+.panel-result__details {
+  margin-top: var(--s-6);
+  border-top: 1px solid var(--rule);
+  padding-top: var(--s-4);
+}
+.panel-result__details > summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ghost-2);
+}
+.panel-result__details > summary::-webkit-details-marker { display: none; }
+.panel-result__details > summary::after {
+  content: "  +";
+  color: var(--accent-deep);
+}
+.panel-result__details[open] > summary::after { content: "  -"; }
+
+/* ── Pattern 5: Methodology disclosure callout (LBCI only) ───────────── */
+.methodology-disclosure {
+  border-top: 2px solid var(--accent);
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+  padding: var(--s-8) var(--s-8);
+  margin: var(--s-8) 0;
+  max-width: var(--w-content);
+}
+.methodology-disclosure__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  margin: 0 0 var(--s-4);
+}
+.methodology-disclosure__body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--fg-2);
+  max-width: var(--w-reading);
+  white-space: pre-wrap;
+}
+
+/* ── Results display patterns (Patterns 7-10) ────────────────────────── */
+
+/* Pattern 7: Headline finding card */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-4);
+  margin: var(--s-6) 0 var(--s-8);
+}
+.finding-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-5) var(--s-5);
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+.finding-card__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ghost-2);
+  margin: 0;
+}
+.finding-card__headline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.finding-card__metric {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--fg-3);
+  margin: 0;
+}
+.finding-card__stats {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-4);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ghost-2);
+}
+
+/* Pattern 8: Outcome bar SVG -- 8px tall stacked horizontal */
+.outcome-bar {
+  display: block;
+  width: 100%;
+  margin-top: var(--s-2);
+}
+
+/* Pattern 9 + 10: Reliability + comparison chart SVGs */
+.reliability-chart, .comparison-chart {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  margin: var(--s-3) 0 0;
+}
+.reliability-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  fill: var(--ghost-2);
+  text-transform: uppercase;
+}
+.reliability-value {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  fill: var(--ink);
+}
+.reliability-value-sm {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  fill: var(--ghost);
+}
+.reliability-model {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  fill: var(--paper);
+  text-transform: uppercase;
+}
+.reliability-legend {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  fill: var(--ghost-2);
+  text-transform: uppercase;
+}
+
+/* Results section wrapper inside version.html */
+.results-section {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: var(--s-8) 0 var(--s-6);
+  margin: var(--s-8) 0;
+}
+.results-section__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ghost-2);
+  margin: 0 0 var(--s-2);
+}
+.results-section__heading {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 var(--s-6);
+}
+.results-pending {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ghost-2);
+  border-left: 2px solid var(--accent-muted);
+  padding: var(--s-2) 0 var(--s-2) var(--s-5);
+  font-style: italic;
+}
+
+/* Findings narrative -- agent-drafted, founder-edited prose layer */
+.findings-narrative {
+  margin: var(--s-6) 0 var(--s-8);
+  max-width: var(--w-reading);
+}
+.findings-narrative__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ghost-2);
+  margin: 0 0 var(--s-3);
+}
+.findings-narrative .markdown-body p {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--fg-2);
+  margin: 0 0 var(--s-4);
+}
+.findings-narrative .markdown-body p:last-child { margin-bottom: 0; }
+
+/* Mobile: results grid stacks */
+@media (max-width: 720px) {
+  .results-grid { grid-template-columns: 1fr; }
+  .finding-card__headline { font-size: 2rem; }
+}
+
+/* ── Sampling parameter deviation callout (methodology.html) ─────────── */
+.sampling-deviation {
+  border-left: 2px solid var(--accent-deep);
+  background: var(--paper-alt);
+  padding: var(--s-6) var(--s-6);
+  margin: var(--s-6) 0 var(--s-10);
+  max-width: var(--w-reading);
+}
+.sampling-deviation__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  margin: 0 0 var(--s-3);
+}
+.sampling-deviation p {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--fg-2);
+  margin: 0 0 var(--s-3);
+}
+.sampling-deviation p:last-child { margin-bottom: 0; }
+.sampling-deviation code {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+
+/* ── Pattern 6: Version card / row ───────────────────────────────────── */
+.versions-table { margin: var(--s-4) 0 var(--s-12); }
+.versions-table tbody td a {
+  text-decoration: none;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+}
+.versions-table tbody td a:hover { color: var(--accent-deep); }
+.versions-table tr.version-row-spike td,
+.versions-table tr.version-row-spike td a {
+  color: var(--fg-3);
+}
+.versions-table tr.version-row-spike .spike-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ghost-2);
+  margin-left: var(--s-2);
+}
+
+/* ── Wedge cards (version_index.html) ────────────────────────────────── */
+.wedge-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-5);
+  margin: var(--s-6) 0 var(--s-12);
+}
+.wedge-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  padding: var(--s-6);
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color var(--dur-short) var(--ease-standard),
+              background var(--dur-short) var(--ease-standard);
+}
+.wedge-card:hover {
+  border-color: var(--accent);
+  background: var(--paper-alt);
+}
+.wedge-card__name {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ghost-2);
+}
+.wedge-card__question {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  color: var(--ink);
+  margin: 0;
+}
+.wedge-card__results {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--fg-2);
+  margin: 0;
+  line-height: 1.5;
+}
+.wedge-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-4);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ghost-2);
+  margin-top: auto;
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--rule);
+}
+
+/* ── Disagreement page (markdown-rendered content) ──────────────────── */
+.markdown-body { max-width: var(--w-reading); }
+.markdown-body h1 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 2.2rem;
+  line-height: 1.15;
+  margin: 0 0 var(--s-5);
+  color: var(--ink);
+}
+.markdown-body h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin: var(--s-12) 0 var(--s-3);
+  color: var(--ink);
+}
+.markdown-body h3 {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ghost-2);
+  margin: var(--s-10) 0 var(--s-2);
+}
+.markdown-body p, .markdown-body li {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--fg-2);
+}
+.markdown-body table { font-size: 0.92rem; }
+.markdown-body blockquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  border-left: 1px solid var(--rule);
+  padding: var(--s-2) 0 var(--s-2) var(--s-5);
+  color: var(--fg-2);
+}
+
+/* ── Mobile (≤ 720px) ────────────────────────────────────────────────── */
+@media (max-width: 720px) {
+  main { padding: var(--s-6) var(--s-5) var(--s-12); }
+  .site-header { flex-direction: column; align-items: flex-start; gap: var(--s-3); padding: var(--s-5); }
+  .site-nav { font-size: 0.66rem; gap: var(--s-3); flex-wrap: wrap; }
+  .trust-triplet { font-size: 0.66rem; gap: var(--s-1) var(--s-3); }
+
+  /* Tables become stacked cards */
+  .versions-table thead { display: none; }
+  .versions-table tr {
+    display: block;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    padding: var(--s-4) var(--s-5);
+    margin-bottom: var(--s-3);
+  }
+  .versions-table td {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s-4);
+    padding: var(--s-2) 0;
+    border: 0;
+  }
+  .versions-table td::before {
+    content: attr(data-label);
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ghost-2);
+    flex: 0 0 auto;
+  }
+
+  /* Wedge cards become single column */
+  .wedge-grid { grid-template-columns: 1fr; }
+
+  /* Anchoring evidence: stack cells */
+  .anchoring-evidence__row { grid-template-columns: 1fr; gap: var(--s-4); }
+
+  /* Panel result: ≥44px touch targets handled by summary padding */
+  .panel-result__numbers { grid-template-columns: 1fr; gap: var(--s-2); }
+
+  /* Larger DM Mono labels per Pass 6 */
+  .eyebrow, .anchoring-evidence__cell .label, thead th { font-size: 0.78rem; }
+
+  /* Footer collapse */
+  .site-footer .footer-ctas { gap: var(--s-3) var(--s-5); font-size: 0.74rem; }
+}

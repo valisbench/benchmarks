@@ -6,100 +6,259 @@
   <title>Methodology -- VALIS Benchmarks</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
-  <header>
-    <h1><a href="index.html">VALIS Benchmarks</a></h1>
-    <nav>
-      <a href="index.html">Index</a> ·
-      <a href="methodology.html">Methodology</a> ·
-      <a href="verify.html">Verify</a> ·
+<body class="valis-grain">
+  <span class="visually-hidden">VALIS Benchmarks</span>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <a class="site-brand" href="https://valissystems.com" aria-label="VALIS Systems home">
+      <svg class="valis-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10 14 L20 30 L30 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+      </svg>
+      <span class="wordmark">VALIS</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Versions</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="verify.html">Verify</a>
       <a href="https://github.com/valisbench/benchmarks">Source</a>
     </nav>
   </header>
-  <main>
-<h2>Methodology</h2>
+  <main id="main">
 
-<h3>What this benchmark is</h3>
-<p>A pre-registered evaluation of frontier language models on a specific failure mode.
-   Before any model is called, we publish the dataset (or its hash), the model roster with
-   exact version strings, the sampling parameters, the scoring rubric, and the hypothesis.
-   The signature is anchored to two transparency logs that we do not operate.
-   After the run, we publish the results on the same page as the manifest.
-   If results are null or unfavorable, they publish anyway.</p>
+<p class="eyebrow">Methodology</p>
+<h2 class="page-headline">How VALIS Benchmarks work.</h2>
 
-<h3>Why the form matters</h3>
-<p>Most public benchmarks publish numbers, not commitments. A benchmark whose dataset can be
-   silently changed, whose roster can be re-rolled, or whose unflattering runs can be hidden
-   is not a measurement instrument. It is a press release with a confidence interval.</p>
+<p>
+  Most public AI benchmarks publish numbers, not commitments. A benchmark
+  whose dataset can be silently changed, whose roster can be re-rolled, or
+  whose unflattering runs can be hidden is not a measurement instrument. It
+  is a press release with a confidence interval.
+</p>
 
-<p>The form we use here is intended to make those moves visible. The manifest hash is in Rekor.
-   The Rekor entry records the identity of the GitHub Actions workflow that signed it. The
-   OpenTimestamps proof anchors the manifest hash to a Bitcoin block. If we re-publish a
-   different manifest under the same version tag, the old one stays in Rekor forever.</p>
+<p>
+  We do it differently. Before any model is called, we publish the dataset
+  hash, the model roster with exact version strings, the sampling parameters,
+  the scoring rubric, and the hypothesis. The manifest is signed with
+  Sigstore cosign. The signature is anchored to the Sigstore Rekor
+  transparency log. The hash is timestamped to a Bitcoin block via
+  OpenTimestamps. If we re-publish a different manifest under the same
+  version tag later, the old one stays in Rekor forever.
+</p>
 
-<h3>What v1 measures</h3>
-<p>v1 ships two wedges, both synthesizable without external labelers:</p>
+<p>
+  After the run, the results publish on the same page as the manifest.
+  Null results publish. Unfavorable results publish. The commitment to do
+  that is itself anchored.
+</p>
+
+<h3>The seven principles</h3>
+
+<p>
+  <strong>One.</strong> Pre-registration is the artifact. The manifest
+  freezes everything that could be retroactively changed: dataset hash,
+  model versions, temperature, seed, scoring rubric, refusal policy,
+  failure-publication commitment. The signed bytes of that file are the
+  benchmark.
+</p>
+
+<p>
+  <strong>Two.</strong> Two anchors, not one. The Sigstore Rekor log
+  records the GitHub Actions identity that signed the manifest. The
+  OpenTimestamps proof anchors the manifest hash to a Bitcoin block.
+  Re-publishing under the same tag is detectable in either log alone.
+</p>
+
+<p>
+  <strong>Three.</strong> Refusal is a separate category, not a wrong
+  answer. We report refusal rates per model per wedge. F1 is computed over
+  the non-refused subset. A model that refuses every case scores
+  "refusal: 100%" with no F1 reported, which is the correct answer.
+</p>
+
+<p>
+  <strong>Four.</strong> Synthetic ground truth is disclosed, not hidden.
+  Where the dataset is synthesized (no human labels), we say so on the
+  wedge page. Where the rubric uses a constructed dependency graph
+  instead of expert judgment, we say so on the wedge page. The disclosure
+  is part of the cryptographic commitment.
+</p>
+
+<p>
+  <strong>Five.</strong> Spot-check panels are required, not optional.
+  Each wedge's case set is reviewed by three independent frontier models
+  before publication: Claude Opus 4.7, GPT-5.5, and Gemini 3.1 Pro. The
+  gate is zero unanimous fails on a 50-case sample. The panel result is
+  published verbatim alongside the manifest.
+</p>
+
+<p>
+  <strong>Six.</strong> Disagreement is data. Where the three reviewers
+  diverge on rubric application, we publish the cases verbatim with each
+  reviewer's rationale. The boundary of a rubric is itself part of the
+  published artifact.
+</p>
+
+<p>
+  <strong>Seven.</strong> Anyone can verify. The <code>verify.sh</code>
+  script in the public repo has zero VALIS code paths. A Debian Docker
+  container with cosign and ots installed runs it. You do not need to
+  trust VALIS to verify a VALIS benchmark.
+</p>
+
+<h3>Worked example: phantom_precision end-to-end</h3>
+
+<p>
+  To make this concrete, here is how a single wedge moves from
+  pre-registration to anchored result.
+</p>
+
+<p>
+  <strong>Step one.</strong> The wedge dataset is constructed. For
+  phantom_precision, we author a paragraph of plausible business prose
+  containing one fabricated numerical claim ("a recent McKinsey study
+  showed 42% gains") and one to three real numerical claims from sourced
+  documents as distractors. Each case is reviewed by the founder for
+  plausibility. The cases file is hashed.
+</p>
+
+<p>
+  <strong>Step two.</strong> The manifest is written. It fixes the
+  dataset SHA256, the model roster (Claude Opus 4.7, GPT-5.5 snapshot
+  <code>gpt-5.5-2026-04-23</code>, Gemini 3.1 Pro Preview), sampling
+  parameters (temperature 0, seed 42, top_p 1, max_tokens 1024), the
+  scoring rubric (per-passage F1 against fabricated spans), the refusal
+  policy (refusals as a separate category), and the
+  failure-publication commitment.
+</p>
+
+<p>
+  <strong>Step three.</strong> The spot-check panel runs. Three frontier
+  models review a 50-case sample. Each model returns pass/fail per case
+  with rationale. We collate the verdicts. Phantom_precision v1.0.0
+  passed the gate with zero unanimous fails. Forty-four cases were
+  unanimous pass; four were 2-of-3 pass; two were 1-of-3 pass. The four
+  and two together are the disagreement set, published verbatim.
+</p>
+
+<p>
+  <strong>Step four.</strong> The git tag is pushed.
+  <code>benchmarks-v1.0.0-phantom_precision</code>. The GitHub Actions
+  workflow picks up the tag, runs <code>cosign sign-blob</code> with
+  keyless OIDC against the manifest, posts the signature to Rekor,
+  receives back the log index, and runs <code>ots stamp</code> against
+  the manifest hash. The OpenTimestamps proof is committed to the public
+  repo in "pending" state.
+</p>
+
+<p>
+  <strong>Step five.</strong> Within 3-6 hours, the Bitcoin block lands.
+  The daily <code>ots_finalizer</code> workflow upgrades the proof to
+  "confirmed" automatically. The manifest hash is now anchored in a
+  Bitcoin block. The record cannot be edited.
+</p>
+
+<p>
+  <strong>Step six.</strong> The verifier runs. Anyone with cosign, ots,
+  and the public repo can run <code>./verify.sh v1.0.0</code>. The
+  script computes the manifest's SHA256, looks up the Rekor entry by log
+  index, verifies the signature against the recorded GitHub Actions
+  identity, and verifies the OpenTimestamps proof against the Bitcoin
+  block. A FULL PASS exits 0.
+</p>
+
+<h3>Sampling parameter deviation</h3>
+
+<aside class="sampling-deviation" aria-label="Sampling parameter deviation">
+  <p class="sampling-deviation__eyebrow">Deviation from pre-registered manifest</p>
+  <p>
+    The v1.0.0 manifests pre-register
+    <code>temperature: 0</code>, <code>top_p: 1</code>, <code>seed: 42</code>
+    for all three providers. After pre-registration and anchoring,
+    Anthropic deprecated these parameters on Claude Opus 4.7 and OpenAI
+    deprecated them on GPT-5.5; both APIs reject non-default values and use
+    internal adaptive sampling. The harness omits sampling parameters when
+    calling these models. Gemini 3.1 Pro Preview still accepts the
+    parameters and was called with the pre-registered values.
+  </p>
+  <p>
+    Anthropic's own documentation states that <code>temperature=0</code>
+    never guaranteed identical outputs on prior models. The substantive
+    commitment of the pre-registration -- no stochastic tuning of model
+    behavior -- is honored across all three providers. The deviation is
+    in which API surface expresses that commitment, not in the commitment
+    itself.
+  </p>
+</aside>
+
+<h3>Reasoning-model token budgets</h3>
+
+<p>
+  All three frontier models on this version's roster -- Claude Opus 4.7,
+  GPT-5.5, and Gemini 3.1 Pro Preview -- are reasoning models. They do
+  internal thinking before producing the final answer, and that thinking
+  consumes part of the <code>max_tokens</code> budget on each call. The
+  manifests pre-register <code>max_tokens: 1024</code> for every model.
+</p>
+
+<p>
+  Gemini 3.1 Pro Preview exposes its thinking content as part of the
+  response stream by default; when the budget is tight, the budget is
+  consumed before the answer arrives and the case is recorded as
+  <code>partial_response</code> rather than <code>response</code>. Excluded
+  from F1, the same as any non-response outcome. Anthropic and OpenAI's
+  reasoning content is omitted from the response stream by default, so the
+  same 1024 budget produces the answer directly.
+</p>
+
+<p>
+  This is a measurement observation about how each model handles the
+  budget it is given, not a deviation from pre-registration. The
+  <code>outcome_counts</code> field of every result row reports the
+  per-case breakdown explicitly. Where you see a high
+  <code>partial_response</code> rate, that is itself data about the model.
+</p>
+
+<h3>What this version does not yet do</h3>
+
 <ul>
-  <li><strong>Phantom precision.</strong> The model is shown a paragraph of plausible business prose
-      that contains one fabricated quantitative claim plus one to three real, sourced numerical claims
-      as distractors. The model is asked to flag the fabricated claim. Scored as F1 against
-      ground-truth fabricated spans, with the distractor false-positive rate as a separately-reported
-      secondary metric.</li>
-  <li><strong>Mechanism-gap.</strong> The model is shown a single "X because Y" sentence.
-      The model must classify whether Y is a supported mechanism for X. Scored as binary F1,
-      with recall on unsupported as the headline number.</li>
+  <li>
+    Datasets are synthesized, not human-labeled. Spot-check panels
+    confirm internal consistency, but v2 will add external labelers for
+    a gold subset.
+  </li>
+  <li>
+    The private held-out partition (200 cases per wedge) is encrypted at
+    rest in the public repo. The decryption key is held by the founder.
+    v2 will define a rotation policy and a key escrow mechanism.
+  </li>
+  <li>
+    Determinism is best-effort across providers. Temperature zero and a
+    fixed seed do not guarantee identical bytes across re-runs on every
+    provider. The manifest documents this.
+  </li>
 </ul>
 
-<h3>Refusal handling</h3>
-<p>A refusal counts as a separate category, not as a false negative or false positive.
-   Refusal rates are reported per model per benchmark. F1 is computed over the non-refused subset.
-   The full sample-size denominator is shown alongside. A model that refuses every case scores
-   "refusal: 100%" with no F1 reported, which is the correct answer.</p>
-
-<h3>Outcome categories</h3>
-<p>Every model call resolves to exactly one of seven categories:</p>
-<ul>
-  <li><code>response</code> -- model returned a parseable answer</li>
-  <li><code>refusal</code> -- model declined to answer</li>
-  <li><code>partial_response</code> -- response cut off at <code>max_tokens</code> or a stop sequence</li>
-  <li><code>error_timeout</code> -- per-case timeout exceeded</li>
-  <li><code>error_rate_limit</code> -- 429 from provider after retries exhausted</li>
-  <li><code>error_other</code> -- unclassified error</li>
-  <li><code>malformed</code> -- response present but did not match the expected schema</li>
-</ul>
-
-<h3>How verification works</h3>
-<p>Each published version has three companion files in the public repo:</p>
-<ul>
-  <li><code>manifest.yaml</code> -- the pre-registered specification, the signed bytes</li>
-  <li><code>manifest.bundle.json</code> -- the Sigstore signature plus the Rekor entry</li>
-  <li><code>manifest.yaml.ots</code> -- the OpenTimestamps proof</li>
-</ul>
-<p>A third party verifies these by running cosign and ots against them. The <code>verify.sh</code>
-   script in the public repo has zero VALIS code paths. A Debian Docker container with cosign and
-   ots installed runs it. See the <a href="verify.html">verify</a> page.</p>
-
-<h3>External methodology review</h3>
-<p>Each publication is reviewed by one externally-named methodology reviewer. The reviewer is paid
-   for an honest critique, not a friendly write-up. Their written assessment publishes verbatim
-   alongside the results, with their name on it. A refusal to sign is itself published.</p>
-
-<h3>What v1 does not yet do</h3>
-<ul>
-  <li>Datasets are synthesized, not human-labeled. Phantom-precision tier-3 cases pass founder
-      spot-check (N=50) before publication. v2 will add external labelers for a gold subset.</li>
-  <li>The private held-out partition (200 cases per wedge) is encrypted at rest in the public repo.
-      The decryption key is held by the founder. v2 will define a rotation policy and a key
-      escrow mechanism.</li>
-  <li>Determinism is best-effort across providers. <code>temperature=0</code> and a fixed seed
-      do not guarantee identical bytes across re-runs on every provider; the manifest documents
-      this honestly.</li>
-</ul>
   </main>
-  <footer>
-    <p>Generated 2026-05-22 11:55 UTC by <code>valis.benchmarks.site.build</code>.
-       Every published version is anchored to the Sigstore Rekor transparency log and to OpenTimestamps (Bitcoin).
-       See <a href="verify.html">how to verify</a>.</p>
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <svg width="22" height="22" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10 14 L20 30 L30 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+      </svg>
+      <span class="wordmark">VALIS</span>
+    </div>
+    <ul class="footer-ctas">
+      <li><a href="https://valissystems.com/how-it-works">Read the methodology</a></li>
+      <li><a href="https://valissystems.com/about">About VALIS</a></li>
+      <li><a href="mailto:david@valissystems.com">Get in touch</a></li>
+    </ul>
+    <p class="footer-meta">
+      Generated 2026-05-22 22:14 UTC by <code>valis.benchmarks.site.build</code>.
+      Every published version is signed with Sigstore cosign, anchored to the Sigstore Rekor transparency log,
+      and timestamped to a Bitcoin block via OpenTimestamps.
+      See <a href="verify.html">how to verify</a>.
+    </p>
   </footer>
 </body>
 </html>

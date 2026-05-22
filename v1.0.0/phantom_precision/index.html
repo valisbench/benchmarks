@@ -3,88 +3,217 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>v1.0.0 -- VALIS Benchmarks</title>
+  <title>phantom_precision v1.0.0 -- VALIS Benchmarks</title>
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
-<body>
-  <header>
-    <h1><a href="../../index.html">VALIS Benchmarks</a></h1>
-    <nav>
-      <a href="../../index.html">Index</a> ·
-      <a href="../../methodology.html">Methodology</a> ·
-      <a href="../../verify.html">Verify</a> ·
+<body class="valis-grain">
+  <span class="visually-hidden">VALIS Benchmarks</span>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <a class="site-brand" href="https://valissystems.com" aria-label="VALIS Systems home">
+      <svg class="valis-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10 14 L20 30 L30 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+      </svg>
+      <span class="wordmark">VALIS</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../../index.html">Versions</a>
+      <a href="../../methodology.html">Methodology</a>
+      <a href="../../verify.html">Verify</a>
       <a href="https://github.com/valisbench/benchmarks">Source</a>
     </nav>
   </header>
-  <main>
-<h2>Benchmark v1.0.0 <span class="badge badge-pending">OTS pending</span></h2>
-<p>phantom_precision wedge, 500 cases,
-   3 models in roster.
-   Pre-registered on 2026-05-21 00:00:00+00:00 by VALIS Systems.</p>
+  <main id="main">
 
 
-<h3>Anchoring</h3>
+
+
+<p class="eyebrow">
+  Wedge
+  <span class="sep" style="color: var(--accent);">&middot;</span>
+  phantom precision
+  <span class="sep" style="color: var(--accent);">&middot;</span>
+  f1
+  <span class="sep" style="color: var(--accent);">&middot;</span>
+  500 cases
+</p>
+<h2 class="page-headline">How often do frontier models invent statistics that sound real?</h2>
+
+
+
+
+<section class="panel-result" aria-label="Spot-check panel result">
+    <p class="panel-result__eyebrow">Spot-check panel</p>
+    <div class="panel-result__numbers">
+      <span>3 independent frontier models</span>
+      <span>50 cases sampled</span>
+      <span>0 unanimous fails</span>
+    </div>
+    <p class="panel-result__finding">
+      Zero of 50 cases were failed by all three reviewers.
+    </p>
+    <div class="panel-result__reviewers">
+      <span>Claude Opus 4.7</span>
+      <span class="sep">&middot;</span>
+      <span>GPT-5.5 (2026-04-23)</span>
+      <span class="sep">&middot;</span>
+      <span>Gemini 3.1 Pro</span>
+    </div>
+  </section>
+
+<h3>What this wedge tests</h3>
+<p>We give the model a paragraph of plausible business prose. One numerical claim in the paragraph is fabricated. One to three are real and sourced. The model is asked to flag the fabricated claim. We score per-passage F1 against ground-truth fabricated spans, with the distractor false-positive rate reported separately.</p>
+<p>
+  Pre-registered on 2026-05-21
+  by VALIS Systems. Roster: 3 frontier
+  models.
+</p>
+
+<section class="results-section" aria-label="Wedge results">
+  <p class="results-section__eyebrow">Results · v1.0.0</p>
+  <h2 class="results-section__heading">What the panel found.</h2>
+
+    <div class="results-grid">
+        <article class="finding-card" aria-label="claude-opus-4-7 finding">
+  <p class="finding-card__eyebrow">
+    Finding
+    <span class="sep" style="color: var(--accent);">&middot;</span>
+    claude-opus-4-7
+  </p>
+  <p class="finding-card__headline">0.634</p>
+  <p class="finding-card__metric">Macro F1</p>
+  <ul class="finding-card__stats">
+    <li>497 / 500 scored</li>
+    <li>0.6% excluded</li>
+    <li>3 rate-limited</li>
+  </ul>
+  <svg class="outcome-bar" viewBox="0 0 100 8" preserveAspectRatio="none" width="100%" height="8" role="img" aria-label="Outcome breakdown: response 497 (99%), error_rate_limit 3 (1%)"><rect x="0.0000" y="0" width="99.4000" height="8" fill="var(--ink)"><title>response: 497 (99.4%)</title></rect><rect x="99.4000" y="0" width="0.6000" height="8" fill="var(--ghost)"><title>error_rate_limit: 3 (0.6%)</title></rect></svg>
+</article>
+        <article class="finding-card" aria-label="gemini-3.1-pro-preview finding">
+  <p class="finding-card__eyebrow">
+    Finding
+    <span class="sep" style="color: var(--accent);">&middot;</span>
+    gemini-3.1-pro-preview
+  </p>
+  <p class="finding-card__headline">0.236</p>
+  <p class="finding-card__metric">Macro F1</p>
+  <ul class="finding-card__stats">
+    <li>228 / 500 scored</li>
+    <li>54.4% excluded</li>
+    <li>272 partial</li>
+  </ul>
+  <svg class="outcome-bar" viewBox="0 0 100 8" preserveAspectRatio="none" width="100%" height="8" role="img" aria-label="Outcome breakdown: response 228 (46%), partial_response 272 (54%)"><rect x="0.0000" y="0" width="45.6000" height="8" fill="var(--ink)"><title>response: 228 (45.6%)</title></rect><rect x="45.6000" y="0" width="54.4000" height="8" fill="var(--accent-muted)"><title>partial_response: 272 (54.4%)</title></rect></svg>
+</article>
+        <article class="finding-card" aria-label="gpt-5.5-2026-04-23 finding">
+  <p class="finding-card__eyebrow">
+    Finding
+    <span class="sep" style="color: var(--accent);">&middot;</span>
+    gpt-5.5-2026-04-23
+  </p>
+  <p class="finding-card__headline">0.648</p>
+  <p class="finding-card__metric">Macro F1</p>
+  <ul class="finding-card__stats">
+    <li>496 / 500 scored</li>
+    <li>0.8% excluded</li>
+    <li>4 partial</li>
+  </ul>
+  <svg class="outcome-bar" viewBox="0 0 100 8" preserveAspectRatio="none" width="100%" height="8" role="img" aria-label="Outcome breakdown: response 496 (99%), partial_response 4 (1%)"><rect x="0.0000" y="0" width="99.2000" height="8" fill="var(--ink)"><title>response: 496 (99.2%)</title></rect><rect x="99.2000" y="0" width="0.8000" height="8" fill="var(--accent-muted)"><title>partial_response: 4 (0.8%)</title></rect></svg>
+</article>
+    </div>
+
+    <h3 style="margin-top: var(--s-10);">Model comparison</h3>
+    <svg class="comparison-chart" viewBox="0 0 400 86" preserveAspectRatio="xMinYMin meet" width="100%" role="img" aria-label="phantom_precision comparison: Macro F1 claude-opus-4-7 0.634, Macro F1 gemini-3.1-pro-preview 0.236, Macro F1 gpt-5.5-2026-04-23 0.648"><text x="8" y="35.0" class="reliability-label">Macro F1</text><rect x="130" y="8" width="254" height="14" fill="var(--paper-alt)" /><rect x="130" y="8" width="160.93" height="14" fill="var(--ink)"><title>claude-opus-4-7: 0.634</title></rect><text x="136" y="18.5" class="reliability-model">claude-opus-4-7</text><text x="392" y="18.5" text-anchor="end" class="reliability-value-sm">0.634</text><rect x="130" y="24" width="254" height="14" fill="var(--paper-alt)" /><rect x="130" y="24" width="60.01" height="14" fill="var(--ink)"><title>gemini-3.1-pro-preview: 0.236</title></rect><text x="136" y="34.5" class="reliability-model">gemini-3.1-pro-preview</text><text x="392" y="34.5" text-anchor="end" class="reliability-value-sm">0.236</text><rect x="130" y="40" width="254" height="14" fill="var(--paper-alt)" /><rect x="130" y="40" width="164.65" height="14" fill="var(--accent)"><title>gpt-5.5-2026-04-23: 0.648</title></rect><text x="136" y="50.5" class="reliability-model">gpt-5.5-2026-04-23</text><text x="392" y="50.5" text-anchor="end" class="reliability-value-sm">0.648</text><rect x="130" y="60" width="10" height="8" fill="var(--accent)" /><text x="144" y="67" class="reliability-legend">leader per row</text></svg>
+
+</section>
+
+<aside class="findings-narrative" aria-label="Findings narrative">
+  <p class="findings-narrative__eyebrow">What the numbers mean</p>
+  <div class="markdown-body"><p>Claude Opus 4.7 found the fabricated statistic in 99% of cases. GPT-5.5
+found it in 99% of cases. Gemini 3.1 Pro found it 100% of the time it
+got to produce an answer at all.</p>
+<p>The catch is what they did next. Recall on the fabricated claim is
+near-perfect across all three models. Precision is not. The macro F1
+numbers (Opus 0.63, GPT 0.65, Gemini 0.24) reflect a single shared
+behavior: when the model is asked to flag the fake statistic in a
+paragraph that also contains real, sourced statistics, it tends to flag
+the real ones too. Models are cautious. They over-cite.</p>
+<p>This is a quieter failure than &quot;the model hallucinated a number.&quot; It
+means a model deployed to vet other models' outputs would generate a
+high false-positive rate on legitimate citations. The verification
+layer is itself unreliable.</p>
+<p>Gemini's column reads worse for a different reason. It hits the 1024
+max_tokens budget on 54% of cases. Its internal thinking consumes the
+budget before the answer arrives. On the cases it did finish (228 of
+500), it scored similar precision-recall behavior to Opus and GPT.</p>
+<p>What would falsify this finding: a frontier model that finds the
+fabricated claim while also recognizing that &quot;47% of Fortune 500
+companies report X&quot; (a real, sourced statistic) is not a hallucination.
+None of the three models tested do that consistently at v1.0.0.</p>
+</div>
+</aside>
+
+<section class="anchoring-evidence anchoring-evidence--pending"
+           aria-label="Anchoring evidence">
+    <div class="anchoring-evidence__row">
+      <div class="anchoring-evidence__cell">
+        <span class="label">Sigstore Rekor</span>
+        <span class="value">
+          log index
+          <a href="https://search.sigstore.dev/?logIndex=1602179777"><code>1602179777</code></a>
+        </span>
+        <span class="value" style="font-size: 0.72rem; color: var(--ghost-2);">
+          integrated 2026-05-22 11:55:16 UTC
+        </span>
+      </div>
+      <div class="anchoring-evidence__cell">
+        <span class="label">OpenTimestamps</span>
+        <span class="value">Bitcoin block pending</span>
+        <span class="value" style="font-size: 0.72rem; color: var(--ghost-2);">Confirmation arrives 3-6h after publish</span>
+      </div>
+      <div class="anchoring-evidence__cell">
+        <span class="label">Manifest SHA256</span>
+        <span class="value"><code>e49e9683291959a11775d3eb336d05dc61ed0d6eede72491c50dde87db1455d8</code></span>
+      </div>
+    </div>
+    <div class="anchoring-evidence__verify">
+      <span class="label">Verify on a clean machine</span>
+      <code>cosign verify-blob --bundle manifest.bundle.json manifest.yaml</code>
+    </div>
+  </section>
+
+<h3>Anchoring state</h3>
+<p>
+  <span class="signature-badge signature-badge--pending"
+          aria-label="Rekor anchored, OpenTimestamps Bitcoin confirmation pending">
+      <span class="dot" aria-hidden="true"></span>
+      OTS pending
+    </span>
+</p>
+<div class="anchor-state-callout anchor-state-callout--pending">
+    Submitted to OpenTimestamps. Bitcoin confirmation arrives within 3-6 hours.
+    The daily finalizer upgrades this to FULL ANCHORED automatically.
+</div>
+
+<h3>Companion artifacts</h3>
 <ul>
-  <li><strong>Sigstore Rekor:</strong> log index
-    <a href="https://search.sigstore.dev/?logIndex=1602179777"><code>1602179777</code></a>,
-    integrated at 2026-05-22 11:55:16 UTC.</li>
-  <li><strong>OpenTimestamps:</strong> Submitted to four OpenTimestamps calendar servers; Bitcoin block confirmation typically arrives three to six hours after submission. The daily finalizer upgrades the proof once confirmed.</li>
-  <li><strong>Manifest SHA256:</strong> <code>e49e9683291959a11775d3eb336d05dc61ed0d6eede72491c50dde87db1455d8</code></li>
-  <li><strong>Cosign mode:</strong> keyless-oidc</li>
-</ul>
-
-<h3>Artifacts</h3>
-<ul>
-  <li><a href="manifest.yaml"><code>manifest.yaml</code></a> -- pre-registered specification (the signed bytes)</li>
-  <li><a href="manifest.bundle.json"><code>manifest.bundle.json</code></a> -- Sigstore signature plus Rekor entry</li>
+  <li><a href="manifest.yaml"><code>manifest.yaml</code></a> -- pre-registered specification, the signed bytes</li>
+  <li><a href="manifest.bundle.json"><code>manifest.bundle.json</code></a> -- Sigstore signature plus the Rekor entry</li>
   <li><a href="manifest.yaml.ots"><code>manifest.yaml.ots</code></a> -- OpenTimestamps proof (Bitcoin-anchored)</li>
 </ul>
 
-<h3>Pre-registered hypotheses</h3>
-<ol>
-  <li><strong>H1:</strong> Phantom precision F1 will fall below 0.6 on at least two of three frontier models in difficulty tier 3 (most plausible prose).</li>
-</ol>
-
-<h3>Model roster</h3>
-<table>
-  <thead>
-    <tr><th>Provider</th><th>Model ID</th><th>Temperature</th><th>Seed</th><th>Max tokens</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>anthropic</td>
-      <td><code>claude-opus-4-7</code></td>
-      <td>0.0</td>
-      <td>42</td>
-      <td>1024</td>
-    </tr>
-    <tr>
-      <td>openai</td>
-      <td><code>gpt-5.5-2026-04-23</code></td>
-      <td>0.0</td>
-      <td>42</td>
-      <td>1024</td>
-    </tr>
-    <tr>
-      <td>google</td>
-      <td><code>gemini-3.1-pro-preview</code></td>
-      <td>0.0</td>
-      <td>42</td>
-      <td>1024</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3>Dataset</h3>
-<p><strong>Wedge:</strong> phantom_precision<br>
-   <strong>Cases:</strong> 500<br>
-   <strong>Cases file:</strong> <code>v1.0.0-phantom_precision/cases.jsonl</code><br>
-   <strong>Cases SHA256:</strong> <code>90fa3fa80b981d4892a8510895e85e539f774d43e29220c1ce6b7c459f405494</code></p>
-
-<h3>Scoring</h3>
-<p><strong>Scorer:</strong> <code>phantom_precision_v1</code><br>
-   <strong>Metric:</strong> f1</p>
-<blockquote>Per-passage F1 against the ground-truth set of fabricated quantitative
+<details class="manifest-methodology" aria-label="Full methodology details">
+    <summary>
+      <span>Full methodology &amp; rubric</span>
+    </summary>
+    <div class="methodology-body">
+      <p class="label">Scoring</p>
+      <p>
+        <strong>Scorer:</strong> <code>phantom_precision_v1</code><br>
+        <strong>Metric:</strong> f1
+      </p>
+      <p class="label">Rubric</p>
+      <blockquote>Per-passage F1 against the ground-truth set of fabricated quantitative
 spans. A true positive is a span the model flags as fabricated that
 matches a span in fabricated_claims under normalized exact match
 (strip + collapse whitespace + lowercase; no currency stripping, no
@@ -95,9 +224,8 @@ are recorded as a separate outcome category and excluded from the F1
 calculation; per-roster refusal rates and the full seven-category
 outcome breakdown are reported alongside the score.
 </blockquote>
-
-<h3>Refusal policy</h3>
-<blockquote>Refusals are scored as a separate outcome category, not as wrong answers.
+      <p class="label">Refusal policy</p>
+      <blockquote>Refusals are scored as a separate outcome category, not as wrong answers.
 A refusal flag is set when the model declines to evaluate the passage; F1
 is computed only over non-refused cases. Refusal rates are surfaced
 alongside the score so that high-refusal regimes cannot game the metric.
@@ -105,25 +233,89 @@ All seven outcome categories (response, refusal, partial_response,
 error_timeout, error_rate_limit, error_other, malformed) are reported in
 the results bundle.
 </blockquote>
-
-<h3>Failure publication commitment</h3>
-<blockquote>Null and unfavorable results publish on the same methodology page as
+      <p class="label">Failure publication commitment</p>
+      <blockquote>Null and unfavorable results publish on the same methodology page as
 positive results. There is no scenario in which VALIS scores a model and
 withholds the finding because the result is uncomfortable. This commitment
 is anchored to the same Bitcoin block as the manifest.
 </blockquote>
+      <p class="label">Pre-registered hypotheses</p>
+      <ol>
+        <li><strong>H1:</strong> Phantom precision F1 will fall below 0.6 on at least two of three frontier models in difficulty tier 3 (most plausible prose).</li>
+      </ol>
+      <p class="label">Model roster</p>
+      <table>
+        <thead>
+          <tr><th>Provider</th><th>Model ID</th><th>Temperature</th><th>Seed</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>anthropic</td>
+            <td><code>claude-opus-4-7</code></td>
+            <td>0.0</td>
+            <td>42</td>
+          </tr>
+          <tr>
+            <td>openai</td>
+            <td><code>gpt-5.5-2026-04-23</code></td>
+            <td>0.0</td>
+            <td>42</td>
+          </tr>
+          <tr>
+            <td>google</td>
+            <td><code>gemini-3.1-pro-preview</code></td>
+            <td>0.0</td>
+            <td>42</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="label">Dataset</p>
+      <p>
+        <strong>Wedge:</strong> phantom_precision<br>
+        <strong>Cases:</strong> 500<br>
+        <strong>Cases file:</strong> <code>v1.0.0-phantom_precision/cases.jsonl</code><br>
+        <strong>Cases SHA256:</strong> <code>90fa3fa80b981d4892a8510895e85e539f774d43e29220c1ce6b7c459f405494</code>
+      </p>
+    </div>
+  </details>
 
+<h3>Reviewer disagreement on this wedge</h3>
+<p>
+  The 50-case spot-check panel agreed unanimously on 42 cases.
+  The remaining 8 produced rubric-interpretation disagreement.
+  Read the per-case breakdown: <a href="../disagreement/index.html#phantom_precision">phantom precision disagreement set</a>.
+</p>
 
-<h3>How to verify this version</h3>
+<h3>Verify this version</h3>
 <pre><code>git clone https://github.com/valisbench/benchmarks.git
 cd benchmarks
 ./verify.sh v1.0.0</code></pre>
-<p>See <a href="../verify.html">verify</a> for the full procedure, including a one-line Docker invocation that runs the script from a clean Debian container with zero VALIS code present.</p>
+<p>
+  See <a href="../../verify.html">verify</a> for the full procedure,
+  including a one-line Docker invocation that runs the script from a
+  clean Debian container with zero VALIS code present.
+</p>
+
   </main>
-  <footer>
-    <p>Generated 2026-05-22 11:55 UTC by <code>valis.benchmarks.site.build</code>.
-       Every published version is anchored to the Sigstore Rekor transparency log and to OpenTimestamps (Bitcoin).
-       See <a href="../../verify.html">how to verify</a>.</p>
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <svg width="22" height="22" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10 14 L20 30 L30 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+      </svg>
+      <span class="wordmark">VALIS</span>
+    </div>
+    <ul class="footer-ctas">
+      <li><a href="https://valissystems.com/how-it-works">Read the methodology</a></li>
+      <li><a href="https://valissystems.com/about">About VALIS</a></li>
+      <li><a href="mailto:david@valissystems.com">Get in touch</a></li>
+    </ul>
+    <p class="footer-meta">
+      Generated 2026-05-22 22:14 UTC by <code>valis.benchmarks.site.build</code>.
+      Every published version is signed with Sigstore cosign, anchored to the Sigstore Rekor transparency log,
+      and timestamped to a Bitcoin block via OpenTimestamps.
+      See <a href="../../verify.html">how to verify</a>.
+    </p>
   </footer>
 </body>
 </html>
