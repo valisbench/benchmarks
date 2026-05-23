@@ -3,121 +3,98 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VALIS Benchmarks</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <title>Moved to decision-grade.ai</title>
+  <meta http-equiv="refresh" content="0; url=https://decision-grade.ai/benchmarks/">
+  <link rel="canonical" href="https://decision-grade.ai/benchmarks/">
+  <meta name="robots" content="noindex, follow">
+  <script>
+    window.location.replace("https://decision-grade.ai/benchmarks/");
+  </script>
+  <style>
+    :root { color-scheme: light; }
+    body {
+      margin: 0;
+      padding: 96px 24px;
+      background: #f4f0e8;
+      color: #1a1814;
+      font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 192px);
+    }
+    main {
+      max-width: 560px;
+      width: 100%;
+    }
+    p.eyebrow {
+      font-family: 'DM Mono', 'SF Mono', Menlo, monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6e6960;
+      margin: 0 0 24px;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: #1a1814;
+      margin: 0 0 24px;
+    }
+    p {
+      font-size: 1rem;
+      color: #3a3630;
+      margin: 0 0 16px;
+    }
+    a {
+      color: #c4715f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    a.primary {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 24px;
+      border: 1px solid #1a1814;
+      color: #1a1814;
+      text-decoration: none;
+      font-family: 'Instrument Sans', system-ui, sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    a.primary:hover {
+      background: #1a1814;
+      color: #f4f0e8;
+    }
+    .meta {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #d4cec4;
+      font-family: 'DM Mono', 'SF Mono', Menlo, monospace;
+      font-size: 0.78rem;
+      color: #6e6960;
+    }
+    .meta a { color: #6e6960; }
+  </style>
 </head>
-<body class="valis-grain">
-  <span class="visually-hidden">VALIS Benchmarks</span>
-  <a class="skip-link" href="#main">Skip to main content</a>
-  <header class="site-header">
-    <a class="site-brand" href="https://valissystems.com" aria-label="VALIS Systems home">
-      <svg class="valis-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M10 14 L20 30 L30 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
-      </svg>
-      <span class="wordmark">VALIS</span>
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="index.html">Versions</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="verify.html">Verify</a>
-      <a href="https://github.com/valisbench/benchmarks">Source</a>
-    </nav>
-  </header>
-  <main id="main">
-
-<p class="eyebrow">VALIS Benchmarks</p>
-<h2 class="page-headline">Pre-registered evaluations of where frontier AI reasoning fails.</h2>
-
-<p>
-  Each version's methodology is locked before any model is called.
-  Every result is anchored to a public transparency log.
-  Anyone with a clean machine can verify the chain.
-</p>
-
-<div class="trust-triplet" role="presentation">
-  <span>Pre-registered</span>
-  <span class="sep">&middot;</span>
-  <span>Transparency-log anchored</span>
-  <span class="sep">&middot;</span>
-  <span>Bitcoin timestamped</span>
-</div>
-
-<p class="narrative-ribbon">
-  The published record. v0.1.0 was the pipeline-validation spike.
-  v1.0.0 opens six measurements across three frontier models.
-  v1.1 opens calibration drift, a longitudinal program tracking
-  stated probability vs realized base rate.
-</p>
-
-<h3>Published versions</h3>
-<table class="versions-table">
-  <thead>
-    <tr>
-      <th scope="col">Version</th>
-      <th scope="col">Wedges</th>
-      <th scope="col">Cases</th>
-      <th scope="col">Published</th>
-      <th scope="col">Anchoring</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr class="">
-    <td data-label="Version">
-      <a href="v1.0.0/index.html">v1.0.0</a>
-    </td>
-    <td data-label="Wedges">6 wedges</td>
-    <td data-label="Cases">3000</td>
-    <td data-label="Published">2026-05-21</td>
-    <td data-label="Anchoring"><span class="signature-badge signature-badge--pending"
-          aria-label="Rekor anchored, OpenTimestamps Bitcoin confirmation pending">
-      <span class="dot" aria-hidden="true"></span>
-      OTS pending
-    </span></td>
-  </tr>
-      <tr class="version-row-spike">
-    <td data-label="Version">
-      <a href="v0.1.0/index.html">v0.1.0</a>
-<span class="spike-label">spike artifact</span>    </td>
-    <td data-label="Wedges">phantom_precision</td>
-    <td data-label="Cases">5</td>
-    <td data-label="Published">2026-05-21</td>
-    <td data-label="Anchoring"><span class="signature-badge signature-badge--unknown"
-          aria-label="OpenTimestamps state unknown">
-      <span class="dot" aria-hidden="true"></span>
-      OTS unknown
-    </span></td>
-  </tr>
-  </tbody>
-</table>
-
-<h3>What to do next</h3>
-<ul>
-  <li>Read the <a href="methodology.html">methodology</a>. It explains what each wedge measures, and what it does not.</li>
-  <li>Reproduce a verification. The <a href="verify.html">verify</a> page has the commands and a one-line Docker invocation.</li>
-  <li>Find a flaw. Open an issue at <a href="https://github.com/valisbench/benchmarks/issues">github.com/valisbench/benchmarks/issues</a>. Null and unfavorable results publish on this same page.</li>
-</ul>
-
-  </main>
-  <footer class="site-footer">
-    <div class="footer-brand">
-      <svg width="22" height="22" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M10 14 L20 30 L30 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
-      </svg>
-      <span class="wordmark">VALIS</span>
+<body>
+  <main>
+    <p class="eyebrow">VALIS Benchmarks &middot; Moved</p>
+    <h1>This publication is now hosted on Decision-Grade.AI.</h1>
+    <p>The reading experience for the benchmarks has moved. The page you tried to reach is now at:</p>
+    <p><a class="primary" href="https://decision-grade.ai/benchmarks/">https://decision-grade.ai/benchmarks/</a></p>
+    <div class="meta">
+      Cryptographic evidence (manifests, signatures, OpenTimestamps proofs, raw cases, results) remains at
+      <a href="https://github.com/valisbench/benchmarks">github.com/valisbench/benchmarks</a>.
+      The <code>./verify.sh</code> procedure is unchanged.
     </div>
-    <ul class="footer-ctas">
-      <li><a href="https://valissystems.com/how-it-works">Read the methodology</a></li>
-      <li><a href="https://valissystems.com/about">About VALIS</a></li>
-      <li><a href="mailto:david@valissystems.com">Get in touch</a></li>
-    </ul>
-    <p class="footer-meta">
-      Generated 2026-05-22 22:14 UTC by <code>valis.benchmarks.site.build</code>.
-      Every published version is signed with Sigstore cosign, anchored to the Sigstore Rekor transparency log,
-      and timestamped to a Bitcoin block via OpenTimestamps.
-      See <a href="verify.html">how to verify</a>.
-    </p>
-  </footer>
+  </main>
 </body>
 </html>

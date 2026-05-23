@@ -3,832 +3,98 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cross-reviewer disagreement v1.0.0 -- VALIS Benchmarks</title>
-  <link rel="stylesheet" href="../../assets/style.css">
+  <title>Moved to decision-grade.ai</title>
+  <meta http-equiv="refresh" content="0; url=https://decision-grade.ai/benchmarks-v1-0-0-disagreement/">
+  <link rel="canonical" href="https://decision-grade.ai/benchmarks-v1-0-0-disagreement/">
+  <meta name="robots" content="noindex, follow">
+  <script>
+    window.location.replace("https://decision-grade.ai/benchmarks-v1-0-0-disagreement/");
+  </script>
+  <style>
+    :root { color-scheme: light; }
+    body {
+      margin: 0;
+      padding: 96px 24px;
+      background: #f4f0e8;
+      color: #1a1814;
+      font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 192px);
+    }
+    main {
+      max-width: 560px;
+      width: 100%;
+    }
+    p.eyebrow {
+      font-family: 'DM Mono', 'SF Mono', Menlo, monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6e6960;
+      margin: 0 0 24px;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: #1a1814;
+      margin: 0 0 24px;
+    }
+    p {
+      font-size: 1rem;
+      color: #3a3630;
+      margin: 0 0 16px;
+    }
+    a {
+      color: #c4715f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    a.primary {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 24px;
+      border: 1px solid #1a1814;
+      color: #1a1814;
+      text-decoration: none;
+      font-family: 'Instrument Sans', system-ui, sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    a.primary:hover {
+      background: #1a1814;
+      color: #f4f0e8;
+    }
+    .meta {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #d4cec4;
+      font-family: 'DM Mono', 'SF Mono', Menlo, monospace;
+      font-size: 0.78rem;
+      color: #6e6960;
+    }
+    .meta a { color: #6e6960; }
+  </style>
 </head>
-<body class="valis-grain">
-  <span class="visually-hidden">VALIS Benchmarks</span>
-  <a class="skip-link" href="#main">Skip to main content</a>
-  <header class="site-header">
-    <a class="site-brand" href="https://valissystems.com" aria-label="VALIS Systems home">
-      <svg class="valis-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M10 14 L20 30 L30 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
-      </svg>
-      <span class="wordmark">VALIS</span>
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="../../index.html">Versions</a>
-      <a href="../../methodology.html">Methodology</a>
-      <a href="../../verify.html">Verify</a>
-      <a href="https://github.com/valisbench/benchmarks">Source</a>
-    </nav>
-  </header>
-  <main id="main">
-
-<p class="eyebrow">
-  Version 1.0.0
-  <span class="sep" style="color: var(--accent);">&middot;</span>
-  Cross-reviewer disagreement
-</p>
-<h2 class="page-headline">Where the rubric is contested.</h2>
-
-<p>
-  Forty-three of the 200 spot-checked cases across the six v1.0.0
-  wedges produced reviewer disagreement. The three frontier reviewers --
-  Claude Opus 4.7, GPT-5.5, and Gemini 3.1 Pro -- did not agree on how
-  to apply the rubric. We publish those cases verbatim, with each
-  reviewer's rationale.
-</p>
-
-<p>
-  This is itself a finding, not a defect. Where the rubric admits two
-  reads, that boundary is part of what the benchmark measures. A future
-  version's rubric may sharpen the boundary; until then, the
-  disagreement is the data.
-</p>
-
-<div class="markdown-body">
-  <h1>Cross-Reviewer Disagreement Analysis -- v1.0.0</h1>
-<p>Date: 2026-05-22
-Reviewers: Claude Opus 4.7, GPT-5.5 (via codex CLI), Gemini 3.1 Pro
-Cases per wedge: 50 (200 cases total across 4 new wedges)</p>
-<h2>Per-wedge agreement summary</h2>
-<table>
-<thead>
-<tr>
-<th>Wedge</th>
-<th>3/3 pass</th>
-<th>2/3 pass</th>
-<th>1/3 pass</th>
-<th>0/3 pass</th>
-<th>total</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>falsifier_observability</td>
-<td>30</td>
-<td>4</td>
-<td>16</td>
-<td>0</td>
-<td>50</td>
-</tr>
-<tr>
-<td>citation_faithfulness</td>
-<td>37</td>
-<td>5</td>
-<td>8</td>
-<td>0</td>
-<td>50</td>
-</tr>
-<tr>
-<td>boundary_condition_omission</td>
-<td>29</td>
-<td>12</td>
-<td>9</td>
-<td>0</td>
-<td>50</td>
-</tr>
-<tr>
-<td>load_bearing_claim_identification</td>
-<td>42</td>
-<td>4</td>
-<td>4</td>
-<td>0</td>
-<td>50</td>
-</tr>
-</tbody>
-</table>
-<p>Notes on incompletes:</p>
-<h2>Per-wedge detail</h2>
-<h3>falsifier_observability</h3>
-<h4>2-of-3 FAIL (16)</h4>
-<p>Two reviewers failed; one passed. These are methodology-divergence cases; surface for sponsor adjudication.</p>
-<p><strong>falsobs-t1-0006</strong></p>
-<blockquote>
-<blockquote>
-<p>Our go-to-market strategy will succeed if first-half topline clears $45M by end of Q4.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Concrete metric (first-half topline), explicit threshold ($45M), and a specific deadline (end of Q4) make the failure mode directly observable.</li>
-<li><strong>gpt55</strong> (fail): The numeric threshold and date are attached to the vague predicate “strategy will succeed,” and the conditional wording does not make missing $45M a concrete falsifier of the claim.</li>
-<li><strong>gemini31pro</strong> (fail): The claim is a conditional statement where the consequent ('strategy will succeed') is vague and unmeasurable, making the entire statement unfalsifiable even if the specific condition is met.</li>
-</ul>
-<p><strong>falsobs-t1-0236</strong></p>
-<blockquote>
-<blockquote>
-<p>Our channel partner program will succeed if Q4 revenue tops $22M before the next planning cycle.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Q4 revenue &gt; $22M before next planning cycle is a measurable metric/threshold/deadline; correctly observable_falsifier.</li>
-<li><strong>gpt55</strong> (fail): The metric and threshold are concrete, but the time bound 'before the next planning cycle' is not stated concretely enough to make the claim observable within ~90 days from the sentence alone.</li>
-<li><strong>gemini31pro</strong> (fail): The claim binds a specific metric and time bound to a vague predicate ('will succeed') in a conditional framing, making it unfalsifiable.</li>
-</ul>
-<p><strong>falsobs-t2-0134</strong></p>
-<blockquote>
-<blockquote>
-<p>We are on track, absent a major adverse event, if second-half bookings lands above $8M by the end of fiscal Q3.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Second-half bookings &gt; $8M by end of fiscal Q3 is concrete; &quot;absent a major adverse event&quot; is hedging but does not vacate the predicate.</li>
-<li><strong>gpt55</strong> (fail): The numeric bookings threshold and fiscal-Q3 date are embedded in a conditional/vague 'on track, absent a major adverse event' framing, so the claim is not concretely falsifiable as written.</li>
-<li><strong>gemini31pro</strong> (fail): The phrase 'absent a major adverse event' is a macro-conditional framing that makes the claim unfalsifiable, so the correct label is stated_unfalsifiable.</li>
-</ul>
-<p><strong>falsobs-t2-0204</strong></p>
-<blockquote>
-<blockquote>
-<p>The team's working assumption, barring a Q3 slowdown, is that trailing-twelve-month gross revenue tops $250M before the next earnings call.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): TTM gross revenue &gt; $250M before earnings call is fully measurable; the &quot;barring Q3 slowdown&quot; hedge does not vacate the metric per rubric, since the predicate remains concrete.</li>
-<li><strong>gpt55</strong> (fail): Although it includes a revenue threshold and time bound, the 'barring a Q3 slowdown' qualifier makes the claim conditionally self-excusing rather than concretely falsifiable as written.</li>
-<li><strong>gemini31pro</strong> (fail): The sentence includes a macro-conditional framing ('barring a Q3 slowdown') that provides an escape hatch, making the claim stated_unfalsifiable rather than an observable_falsifier.</li>
-</ul>
-<p><strong>falsobs-t2-0228</strong></p>
-<blockquote>
-<blockquote>
-<p>The team's working assumption, barring a Q3 slowdown, is that first-half topline lands above $8M by December 31.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): First-half topline &gt; $8M by December 31 is a concrete dollar threshold with a hard date; correctly observable_falsifier.</li>
-<li><strong>gpt55</strong> (fail): Although it includes a metric, threshold, and date, the vague escape clause “barring a Q3 slowdown” makes the claim conditionally framed and not cleanly falsifiable as written.</li>
-<li><strong>gemini31pro</strong> (fail): The claim includes a macro-conditional framing ('barring a Q3 slowdown') that makes it unfalsifiable, so it should be labeled stated_unfalsifiable.</li>
-</ul>
-<p><strong>falsobs-t2-0239</strong></p>
-<blockquote>
-<blockquote>
-<p>Barring a Q3 slowdown, our enterprise expansion succeeds if Q3 total bookings clears $45M before the next earnings call.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Q3 total bookings &gt; $45M before next earnings call is a measurable, time-bound claim; hedge is structural surface form, not a vacating condition.</li>
-<li><strong>gpt55</strong> (fail): The vague carveout “Barring a Q3 slowdown” makes the failure condition self-excusing even though the bookings threshold and timing are otherwise observable.</li>
-<li><strong>gemini31pro</strong> (fail): The sentence includes a macro-conditional framing ('Barring a Q3 slowdown') that acts as an escape hatch, making the claim stated_unfalsifiable rather than an observable_falsifier.</li>
-</ul>
-<p><strong>falsobs-t2-0274</strong></p>
-<blockquote>
-<blockquote>
-<p>Assuming the team executes, the working number is that qualified pipeline deals crosses 240 by end of Q4.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Qualified pipeline deals &gt; 240 by end of Q4 is countable and time-bound; &quot;assuming the team executes&quot; is structural hedge that doesn't vacate the metric.</li>
-<li><strong>gpt55</strong> (fail): The vague condition “Assuming the team executes” makes the claim self-sealing, since missing 240 by end of Q4 could be dismissed as non-execution rather than falsifying the sentence.</li>
-<li><strong>gemini31pro</strong> (fail): The claim includes a macro-conditional framing ('Assuming the team executes') that makes it unfalsifiable, so the correct label should be stated_unfalsifiable.</li>
-</ul>
-<p><strong>falsobs-t2-0379</strong></p>
-<blockquote>
-<blockquote>
-<p>Assuming the team executes, the working number is that live integration count exceeds 950 before the next earnings call.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Live integration count &gt; 950 before next earnings call is countable and time-bound; &quot;assuming the team executes&quot; is hedging but the predicate stays observable.</li>
-<li><strong>gpt55</strong> (fail): The vague condition &quot;Assuming the team executes&quot; makes the threshold contingent on an undefined self-sealing predicate, so the claim is not falsifiable as written.</li>
-<li><strong>gemini31pro</strong> (fail): The phrase 'Assuming the team executes' is a macro-conditional framing that makes the claim unfalsifiable, so the ground-truth label of observable_falsifier is incorrect.</li>
-</ul>
-<p><strong>falsobs-t2-0467</strong></p>
-<blockquote>
-<blockquote>
-<p>Our pricing strategy should work, barring a Q3 slowdown, if active enterprise accounts crosses 240 by the end of the half.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Active enterprise accounts &gt; 240 by end of the half is countable and time-bound; correctly observable_falsifier.</li>
-<li><strong>gpt55</strong> (fail): Although it includes a numeric account threshold and time reference, the vague predicate &quot;should work&quot; plus conditional carveouts like &quot;barring a Q3 slowdown&quot; do not define a concretely observable falsifier.</li>
-<li><strong>gemini31pro</strong> (fail): The sentence contains macro-conditional framings ('barring a Q3 slowdown') and vague predicates ('should work'), making it unfalsifiable rather than an observable falsifier.</li>
-</ul>
-<p><strong>falsobs-t3-0048</strong></p>
-<blockquote>
-<blockquote>
-<p>The pre-registered success criterion, provided that the macro doesn't shift materially and conditional on the channel partner ramp continuing on its current curve, is that Q3 total bookings exceeds $14M by close of Q2.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Q3 total bookings &gt; $14M by close of Q2 is a specific metric, threshold, and date; correctly observable_falsifier despite T3 hedges.</li>
-<li><strong>gpt55</strong> (fail): Although it includes a metric and deadline, the claim is insulated by vague macro and partner-ramp conditions, making it stated_unfalsifiable as written.</li>
-<li><strong>gemini31pro</strong> (fail): The sentence contains macro-conditional framings ('provided that the macro doesn't shift materially and conditional on the channel partner ramp continuing on its current curve') which make it unfalsifiable, so the correct label is stated_unfalsifiable.</li>
-</ul>
-<p><strong>falsobs-t3-0183</strong></p>
-<blockquote>
-<blockquote>
-<p>The new platform launch succeeds when, provided that the macro doesn't shift materially and conditional on the channel partner ramp continuing on its current curve, verified customer logos passes 5,200 by December 31.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Verified customer logos &gt; 5,200 by December 31 is directly observable; the hedge clauses don't undermine the concrete count and date.</li>
-<li><strong>gpt55</strong> (fail): Although it includes a metric and date, the claim is insulated by vague macro and partner-ramp conditions, making it stated_unfalsifiable as written.</li>
-<li><strong>gemini31pro</strong> (fail): The sentence contains macro-conditional framings ('provided that the macro doesn't shift materially'), which makes it stated_unfalsifiable according to the rubric.</li>
-</ul>
-<p><strong>falsobs-t3-0233</strong></p>
-<blockquote>
-<blockquote>
-<p>The pre-registered success criterion, provided that the macro doesn't shift materially and conditional on the channel partner ramp continuing on its current curve, is that second-half bookings clears $45M before the next planning cycle.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Despite heavy T3 hedging, second-half bookings clearing $45M before the next planning cycle remains a concrete metric/threshold/time-bound triple, properly observable_falsifier.</li>
-<li><strong>gpt55</strong> (fail): The claim is insulated by vague macro and channel-ramp conditions and an imprecise planning-cycle time bound, so its failure mode is not concretely observable as written.</li>
-<li><strong>gemini31pro</strong> (fail): The sentence contains macro-conditional framings ('provided that the macro doesn't shift materially'), which makes it stated_unfalsifiable according to the rubric.</li>
-</ul>
-<p><strong>falsobs-t3-0270</strong></p>
-<blockquote>
-<blockquote>
-<p>Provided that the macro doesn't shift materially and conditional on the channel partner ramp continuing on its current curve, the working test is that next-quarter committed ARR lands above $8M by December 31.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Next-quarter committed ARR &gt; $8M by December 31 is a specific dollar threshold with a hard date; T3 hedges don't dilute the testable predicate.</li>
-<li><strong>gpt55</strong> (fail): The ARR threshold and date are concrete, but the vague macro and channel-ramp conditions make the claim self-insulating as written, so it should be labeled stated_unfalsifiable.</li>
-<li><strong>gemini31pro</strong> (fail): The sentence contains macro-conditional framings ('Provided that the macro doesn't shift materially'), which makes it stated_unfalsifiable according to the rubric.</li>
-</ul>
-<p><strong>falsobs-t3-0319</strong></p>
-<blockquote>
-<blockquote>
-<p>Our acquisition strategy succeeds when, provided the cohort metrics carry through Q4 and absent the realized-loss scenario the risk team has flagged at 15-20%, verified customer logos tops 1,200 before the next earnings call.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Verified customer logos &gt; 1,200 before next earnings call is concrete count and deadline; T3 hedges don't vacate it.</li>
-<li><strong>gpt55</strong> (fail): The numeric logo threshold is tied to vague conditional escape clauses about cohort metrics and a realized-loss scenario, so the claim is not concretely falsifiable as written.</li>
-<li><strong>gemini31pro</strong> (fail): The sentence contains macro-conditional framings ('provided the cohort metrics carry through Q4' and 'absent the realized-loss scenario') that make it unfalsifiable, so it should be labeled stated_unfalsifiable.</li>
-</ul>
-<p><strong>falsobs-t3-0354</strong></p>
-<blockquote>
-<blockquote>
-<p>Provided the cohort metrics carry through Q4 and absent the realized-loss scenario the risk team has flagged at 15-20%, the working test is that Q4 revenue exceeds $120M by the end of the half.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Q4 revenue &gt; $120M by end of the half is a measurable metric, threshold, and time bound; T3 hedges don't dissolve the predicate.</li>
-<li><strong>gpt55</strong> (fail): The claim is conditional on vague, under-specified predicates about cohort metrics carrying through and an absent realized-loss scenario, so the stated failure mode is not concretely observable as written.</li>
-<li><strong>gemini31pro</strong> (fail): The sentence contains macro-conditional framings ('Provided the cohort metrics carry through Q4 and absent the realized-loss scenario') that make it unfalsifiable, so the ground-truth label of observable_falsifier is incorrect.</li>
-</ul>
-<p><strong>falsobs-t3-0458</strong></p>
-<blockquote>
-<blockquote>
-<p>The team's committed milestone is that provided the cohort metrics carry through Q4 and absent the realized-loss scenario the risk team has flagged at 15-20%, active enterprise accounts passes 18,000 by the end of fiscal Q3.</p>
-</blockquote>
-<p><strong>Ground-truth label:</strong> <code>observable_falsifier</code></p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Active enterprise accounts &gt; 18,000 by end of fiscal Q3 is concrete and countable; T3 hedges do not vacate the predicate.</li>
-<li><strong>gpt55</strong> (fail): The claim is conditionally shielded by vague predicates about cohort metrics carrying through Q4 and an absent realized-loss scenario, so the 18,000-account threshold is not concretely falsifiable as written.</li>
-<li><strong>gemini31pro</strong> (fail): The claim contains macro-conditional framings ('provided the cohort metrics carry through Q4' and 'absent the realized-loss scenario') that make it unfalsifiable, so it should be labeled stated_unfalsifiable.</li>
-</ul>
-<h4>2-of-3 PASS (4)</h4>
-<p>Two reviewers passed; one failed. These are minor disagreements; majority verdict accepts.</p>
-<ul>
-<li>falsobs-t1-0200 -- gemini31pro dissented: The sentence uses a macro-conditional framing and a vague predicate ('will succeed'), making it unfalsifiable, so the ground-truth label of observable_falsifier is incorrect.</li>
-<li>falsobs-t1-0280 -- gemini31pro dissented: The sentence uses a conditional framing where the specific metric is the condition, leaving the actual claim ('strategy works') vague and logically unfalsifiable regardless of whether the metric is met.</li>
-<li>falsobs-t1-0389 -- gemini31pro dissented: The claim uses a conditional framing ('if') and binds a specific metric to a vague, subjective predicate ('works'), making it unfalsifiable rather than an observable falsifier.</li>
-<li>falsobs-t3-0452 -- gemini31pro dissented: The sentence includes macro-conditional framings ('assuming the renewal cohort lands in line with the modeled mid-case') which makes it stated_unfalsifiable, contradicting the ground-truth label.</li>
-</ul>
-<h4>Unanimous PASS (30)</h4>
-<p>Auto-accepted; no detail needed.</p>
-<h3>citation_faithfulness</h3>
-<h4>2-of-3 FAIL (8)</h4>
-<p>Two reviewers failed; one passed. These are methodology-divergence cases; surface for sponsor adjudication.</p>
-<p><strong>citfaith-t1-0171</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>In 2022, opioid prescriptions per capita in Ohio declined by 8%.</p>
-</blockquote>
-<p><strong>Citation:</strong></p>
-<blockquote>
-<p>Hadjikyriacou (2022). Drivers of Opioid Prescriptions Per Capita Through the Cycle. JAMA Network Open Original Investigation.</p>
-</blockquote>
-<p><strong>Source excerpt:</strong></p>
-<blockquote>
-<p>The headline finding is unchanged from our preliminary release: opioid prescriptions per capita in Ohio fell by 8% during 2022. Direction and magnitude both fall inside the band that parallel-source desks have been publishing for the comparable window.
-...</p>
-</blockquote>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Identical metric, region, period; both report 8% decline/fall on opioid prescriptions / Ohio / 2022; direction and magnitude match precisely; faithful holds.</li>
-<li><strong>gpt55</strong> (fail): Although the excerpt directly supports the claim, the cited Hadjikyriacou 2022 JAMA Network Open article does not appear to be a real-world reference.</li>
-<li><strong>gemini31pro</strong> (fail): The source excerpt contains the phrase 'parallel-source desks', which sounds like newsroom or financial jargon and is highly implausible for a JAMA Network Open medical research article.</li>
-</ul>
-<p><strong>citfaith-t2-0072</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>Across materials-science venues in China, indexed peer-reviewed publications posted near double-digit gains during 2024, continuing a multi-quarter trend.</p>
-</blockquote>
-<p><strong>Citation:</strong></p>
-<blockquote>
-<p>Helgesen et al., &quot;Drivers of Indexed Peer-reviewed Publications Through the Cycle,&quot; Nature Index Annual Tables, 2024.</p>
-</blockquote>
-<p><strong>Source excerpt:</strong></p>
-<blockquote>
-<p>Following our standard reconciliation pass on China across 2024, we observe that indexed peer-reviewed publications delivered low-twenties percentage gains, with the compo...</p>
-</blockquote>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Claim asserts near double-digit gains and source asserts low-twenties percentage gains on indexed peer-reviewed publications / China / 2024 / materials-science venues; both are gains in same direction with magnitudes in adjacent bands; faithful per the dataset's tolerance.</li>
-<li><strong>gpt55</strong> (fail): The excerpt reports low-twenties overall gains for China in 2024 and only says materials-science contributed its expected share, without supporting near double-digit gains within materials-science venues or a continuing multi-quarter trend.</li>
-<li><strong>gemini31pro</strong> (fail): The source excerpt describes 'low-twenties percentage gains' rather than 'near double-digit gains' and contains no mention of a 'multi-quarter trend,' meaning the claim is unfaithful and contradicts the ground-truth label.</li>
-</ul>
-<p><strong>citfaith-t2-0250</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>Within Ohio, opioid prescriptions per capita showed low-teens percentage growth in 2022, consistent with sector-wide patterns observed in adults aged 45 to 64.</p>
-</blockquote>
-<p><strong>Citation:</strong></p>
-<blockquote>
-<p>Health Affairs Research Brief, &quot;Quarterly Trends in Opioid Prescriptions Per Capita,&quot; Whitfield, September 2022.</p>
-</blockquote>
-<p><strong>Source excerpt:</strong></p>
-<blockquote>
-<p>After the standard methodology pass on Ohio through 2022, the publication notes that opioid prescriptions per capita delivered modest single-digit growth, with the compone...</p>
-</blockquote>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Claim asserts low-teens percentage growth and source asserts modest single-digit growth on opioid prescriptions / Ohio / 2022 / adults 45-64; both growth in adjacent magnitude bands; faithful holds.</li>
-<li><strong>gpt55</strong> (fail): The excerpt says Ohio opioid prescriptions per capita had modest single-digit growth, which does not support the claim of low-teens percentage growth.</li>
-<li><strong>gemini31pro</strong> (fail): The claim states low-teens percentage growth, but the source excerpt reports modest single-digit growth, making the ground-truth label of faithful incorrect.</li>
-</ul>
-<p><strong>citfaith-t2-0274</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>Within China, indexed peer-reviewed publications showed double-digit decline in 2024, consistent with sector-wide patterns observed in materials-science venues.</p>
-</blockquote>
-<p><strong>Citation:</strong></p>
-<blockquote>
-<p>Chowdhury and Ramaswamy, 2024, &quot;A Decomposition of Indexed Peer-reviewed Publications Across Regions,&quot; Clarivate Web of Science Research Front Report.</p>
-</blockquote>
-<p><strong>Source excerpt:</strong></p>
-<blockquote>
-<p>Once the published vintage for China over 2024 settled, the release reports that indexed peer-reviewed publications delivered an upp...</p>
-</blockquote>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Claim asserts double-digit decline and source asserts upper-single-digit fall on indexed peer-reviewed publications / China / 2024 / materials-science venues; both declines in adjacent magnitude bands; faithful holds.</li>
-<li><strong>gpt55</strong> (fail): The source excerpt reports an upper-single-digit fall rather than the claim's double-digit decline, so the ground-truth faithful label does not match the evidence.</li>
-<li><strong>gemini31pro</strong> (fail): The claim states a double-digit decline, but the source excerpt reports an upper-single-digit fall, making the claim unfaithful and contradicting the ground-truth label.</li>
-</ul>
-<p><strong>citfaith-t2-0285</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>Across womenswear in the UK domestic market, apparel return rates posted modest single-digit weakness during holiday season 2025, continuing a multi-quarter trend.</p>
-</blockquote>
-<p><strong>Citation:</strong></p>
-<blockquote>
-<p>Statista Digital Market Insights, &quot;Apparel Return Rates: 2025 Update,&quot; Vasconcelos, November 2025.</p>
-</blockquote>
-<p><strong>Source excerpt:</strong></p>
-<blockquote>
-<p>Once the standard validation pass on the UK domestic market over holiday season 2025 cleared, the series indicates that apparel return rates delivered modest single-digit weakness, ...</p>
-</blockquote>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Both claim and source report modest single-digit weakness on apparel return rates / UK / holiday 2025 / womenswear; direction and magnitude band match exactly; faithful holds.</li>
-<li><strong>gpt55</strong> (fail): The excerpt supports modest single-digit weakness for UK apparel return rates in holiday season 2025, but it does not substantiate a womenswear-specific result or the claimed continuing multi-quarter trend.</li>
-<li><strong>gemini31pro</strong> (fail): The claim includes the phrase 'continuing a multi-quarter trend,' which is entirely absent from the source excerpt, making the ground-truth label of faithful incorrect.</li>
-</ul>
-<p><strong>citfaith-t2-0390</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>Across materials-science venues in China, indexed peer-reviewed publications posted a low-teens contraction during 2024, continuing a multi-quarter trend.</p>
-</blockquote>
-<p><strong>Citation:</strong></p>
-<blockquote>
-<p>Imamura et al., &quot;Recent Movements in Indexed Peer-reviewed Publications,&quot; Nature Index Annual Tables, 2024.</p>
-</blockquote>
-<p><strong>Source excerpt:</strong></p>
-<blockquote>
-<p>Once the standard validation pass on China over 2024 cleared, the latest reading finds that indexed peer-reviewed publications delivered high-single-digit softening, with the compon...</p>
-</blockquote>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Claim asserts low-teens contraction and source asserts high-single-digit softening on indexed peer-reviewed publications / China / 2024 / materials-science venues; both declines in adjacent magnitude bands; faithful holds.</li>
-<li><strong>gpt55</strong> (fail): The excerpt only supports high-single-digit softening for China in 2024 and says the materials-science component moved proportionally, but it does not support a low-teens contraction or a continuing multi-quarter trend.</li>
-<li><strong>gemini31pro</strong> (fail): The claim states a 'low-teens contraction' for materials-science venues, but the source excerpt indicates a 'high-single-digit softening' for the aggregate and that materials-science moved in proportion, contradicting the claim and making the 'faithful' label incorrect.</li>
-</ul>
-<p><strong>citfaith-t2-0495</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>Within the UK domestic market, apparel return rates showed high-single-digit softening in holiday season 2025, consistent with sector-wide patterns observed in womenswear.</p>
-</blockquote>
-<p><strong>Citation:</strong></p>
-<blockquote>
-<p>Iversen (2025). Forecasting Apparel Return Rates: Methods and Findings. Retail Economics UK Industry Outlook.</p>
-</blockquote>
-<p><strong>Source excerpt:</strong></p>
-<blockquote>
-<p>Looking across the UK domestic market, apparel return rates produced a low-teens contraction over holiday season 2025, with womenswear moving with the broader fig...</p>
-</blockquote>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Both claim (high-single-digit softening) and source (low-teens contraction) report declines on apparel return rates / UK / holiday 2025 / womenswear; direction matches and magnitude bands are adjacent within typical revision tolerance; faithful holds.</li>
-<li><strong>gpt55</strong> (fail): The source reports a low-teens contraction, while the claim says high-single-digit softening, so the magnitude does not line up with the ground-truth faithful label.</li>
-<li><strong>gemini31pro</strong> (fail): The claim states a 'high-single-digit softening' while the source excerpt reports a 'low-teens contraction', meaning the magnitudes do not align and the ground-truth label of faithful is incorrect.</li>
-</ul>
-<p><strong>citfaith-t3-0151</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>Industry observers tracking new passenger-car sales have noted that battery-electric vehicle market share across Norway delivered a marked weakening from the comparable window during the first quarter of 2026, though attribution remains debated.</p>
-</blockquote>
-<p><strong>Citation:</strong></p>
-<blockquote>
-<p>Transport &amp; Environment Briefing Paper, &quot;Forecasting Battery-electric Vehicle Market Share: Methods and Findings,&quot; Zelenko, January 2026.</p>
-</blockquote>
-<p><strong>Source excerpt:</strong></p>
-<blockquote>
-<p>Working from the panel-of-record published last cycle, our q...</p>
-</blockquote>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): Claim and source agree on marked weakening/discernible softening direction for BEV market share in Norway, Q1 2026, new passenger-car sales; faithful label correct.</li>
-<li><strong>gpt55</strong> (fail): The excerpt supports a BEV market-share softening in Norway during Q1 2026, but it does not support the claim's attribution caveat and weakens the magnitude from &quot;marked weakening&quot; to &quot;discernible softening.&quot;</li>
-<li><strong>gemini31pro</strong> (fail): The claim includes the statement 'though attribution remains debated,' which is entirely unsupported by the source excerpt, rendering the ground-truth label of faithful incorrect.</li>
-</ul>
-<h4>2-of-3 PASS (5)</h4>
-<p>Two reviewers passed; one failed. These are minor disagreements; majority verdict accepts.</p>
-<ul>
-<li>citfaith-t1-0039 -- gpt55 dissented: Although the excerpt directly supports the claim, the March 2022 citation cannot plausibly confirm a full-year 2022 increase and the citation/excerpt read like synthetic publication text.</li>
-<li>citfaith-t3-0123 -- gemini31pro dissented: The claim includes specific details not supported by the source excerpt, such as the comparison being against the 'antecedent quarter' and that 'attribution remains debated,' making the ground-truth label of faithful incorrect.</li>
-<li>citfaith-t3-0374 -- gemini31pro dissented: The claim includes the detail that 'attribution remains debated,' which is not supported by the source excerpt, making the ground-truth label of faithful incorrect.</li>
-<li>citfaith-t3-0386 -- gpt55 dissented: The excerpt supports China publications improving in 2024 and materials-science alignment, but its awkward generated phrasing does not read like plausible publication text.</li>
-<li>citfaith-t3-0402 -- gemini31pro dissented: The claim states the weakening was relative to the 'comparable window,' whereas the source describes a retracement from 'recent highs' and mentions 'comparator estimates,' revealing a mismatch in the reference point.</li>
-</ul>
-<h4>Unanimous PASS (37)</h4>
-<p>Auto-accepted; no detail needed.</p>
-<h3>boundary_condition_omission</h3>
-<h4>2-of-3 FAIL (9)</h4>
-<p>Two reviewers failed; one passed. These are methodology-divergence cases; surface for sponsor adjudication.</p>
-<p><strong>bco-t1-0182</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>Pipeline grew $3.1M this quarter, assuming stage definitions stayed constant.</p>
-</blockquote>
-<p><strong>Boundary conditions (3):</strong></p>
-<ul>
-<li>Whether the same accounts were already in pipeline last quarter</li>
-<li>How pipeline is sourced (inbound vs outbound vs marketing)</li>
-<li>Whether early-stage qualification became more lenient</li>
-</ul>
-<p><strong>Distractors:</strong> (none)</p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): T1 structure correct; pipeline growth claim plausible; BCs (same accounts persisting, sourcing mix, qualification leniency) are all genuine validity conditions for a pipeline-add metric.</li>
-<li><strong>gpt55</strong> (fail): The sourcing mix is not a genuine boundary condition for whether pipeline grew $3.1M under constant stage definitions, so one listed BC is off-target.</li>
-<li><strong>gemini31pro</strong> (fail): The boundary condition regarding how pipeline is sourced is irrelevant to whether the pipeline actually grew by $3.1M, making it a distractor rather than a valid boundary condition.</li>
-</ul>
-<p><strong>bco-t1-0256</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>Our customer-support operations spend fell 11%, assuming we're comparing the same set of activities.</p>
-</blockquote>
-<p><strong>Boundary conditions (3):</strong></p>
-<ul>
-<li>Capitalization vs expense treatment: did anything move off P&amp;L</li>
-<li>Currency effects on cost categories denominated abroad</li>
-<li>Whether contract renegotiations vs structural change drove the savings</li>
-</ul>
-<p><strong>Distractors:</strong> (none)</p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): T1 structure correct; CS spend fall claim plausible; BCs (capitalization, FX on foreign cost categories, contract vs structural savings driver) all genuine cost-claim validity conditions.</li>
-<li><strong>gpt55</strong> (fail): The contract-renegotiations-vs-structural-change item is about the cause of the savings, not a boundary condition for whether same-activity support spend fell 11%.</li>
-<li><strong>gemini31pro</strong> (fail): The third boundary condition (contract renegotiations vs structural change) addresses the drivers of the savings rather than the validity of the claim that spend fell 11%.</li>
-</ul>
-<p><strong>bco-t1-0354</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>We added $12.7M in pipeline in Q3, assuming the qualification criteria are the same.</p>
-</blockquote>
-<p><strong>Boundary conditions (3):</strong></p>
-<ul>
-<li>Compared against which baseline pipeline measurement</li>
-<li>Whether early-stage qualification became more lenient</li>
-<li>Concentration: how much of the pipeline is one or two large deals</li>
-</ul>
-<p><strong>Distractors:</strong> (none)</p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): T1 structure correct; pipeline-add claim plausible; BCs (baseline, qualification leniency, concentration) all genuine.</li>
-<li><strong>gpt55</strong> (fail): The concentration item is about pipeline quality or risk rather than a necessary condition for the validity of the stated $12.7M Q3 pipeline-add claim under unchanged qualification criteria.</li>
-<li><strong>gemini31pro</strong> (fail): BC2 is explicitly stated in the claim rather than being an unstated assumption, and falsifying BC3 (deal concentration) would not create real doubt about the claim that $12.7M was added.</li>
-</ul>
-<p><strong>bco-t1-0393</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>We added $8M in pipeline year-to-date, assuming the qualification criteria are the same.</p>
-</blockquote>
-<p><strong>Boundary conditions (3):</strong></p>
-<ul>
-<li>Compared against which baseline pipeline measurement</li>
-<li>Time-in-stage: are deals aging or moving</li>
-<li>Concentration: how much of the pipeline is one or two large deals</li>
-</ul>
-<p><strong>Distractors:</strong> (none)</p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): T1 structure correct; pipeline-add claim plausible with hedge that qualification criteria are constant; BCs (baseline, time-in-stage, concentration) all genuine.</li>
-<li><strong>gpt55</strong> (fail): Time-in-stage and deal concentration are pipeline-quality diagnostics, not true boundary conditions for whether $8M was added year-to-date under unchanged qualification criteria.</li>
-<li><strong>gemini31pro</strong> (fail): The boundary conditions regarding time-in-stage and concentration assess pipeline quality rather than serving as genuine conditions for the validity of the claim that $8M was added.</li>
-</ul>
-<p><strong>bco-t1-0419</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>We cut back-office operations costs by 11%, assuming the scope of work stayed constant.</p>
-</blockquote>
-<p><strong>Boundary conditions (3):</strong></p>
-<ul>
-<li>Whether costs were shifted to another budget line</li>
-<li>Whether contract renegotiations vs structural change drove the savings</li>
-<li>How costs are allocated across categories (allocation method)</li>
-</ul>
-<p><strong>Distractors:</strong> (none)</p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): T1 structure correct; back-office cost cut claim plausible with scope hedge; BCs (budget-shift, contract vs structural, allocation method) all genuine remaining conditions.</li>
-<li><strong>gpt55</strong> (fail): The contract-renegotiations-vs-structural-change item is an explanatory driver, not a necessary boundary condition for whether back-office operations costs were cut by 11% with constant scope.</li>
-<li><strong>gemini31pro</strong> (fail): The second boundary condition (whether contract renegotiations vs structural change drove the savings) is an explanatory factor, not a condition for the claim's validity, as either driver would still mean costs were cut.</li>
-</ul>
-<p><strong>bco-t1-0422</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>the API hit 34% adoption, assuming we count active users the same way.</p>
-</blockquote>
-<p><strong>Boundary conditions (3):</strong></p>
-<ul>
-<li>Confidence interval and sample size of the measurement</li>
-<li>Denominator: which users are in the eligible base</li>
-<li>Whether usage required onboarding or a prompt</li>
-</ul>
-<p><strong>Distractors:</strong> (none)</p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): T1 structure correct; API adoption claim plausible; BCs (CI/sample size, denominator, onboarding/prompt requirement) all genuine.</li>
-<li><strong>gpt55</strong> (fail): The onboarding-or-prompt item affects interpretation of adoption rather than being a clear condition for whether the 34% adoption measurement is valid.</li>
-<li><strong>gemini31pro</strong> (fail): BC3 (whether usage required onboarding or a prompt) provides context about the nature of the usage but its falsification would not create real doubt about the validity of the 34% adoption metric itself.</li>
-</ul>
-<p><strong>bco-t1-0479</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>auth-related tickets dropped 28% this quarter, assuming the ticket categorization stayed constant.</p>
-</blockquote>
-<p><strong>Boundary conditions (3):</strong></p>
-<ul>
-<li>Whether a known outage suppressed normal ticket volume</li>
-<li>Whether the customer self-service rate changed</li>
-<li>Whether the customer base grew or shrank in the same period</li>
-</ul>
-<p><strong>Distractors:</strong> (none)</p>
-<p>Verdict: [ ] pass / [ ] fail
-Notes:</p>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): T1 structure correct; auth-tickets drop claim plausible; BCs (outage suppression, self-service rate, customer base size change) are all genuine validity conditions for a ticket-volume change claim.</li>
-<li><strong>gpt55</strong> (fail): The listed boundary conditions affect interpretation or causes of the ticket decline, but their falsification would not create real doubt about the narrow descriptive claim that auth-related tickets dropped 28% under constant categorization.</li>
-<li><strong>gemini31pro</strong> (fail): The claim merely states a factual drop in a metric, so the boundary conditions (which address underlying causes like customer base changes or outages) do not actually invalidate the truth of the claim itself.</li>
-</ul>
-<p><strong>bco-t2-0295</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>Revenue grew 27.5% this year.</p>
-</blockquote>
-<p><strong>Boundary conditions (5):</strong></p>
-<ul>
-<li>Definition of revenue used (bookings vs billings vs recognized)</li>
-<li>Whether the revenue recognition methodology changed in the period</li>
-<li>Seasonality of the comparison</li>
-<li>Segment mix shift: enterprise vs SMB contribution to the growth</li>
-<li>Customer concentration: how much from the top accounts</li>
-</ul>
-<p><strong>Distractors (3):</strong></p>
-<ul>
-<li>Whether analysts predicted the result</li>
-<li>Whether the dashboard auto-refreshes</li>
-<li>Whether revenue made the board d...</li>
-</ul>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): T2 structure correct; 27.5% revenue growth claim plausible; BCs (revenue definition, recognition methodology, seasonality, segment mix, concentration) all genuine; distractors (analyst predictions, dashboard auto-refresh, board deck) appropriately irrelevant.</li>
-<li><strong>gpt55</strong> (fail): Several listed BCs, especially segment mix shift and customer concentration, are quality-of-growth or explanatory details rather than necessary conditions for validating the aggregate claim that revenue grew 27.5% this year.</li>
-<li><strong>gemini31pro</strong> (fail): Segment mix shift and customer concentration provide context but are not boundary conditions for the validity of the top-line revenue growth claim.</li>
-</ul>
-<p><strong>bco-t3-0080</strong></p>
-<blockquote>
-<p><strong>Claim:</strong></p>
-<blockquote>
-<p>3.8x ROI on the LinkedIn campaign this quarter validates the full-funnel investment hypothesis.</p>
-</blockquote>
-<p><strong>Boundary conditions (8):</strong></p>
-<ul>
-<li>Selection effects: who clicks vs who converts</li>
-<li>How costs are loaded into the denominator (agency fees, salaries, tools)</li>
-<li>Time-lag: did the revenue arrive in the same period as the spend</li>
-<li>Attribution window: how many days post-click count toward the channel</li>
-<li>Definition of conversion used for the ROI calculation</li>
-<li>Whether the channel cannibalized other ...</li>
-</ul>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): T3 structure correct (8 BCs, 5 distractors); LinkedIn ROI claim plausible; BCs (selection, cost denominator, time-lag, attribution window, conversion definition, cannibalization, halo effect, counterfactual) all canonical marketing-ROI conditions; distractors (brand review, tracking tag setup, industry press, agency happiness, dashboard real-time) appropriately irrelevant.</li>
-<li><strong>gpt55</strong> (fail): The tracking tag setup distractor is actually a genuine boundary condition for trusting the reported LinkedIn ROI, since broken tracking would create real doubt about the claim.</li>
-<li><strong>gemini31pro</strong> (fail): The distractor regarding whether the campaign tracking tag was set up correctly is actually a boundary condition, as incorrect tracking would invalidate the ROI calculation and create real doubt about the claim.</li>
-</ul>
-<h4>2-of-3 PASS (12)</h4>
-<p>Two reviewers passed; one failed. These are minor disagreements; majority verdict accepts.</p>
-<ul>
-<li>bco-t1-0247 -- gpt55 dissented: The baseline survey period is not a genuine boundary condition for a standalone claim that satisfaction reached 68%, while the other two BCs concern survey validity.</li>
-<li>bco-t1-0452 -- gemini31pro dissented: The second boundary condition regarding discounting relates to the drivers or quality of the revenue growth rather than the factual validity of the 31% growth claim itself.</li>
-<li>bco-t1-0482 -- gemini31pro dissented: BC2 is explicitly stated in the claim ('assuming the survey methodology stayed constant'), making it a trivial restatement rather than an unstated boundary condition.</li>
-<li>bco-t2-0073 -- gpt55 dissented: The distractor about whether competitors grew faster is relevant because faster market or peer growth would create real doubt that a 23% revenue increase validates the company’s growth investments.</li>
-<li>bco-t2-0175 -- gemini31pro dissented: The boundary condition regarding discounting is a business driver or contextual factor, not a condition for the validity of the claim that revenue grew 18.4%.</li>
-<li>bco-t2-0327 -- gemini31pro dissented: BC 3 and BC 4 are redundant restatements of the same condition regarding the definition of adoption (sustained use vs. one-time use).</li>
-<li>bco-t3-0027 -- gpt55 dissented: The listed boundary conditions are appropriate, but the distractor “Whether the variant has been QA-tested” is actually relevant to the validity of rolling the test arm out to 100% of traffic.</li>
-<li>bco-t3-0130 -- gpt55 dissented: The distractor about whether the variant has been QA-tested is actually relevant to the claim that the team should ship, because failed QA would create real doubt about shipping despite the reported lift.</li>
-<li>bco-t3-0148 -- gemini31pro dissented: Distractor 4 ('Whether competitors grew faster') is actually highly relevant to the claim 'The strategy is working,' as losing market share despite absolute growth would cast real doubt on the strategy's success.</li>
-<li>bco-t3-0342 -- gpt55 dissented: The case is not well-formed because the distractor about finance approving the categorization is actually relevant to validating a claimed support cost reduction.</li>
-<li>bco-t3-0430 -- gpt55 dissented: The distractor “whether the leaderboard rank improved” is directly relevant to whether 89% accuracy is at the frontier, so the distractor set is not well-formed.</li>
-<li>bco-t3-0434 -- gemini31pro dissented: BC 5 and BC 7 are redundant as both question the definition of adoption in terms of sustained usage versus one-time use.</li>
-</ul>
-<h4>Unanimous PASS (29)</h4>
-<p>Auto-accepted; no detail needed.</p>
-<h3>load_bearing_claim_identification</h3>
-<h4>2-of-3 FAIL (4)</h4>
-<p>Two reviewers failed; one passed. These are methodology-divergence cases; surface for sponsor adjudication.</p>
-<p><strong>lbci-t1-0434</strong></p>
-<blockquote>
-<p><strong>Title:</strong> Recommendation: Acquisition of Coastline Energy</p>
-<p><strong>Recommendation:</strong> We recommend the board approve the acquisition of Coastline Energy for $1.2B, with closing targeted within the next two quarters.</p>
-<p><strong>Claims:</strong></p>
-<ul>
-<li><strong>[LB]</strong> <code>c1</code>: Coastline Energy's top ten customers represent 68% of its revenue and have committed in writing to remaining customers under our ownership.</li>
-<li><strong>[LB]</strong> <code>c2</code>: Coastline Energy owns edge inference, which is the single most strategic capability gap in our current...</li>
-</ul>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): R (Coastline $1.2B acquisition) unambiguous; LB c1 (top 10 commit), c2 (capability gap edge inference), c4 (window) all break R if false; non-LB c3 (strategic review 2019) tangential. Generator artifact in window-price scaling ($95M vs $1.2B R) but LB dependency labeling correct.</li>
-<li><strong>gpt55</strong> (fail): The recommendation is unambiguous, but c4 refers to a current $95M price while the acquisition recommendation is for $1.2B, creating an internal inconsistency that makes the dependency graph unsound.</li>
-<li><strong>gemini31pro</strong> (fail): The recommendation states an acquisition price of $1.2B, but claim c4 references a current price of $95M, creating a glaring contradiction that no real analyst would produce.</li>
-</ul>
-<p><strong>lbci-t1-0450</strong></p>
-<blockquote>
-<p><strong>Title:</strong> Recommendation: Acquisition of Harbinger Analytics</p>
-<p><strong>Recommendation:</strong> We recommend the board approve the acquisition of Harbinger Analytics for $420M, with closing targeted within the next two quarters.</p>
-<p><strong>Claims:</strong></p>
-<ul>
-<li>[ ] <code>c1</code>: Annual revenue per employee improved 9% year over year, in part reflecting natural leverage in the operating model.</li>
-<li><strong>[LB]</strong> <code>c2</code>: Two other strategic acquirers have publicly expressed interest in this space, and the current $180M price reflects a window t...</li>
-</ul>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): R (Harbinger acquisition) unambiguous; LB c2 (competing acquirers window), c4 (revenue $8.7M/22% growth supporting unit economics), c5 (cross-tenant identity capability gap) all break R if false; non-LB c1 (revenue/employee), c3 (analyst coverage) tangential. Note generator artifact: c2 references $180M window price while R is $420M, but dependency labeling remains correct.</li>
-<li><strong>gpt55</strong> (fail): The memo is internally inconsistent because the recommendation asks approval for a $420M acquisition while load-bearing claim c2 relies on a current $180M price, making the dependency graph unsound.</li>
-<li><strong>gemini31pro</strong> (fail): The recommendation states an acquisition price of $420M, but load-bearing claim c2 justifies the urgency based on a 'current $180M price', a glaring contradiction that no real analyst would include in a strategic memo.</li>
-</ul>
-<p><strong>lbci-t3-0085</strong></p>
-<blockquote>
-<p><strong>Title:</strong> Recommendation: Acquisition of Lattice Robotics</p>
-<p><strong>Recommendation:</strong> We recommend the board approve the acquisition of Lattice Robotics for $780M, with closing targeted within the 2027 fiscal year.</p>
-<p><strong>Claims:</strong></p>
-<ul>
-<li>[ ] <code>c1</code>: Regulatory bodies in two adjacent jurisdictions have published consultation papers on related topics, but none have proposed binding rules.</li>
-<li><strong>[LB]</strong> <code>c2</code>: Two other strategic acquirers have publicly expressed interest in this space, and the current $95M price ref...</li>
-</ul>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): R (Lattice acquisition for $780M) unambiguous; LB set (window/$95M, build $5.2M, capability gap, eng diligence 81%, revenue $12.1M/41% CAGR, antitrust) all break R if false; non-LB items (regulatory adjacent, SMB retention, brand refresh, founder divest, VC, API uptime, demo requests, support tickets) all tangential. Generator artifact in price-window scaling but LB structure correct.</li>
-<li><strong>gpt55</strong> (fail): The load-bearing structure is mostly coherent, but c2 cites a current $95M price while the recommendation is to acquire Lattice Robotics for $780M, creating a material internal contradiction in a claim meant to support deal timing and value.</li>
-<li><strong>gemini31pro</strong> (fail): The $780M recommendation contradicts the $95M price in claim c2.</li>
-</ul>
-<p><strong>lbci-t3-0451</strong></p>
-<blockquote>
-<p><strong>Title:</strong> Recommendation: Acquisition of Pinegrove Capital</p>
-<p><strong>Recommendation:</strong> We recommend the board approve the acquisition of Pinegrove Capital for $340M, with closing targeted within the 2027 fiscal year.</p>
-<p><strong>Claims:</strong></p>
-<ul>
-<li><strong>[LB]</strong> <code>c1</code>: Outside antitrust counsel has reviewed the proposed transaction and assesses the regulatory approval path as straightforward given the limited overlap in customer bases.</li>
-<li><strong>[LB]</strong> <code>c2</code>: Pinegrove Capital's last full-year revenue was $14.8M and the business ...</li>
-</ul>
-</blockquote>
-<ul>
-<li><strong>opus47</strong> (pass): R (Pinegrove $340M acquisition) unambiguous; LB set (antitrust, revenue $14.8M/34% YoY, eng diligence 81%, top 10 68% commit, build $3.4M too slow, window $510M, capability gap edge inference) all break R if false; non-LB items (CEO speed, deal cycle, prior reorgs, API uptime, renewal rates, SMB retention, TTH, prev CFO) tangential.</li>
-<li><strong>gpt55</strong> (fail): The graph is undermined by c11 citing a current $510M price while the recommendation is for a $340M acquisition, making a marked load-bearing urgency/price claim inconsistent with R.</li>
-<li><strong>gemini31pro</strong> (fail): The verdict is a failure because while initial parameters are validated, claim c11 introduces a $510M price that directly contradicts the $340M acquisition price in the recommendation.</li>
-</ul>
-<h4>2-of-3 PASS (4)</h4>
-<p>Two reviewers passed; one failed. These are minor disagreements; majority verdict accepts.</p>
-<ul>
-<li>lbci-t1-0388 -- gemini31pro dissented: The recommendation states an acquisition price of $180M, but claim c1 references a 'current $95M price' without explanation, revealing a templating error that makes the memo implausible for a real analyst to write.</li>
-<li>lbci-t2-0480 -- gemini31pro dissented: Claim c5 cites demand modeling for a 22% increase, but the recommendation is for a 13% increase; falsifying the safety of a 22% increase does not inherently invalidate a 13% increase, meaning c5 fails the strict load-bearing falsification test.</li>
-<li>lbci-t3-0306 -- gemini31pro dissented: The case fails because while initial parameters are validated, claim c12 models an 18% increase which cannot defensibly support the recommended 26% price hike.</li>
-<li>lbci-t3-0449 -- gemini31pro dissented: Fail, as initial logic and parameters are validated but the final transformation reveals a critical mismatch where load-bearing claim c6 models a 13% increase, failing to support the 18% recommendation.</li>
-</ul>
-<h4>Unanimous PASS (42)</h4>
-<p>Auto-accepted; no detail needed.</p>
-
-</div>
-
-<p>
-  <a href="index.html">&larr; Back to v1.0.0</a>
-</p>
-
-  </main>
-  <footer class="site-footer">
-    <div class="footer-brand">
-      <svg width="22" height="22" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M10 14 L20 30 L30 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
-      </svg>
-      <span class="wordmark">VALIS</span>
+<body>
+  <main>
+    <p class="eyebrow">VALIS Benchmarks &middot; Moved</p>
+    <h1>This publication is now hosted on Decision-Grade.AI.</h1>
+    <p>The reading experience for the benchmarks has moved. The page you tried to reach is now at:</p>
+    <p><a class="primary" href="https://decision-grade.ai/benchmarks-v1-0-0-disagreement/">https://decision-grade.ai/benchmarks-v1-0-0-disagreement/</a></p>
+    <div class="meta">
+      Cryptographic evidence (manifests, signatures, OpenTimestamps proofs, raw cases, results) remains at
+      <a href="https://github.com/valisbench/benchmarks">github.com/valisbench/benchmarks</a>.
+      The <code>./verify.sh</code> procedure is unchanged.
     </div>
-    <ul class="footer-ctas">
-      <li><a href="https://valissystems.com/how-it-works">Read the methodology</a></li>
-      <li><a href="https://valissystems.com/about">About VALIS</a></li>
-      <li><a href="mailto:david@valissystems.com">Get in touch</a></li>
-    </ul>
-    <p class="footer-meta">
-      Generated 2026-05-22 22:14 UTC by <code>valis.benchmarks.site.build</code>.
-      Every published version is signed with Sigstore cosign, anchored to the Sigstore Rekor transparency log,
-      and timestamped to a Bitcoin block via OpenTimestamps.
-      See <a href="../../verify.html">how to verify</a>.
-    </p>
-  </footer>
+  </main>
 </body>
 </html>
